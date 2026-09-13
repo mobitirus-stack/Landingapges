@@ -79,6 +79,9 @@ atpažįstamas žmogaus atvaizdas.
 
 # RIBOS IR DRAUDIMAI
 
+- **Iliustracijos/avatarai NIEKADA neaprašomi tekste kaip „realūs nariai"/„realūs žmonės"/„jau
+  naršo"** ir pan. — tik „pavyzdinis rodinys" / „iliustracija" formuluotės. Trys ankstesni variantai
+  (lp5, lp6 batch2) nepriklausomai padarė šią klaidą — tai teisinė/etinė riba, ne stiliaus klausimas.
 - Rašyk TIK į `variacijosv2/{{NN}}/` ir `logs/`.
 - Neskaityk kitų `variacijosv2/lpN*` ar `variacijos/lgN*` katalogų.
 - Jokių realių nuotraukų/atsisiuntimų iš interneto.

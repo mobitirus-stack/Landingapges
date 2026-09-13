@@ -108,6 +108,83 @@ avatarų stilių. Kodinis vardas atitinka `lpN`.
 
 ---
 
+---
+
+# lp7–lp10 — ANTRA GRUPĖ: itin paprastas šablonas (Jono nurodyta kryptis)
+
+**Naujas kontekstas:** Jonas parodė realius konkurentus (susipazink.com, slaptaspasimatymas.com,
+pazintys40.lt) — visi naudoja TĄ PATĮ šabloną: pilno ekrano fotografija fone (moteris/pora,
+šypsosi tiesiai į kamerą arba žiūri į telefoną) + maža, centruota, beveik permatoma/šviesi
+registracijos kortelė ANT nuotraukos: logotipas, trumpa antraštė, lyties pasirinkimas (radio),
+gimimo data (3 dropdown'ai: diena/mėnuo/metai), vienas ryškus CTA mygtukas, 3 pasitikėjimo
+ženkliukai eilutėje, apatinė teisinė nuorodų juosta. **Jokio scroll'o — viskas telpa viename ekrane.**
+
+**Kliento nurodymas:** „kitus padaryk tokius kur visai paprasti landing page, vien vizualai,
+puslapis max paprastas. Backrounde sugeneruok mergina." **Patvirtinta su klientu:** vietoj
+fotorealistiškos (negalimos — nei techniškai, nei etiškai/teisiškai saugios) moters nuotraukos,
+naudojame **DIDELĘ STILIZUOTĄ SVG ILIUSTRACIJĄ** — meninis vector/line-art moters portretas ar
+figūra, ELEGANTIŠKA, NE fotorealistiška, joks konkretus atpažįstamas žmogus. Ta pati struktūra,
+tas pats vizualinis svoris (didelė figūra užima didžiąją ekrano dalį), bet iliustracija vietoj
+nuotraukos.
+
+**Bendra struktūra visiems 4 (skiriasi tik meninis stilius/paletė/nuotaika):**
+- Pilno ekrano fonas: SVG/CSS iliustracija (figūra + fonas), be scroll — `100vh` konteineris.
+- Maža centruota/dešinėje-kairėje pastumta kortelė (balta arba šviesi, ~380-420px pločio,
+  `backdrop-filter: blur()` arba tiesiog nepermatoma su šešėliu) su: logotipas/prekės ženklas,
+  1-2 eilučių antraštė, lyties radio (2 pasirinkimai), gimimo data (3 `<select>`), CTA mygtukas
+  (pilnas pločio, ryški spalva), 3 maži pasitikėjimo ženkliukai (SVG ikonos + trumpas tekstas),
+  apatinė teisinė juosta (Pagalba/Taisyklės/Privatumas/Apie/18+).
+- Mobiliame (360px): kortelė užima visą pločio ~92%, iliustracija lieka fone (gali apsikirpti/
+  sufokusuoti į figūros viršutinę dalį, kad veidas/figūra liktų matomi).
+
+## lp7 — Auksinės valandos iliustracija
+- **Nuotaika:** šilta, romantiška, saulėlydžio tonai.
+- **Paletė:** iliustracijos fonas gradientas `#F97316`→`#7C2D12`, kortelės fonas `#FFF7ED`,
+  akcentas/CTA `#EA580C`, tekstas `#431407`.
+- **Šriftai:** Fraunces (logotipas/antraštė) + Inter (forma).
+- **Iliustracijos stilius:** vector line-art moters siluetas/portretas pusiau profiliu, plaukai
+  vėjyje (organiškos SVG linijos), saulėlydžio disko motyvas fone.
+
+## lp8 — Pastelinis minimalizmas
+- **Nuotaika:** švelnus, šviesus, prieinamas.
+- **Paletė:** iliustracijos fonas `#FDF2F8`→`#E0E7FF` gradientas, kortelė balta `#FFFFFF`,
+  akcentas `#DB2777`, tekstas `#3B0764`.
+- **Šriftai:** Poppins (logotipas) + Nunito Sans (forma).
+- **Iliustracijos stilius:** flat-illustration moters figūra (paprastos geometrinės formos,
+  vienspalvis plaukų blokas, minimalistiniai veido bruožai — kaip madinga redakcinė iliustracija,
+  NE realistiška).
+
+## lp9 — Nakties siluetas
+- **Nuotaika:** paslaptinga, elegantiška, „naktinis miestas".
+- **Paletė:** iliustracijos fonas beveik juodas `#0F0F14`→`#1E1B4B` gradientas su miesto šviesų
+  taškais, kortelė `#18181B` (tamsi, ne balta — kontrastas su šviesiu CTA), akcentas `#FBBF24`,
+  tekstas `#FAFAF9`.
+- **Šriftai:** Cormorant (logotipas) + Karla (forma).
+- **Iliustracijos stilius:** tamsus siluetas/kontūras prieš apšviestą miesto fono liniją (skyline
+  kaip paprastos SVG stačiakampių formos), be veido detalių — grynas kontūras.
+
+## lp10 — Pavasario sodas
+- **Nuotaika:** švieži, gaivūs, optimistiški.
+- **Paletė:** iliustracijos fonas `#ECFDF5`→`#D1FAE5` su gėlių/lapų motyvais, kortelė balta su
+  žalsvu atspalviu `#F0FDF4`, akcentas `#059669`, tekstas `#064E3B`.
+- **Šriftai:** Fraunces italic (logotipas) + Karla (forma).
+- **Iliustracijos stilius:** akvarelės stiliaus SVG kompozicija — moters figūra apsupta gėlių/lapų
+  formų, organiškos, švelniai persidengiančios formos (kaip botaninė iliustracija su žmogumi).
+
+## Techninės taisyklės lp7-10 (papildo bendras taisykles apačioje)
+- VIENAS ekranas, be scroll (arba minimalus scroll tik labai mažuose ekranuose).
+- Forma: lytis (radio) + gimimo data (3 select) + CTA — TIEK IR VISKAS pirmame žingsnyje (kaip
+  referenciniai puslapiai), jokių papildomų laukų šiame ekrane.
+- Iliustracija — inline SVG, optimizuota (nesudėtinga geometrija/keliai, ne šimtai mazgų), kad
+  puslapis liktų lengvas.
+- Kontrastas: kortelės tekstas/fonas turi būti ≥4.5:1 NEPRIKLAUSOMAI nuo foninės iliustracijos
+  (kortelė turi savo fono spalvą/blur, ne tiesiog permatomas stiklas ant bet kokio iliustracijos
+  ploto).
+- `og:image` — PNG 1200×630, generuojamas iš tos pačios iliustracijos (be teksto/formos, vien
+  vizualas + prekės ženklo pavadinimas).
+
+---
+
 ## Bendros techninės taisyklės (visiems 10)
 - Vienas `index.html` + `assets/style.css` (+`app.js` jei reikia animacijai/interaktyvumui).
 - Realus, pilnas tekstas (copy) — panašios kokybės kaip v1, bet NEBŪTINA identiška terminija/
