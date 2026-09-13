@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talonas — skelbimų rubrika suaugusiems</title>
+<meta name="description" content="Talonas: užpildai atkarpą, korektūra patikrina, kad kitoje pusėje tikrai kažkas yra. Visada veltui, be paslėptų mokesčių.">
+<link rel="canonical" href="https://vyrukambarys.lt/lg6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Talonas — skelbimų rubrika suaugusiems">
+<meta property="og:description" content="Užpildai atkarpą, korektūra patikrina, kad kitoje pusėje tikrai kažkas yra. Visada veltui.">
+<meta property="og:url" content="https://vyrukambarys.lt/lg6">
+<meta property="og:locale" content="lt_LT">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Work+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Talonas",
+  "description": "Skelbimų rubrika suaugusiems — užpildai atkarpą, korektūra patikrina skelbimą prieš jį paskelbiant.",
+  "inLanguage": "lt",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Praleisti į pagrindinį turinį</a>
+
+<!-- C: slapukų sutikimas kaip spaustuvės žymė -->
+<div class="press-mark" id="press-mark">
+  <p>Spaustuvės žymė: ši atkarpa naudoja tik būtinuosius slapukus puslapio veikimui — jokių sekimo žymenų trečiosioms šalims.</p>
+  <button type="button" class="press-mark-dismiss" id="press-mark-dismiss">Uždaryti žymę</button>
+</div>
+
+<!-- H: press-header -->
+<header class="press-header">
+  <p class="brand-mark">Talonas <span class="age-signal">18+</span></p>
+  <a class="member-link" href="#coupon-side-2">Jau užpildei taloną — prisijunk prie savo skelbimo</a>
+</header>
+
+<!-- marquee: ink-strip -->
+<div class="ink-strip" aria-hidden="true">
+  <div class="ink-strip-track">
+    VISADA VELTUI, NE TIK ŠIANDIEN <span>·</span> JOKIO MĖNESINIO MOKESČIO <span>·</span> KOREKTŪRA GRĄŽINA SU PASTABA, NE IŠTRINA <span>·</span> TALONĄ PILDAI PATS, NIEKAS UŽ TAVE <span>·</span>
+    VISADA VELTUI, NE TIK ŠIANDIEN <span>·</span> JOKIO MĖNESINIO MOKESČIO <span>·</span> KOREKTŪRA GRĄŽINA SU PASTABA, NE IŠTRINA <span>·</span> TALONĄ PILDAI PATS, NIEKAS UŽ TAVE <span>·</span>
+  </div>
+</div>
+<p class="talonas-hidden">Nuolatinis pasiūlymas: visada veltui, jokio mėnesinio mokesčio, korektūra grąžina su pastaba, ne ištrina, taloną pildai pats.</p>
+
+<main id="main">
+
+  <!-- P (pozicionavimas) + Q + € kairėje, FORM dešinėje. Mobilume (<768px) talonas
+       vizualiai iškeliamas iškart po antrašte (grid-template-areas), kad liktų pasiekiamas
+       be scroll — dokumento/klaviatūros tvarka lieka P → Q → € → FORM. -->
+  <div class="lead-grid">
+
+      <section class="positioning" aria-labelledby="positioning-title">
+        <h1 id="positioning-title">Kol programėlės žadėjo vis daugiau, laikraštis tiesiog veikė — nes atsakinėjo tikri žmonės.</h1>
+        <p class="lead">Talonas yra ta pati rubrika, tik be prisijungimo mokesčio: užpildai atkarpą, o korektūra patikrina, kad kitoje pusėje tikrai kažkas yra.</p>
+      </section>
+
+      <section class="activity-note" aria-labelledby="activity-title">
+        <h2 class="talonas-hidden" id="activity-title">Kiek žmonių dabar aktyvūs</h2>
+        <p><strong>Skelbimų per dieną: 40–60.</strong> Mažiausia savaitė per pastaruosius metus: 35 — mažiau nebūna, nes rubrika spausdinama nepriklausomai nuo to, kiek žmonių tą savaitę užsuko.</p>
+      </section>
+
+      <section class="money-note" aria-labelledby="money-title">
+        <h2 class="talonas-hidden" id="money-title">Kas nemokama</h2>
+        <p><strong>Anksčiau už tai imdavo 3 litus. Dabar neima nieko</strong> — nei už atkarpą, nei už laiškus, nei už tai, kad skelbimas lieka rubrikoje.</p>
+      </section>
+
+    <!-- FORM: coupon-tear -->
+    <aside class="coupon-tear" id="coupon" aria-labelledby="coupon-title">
+      <div class="coupon-head">
+        <h2 id="coupon-title">Talonas</h2>
+        <span class="coupon-serial">Serija A</span>
+      </div>
+      <p class="coupon-intro">4 laukeliai, vienas antspaudas. Apie 40 sekundžių.</p>
+
+      <form id="coupon-form" novalidate>
+
+        <div class="coupon-side" id="coupon-side-1">
+          <div class="coupon-field">
+            <label for="field-decade">1. Tavo dešimtmetis</label>
+            <select id="field-decade" name="decade" required aria-describedby="error-decade">
+              <option value="">— pasirink —</option>
+              <option value="18-24">18–24</option>
+              <option value="25-34">25–34</option>
+              <option value="35-44">35–44</option>
+              <option value="45-54">45–54</option>
+              <option value="55+">55 ir daugiau</option>
+            </select>
+            <p class="coupon-field-error" id="error-decade" hidden>Pasirink dešimtmetį — be jo negalime patikrinti amžiaus.</p>
+          </div>
+          <div class="coupon-actions">
+            <button type="button" class="coupon-button" id="to-side-2">Rašau antrą pusę</button>
+          </div>
+        </div>
+
+        <div class="coupon-side" id="coupon-side-2" hidden>
+          <div class="coupon-field">
+            <label for="field-nick">2. Slapyvardis</label>
+            <input type="text" id="field-nick" name="nick" required minlength="2" aria-describedby="error-nick">
+            <p class="coupon-field-error" id="error-nick" hidden>Slapyvardis per trumpas — bent 2 ženklai.</p>
+          </div>
+          <div class="coupon-field">
+            <label for="field-mail">3. Pašto dėžutė</label>
+            <input type="email" id="field-mail" name="mail" required aria-describedby="error-mail">
+            <p class="coupon-field-error" id="error-mail" hidden>Pašto dėžutės adresas neatrodo teisingas — patikrink, ar yra @ ženklas.</p>
+          </div>
+          <div class="coupon-field">
+            <label for="field-cipher">4. Šifras</label>
+            <input type="password" id="field-cipher" name="cipher" required minlength="8" aria-describedby="error-cipher">
+            <p class="coupon-field-error" id="error-cipher" hidden>Šifras per trumpas — bent 8 ženklai.</p>
+          </div>
+          <div class="coupon-field">
+            <div class="coupon-consent">
+              <input type="checkbox" id="field-stamp" name="stamp" required aria-describedby="error-stamp">
+              <label for="field-stamp">5. Antspaudas: uždedu antspaudą, kad esu pilnametis/-ė ir sutinku su <a href="#legal-rules">taisyklėmis</a></label>
+            </div>
+            <p class="coupon-field-error" id="error-stamp" hidden>Be antspaudo talono priimti negalime — tai patvirtina, kad esi pilnametis.</p>
+          </div>
+
+          <div class="coupon-actions">
+            <button type="submit" class="coupon-button">Įteikiu taloną</button>
+            <button type="button" class="coupon-back" id="to-side-1">Grąžinti į pirmą pusę</button>
+          </div>
+        </div>
+
+        <p class="coupon-help">Jei kas nors ne taip — perbrauk ir rašyk iš naujo. Laukelius visada gali pataisyti prieš įteikdamas.</p>
+      </form>
+
+      <div class="coupon-success" id="coupon-success" role="status" hidden>
+        <p><strong>Talonas įteiktas.</strong> Iš karto matai jį korektūros eilėje žemiau — kai patvirtins, pirmieji atsišaukimai ateis į tavo pašto dėžutę.</p>
+      </div>
+      <!-- tracking: coupon_submitted -->
+    </aside>
+  </div>
+
+  <!-- M: mechanika po registracijos -->
+  <section class="press-section" aria-labelledby="mechanics-title">
+    <h2 id="mechanics-title">Kas vyksta iškart po to, kai įteiki taloną</h2>
+    <ol class="mechanics-list">
+      <li>Skelbimas iškart atsiranda korektūros eilėje — matai jo būseną, nelaukdamas nieko aklai.</li>
+      <li>Korektorius patikrina skelbimą per kelias valandas, ne akimirksniu.</li>
+      <li>Kai patvirtinta, skelbimas atsiranda rubrikoje, o tu gauni patvirtinimo laišką į pašto dėžutę.</li>
+      <li>Pirmieji atsišaukimai ateina laiškais — atsakinėji tada, kai patogu, niekas nespaudžia tuoj pat.</li>
+    </ol>
+  </section>
+
+  <!-- A: autentiškumas / korektūra -->
+  <section class="press-section moderation-block" aria-labelledby="moderation-title">
+    <svg class="moderation-figure" viewBox="0 0 120 120" role="img" aria-labelledby="moderation-figure-title">
+      <title id="moderation-figure-title">Iliustracija: korektoriaus patikrinimo žymė, spausdinta dviem rašalais su nedideliu poslinkiu</title>
+      <defs>
+        <pattern id="halftone" width="8" height="8" patternUnits="userSpaceOnUse">
+          <circle cx="4" cy="4" r="1.6" fill="currentColor"/>
+        </pattern>
+      </defs>
+      <rect x="14" y="10" width="80" height="100" fill="none" stroke="#6E6353" stroke-width="2" stroke-dasharray="4 4"/>
+      <rect x="20" y="24" width="60" height="6" fill="url(#halftone)" color="#0B57A4" opacity="0.7"/>
+      <rect x="20" y="24" width="60" height="6" fill="url(#halftone)" color="#3AA35C" opacity="0.7" transform="translate(2,2)"/>
+      <rect x="20" y="40" width="46" height="6" fill="url(#halftone)" color="#0B57A4" opacity="0.7"/>
+      <rect x="20" y="40" width="46" height="6" fill="url(#halftone)" color="#3AA35C" opacity="0.7" transform="translate(2,2)"/>
+      <path d="M28 70 L48 92 L96 34" fill="none" stroke="#0B57A4" stroke-width="6" stroke-linecap="square" opacity="0.8"/>
+      <path d="M28 70 L48 92 L96 34" fill="none" stroke="#3AA35C" stroke-width="6" stroke-linecap="square" opacity="0.8" transform="translate(2,2)"/>
+    </svg>
+    <div class="moderation-copy">
+      <h2 id="moderation-title">Korektūra grąžina su pastaba, ne ištrina</h2>
+      <p>Skelbimai spausdinami tik iš korektūros eilės. Jei tekstas neaiškus arba atrodo ne taip parašytas, skelbimas grąžinamas atgal su pastaba, ką pataisyti, o ne tiesiog ištrinamas.</p>
+    </div>
+  </section>
+
+  <!-- Į: įsipareigojimo dydis (recap) -->
+  <section class="press-section commitment-note" aria-labelledby="commitment-title">
+    <h2 id="commitment-title">Tiek to reikėjo</h2>
+    <p>Ant talono buvo tik keturi laukeliai ir vienas antspaudas — tiek, kiek matei dar prieš pradedant rašyti. Apie 40 sekundžių, patikrinom laikrodžiu, ne apytiksliai.</p>
+  </section>
+
+  <!-- D: atsakymai dvejojantiems -->
+  <section class="press-section" aria-labelledby="faq-title">
+    <h2 id="faq-title">Klausimai apie taloną</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">Ar tikrai už tai nereikės mokėti?</summary>
+        <p class="faq-answer">Nereikės. Anksčiau imdavo 3 litus, dabar neima nieko.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Kas patikrina, kad kitoje pusėje tikras žmogus?</summary>
+        <p class="faq-answer">Korektorius. Netinkamą skelbimą jis grąžina su pastaba, ką pataisyti — o ne ištrina.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Ką daryti, jei suklydau pildydamas taloną?</summary>
+        <p class="faq-answer">Perbrauk ir rašyk iš naujo. Laukelius gali taisyti tiek kartų, kiek reikia, kol dar neįteikei.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Kas matys mano skelbimą?</summary>
+        <p class="faq-answer">Į rubriką iš talono keliauja tik du laukeliai — slapyvardis ir dešimtmetis. Likusieji trys (pašto dėžutė, šifras, antspaudas) lieka spaustuvėje, ne skelbime — daugiau apie tai kitame skyriuje.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Ką gausiu iš karto po to, kai įteiksiu taloną?</summary>
+        <p class="faq-answer">Patvirtinimo laišką ir vietą korektūros eilėje. Toliau — žr. skyrių aukščiau apie tai, kas vyksta po įteikimo.</p>
+      </details>
+    </div>
+    <a class="repeat-link" href="#coupon">Nori grįžti prie talono? Jis vis dar čia, aukščiau.</a>
+  </section>
+
+  <!-- K: privatumas ir diskretiškumas -->
+  <section class="press-section privacy-block" aria-labelledby="privacy-title">
+    <h2 id="privacy-title">Kas matoma, kas ne</h2>
+    <p>Ant talono yra penki laukeliai, bet į rubriką iš jų keliauja tik du: slapyvardis ir dešimtmetis. Pašto dėžutė, šifras ir antspaudas lieka spaustuvėje — jie kartu su skelbimu niekada nespausdinami. Tikras vardas rubrikoje atsiranda tik tada, jei pats jį įrašai skelbimo tekste. Skelbimą panaikinti gali bet kada — tai užtrunka vieną laišką mums, ne ilgesnę procedūrą.</p>
+  </section>
+
+</main>
+
+<!-- L: teisinė poraštė -->
+<footer class="legal-footer" id="legal-rules">
+  <p>Talonas skirtas tik pilnamečiams. Pateikdamas taloną patvirtini, kad tau yra 18 ar daugiau.</p>
+  <ul class="legal-links">
+    <li><a href="#legal-rules">Taisyklės</a></li>
+    <li><a href="#legal-rules">Privatumo tvarka</a></li>
+    <li><a href="#coupon">Grįžti prie talono</a></li>
+  </ul>
+  <p>© Talonas</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* C — spaustuvės žyma, localStorage */
+  var mark = document.getElementById("press-mark");
+  var dismiss = document.getElementById("press-mark-dismiss");
+  try {
+    if (localStorage.getItem("lg6-press-mark-closed") === "1") {
+      mark.hidden = true;
+    }
+  } catch (e) { /* privatus naršymas — žyma tiesiog liks matoma */ }
+  dismiss.addEventListener("click", function () {
+    mark.hidden = true;
+    try { localStorage.setItem("lg6-press-mark-closed", "1"); } catch (e) {}
+  });
+
+  /* FORM — dvi talono pusės, be jokios animacijos (vienintelis judesys puslapyje — marquee) */
+  var side1 = document.getElementById("coupon-side-1");
+  var side2 = document.getElementById("coupon-side-2");
+  var toSide2 = document.getElementById("to-side-2");
+  var toSide1 = document.getElementById("to-side-1");
+  var decadeField = document.getElementById("field-decade");
+  var errorDecade = document.getElementById("error-decade");
+
+  toSide2.addEventListener("click", function () {
+    if (!decadeField.value) {
+      errorDecade.hidden = false;
+      decadeField.focus();
+      return;
+    }
+    errorDecade.hidden = true;
+    side1.hidden = true;
+    side2.hidden = false;
+    document.getElementById("field-nick").focus();
+  });
+
+  toSide1.addEventListener("click", function () {
+    side2.hidden = true;
+    side1.hidden = false;
+    decadeField.focus();
+  });
+
+  /* Form validacija ir sėkmės būsena */
+  var form = document.getElementById("coupon-form");
+  var success = document.getElementById("coupon-success");
+
+  var checks = [
+    { id: "field-nick", err: "error-nick", test: function (v) { return v.trim().length >= 2; } },
+    { id: "field-mail", err: "error-mail", test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } },
+    { id: "field-cipher", err: "error-cipher", test: function (v) { return v.length >= 8; } },
+    { id: "field-stamp", err: "error-stamp", test: function (v, el) { return el.checked; } }
+  ];
+
+  form.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+
+    if (!decadeField.value) {
+      side1.hidden = false;
+      side2.hidden = true;
+      errorDecade.hidden = false;
+      decadeField.focus();
+      return;
+    }
+
+    var firstInvalid = null;
+    checks.forEach(function (check) {
+      var el = document.getElementById(check.id);
+      var errEl = document.getElementById(check.err);
+      var ok = check.test(el.value, el);
+      errEl.hidden = ok;
+      if (!ok && !firstInvalid) { firstInvalid = el; }
+    });
+
+    if (firstInvalid) {
+      firstInvalid.focus();
+      return;
+    }
+
+    form.hidden = true;
+    success.hidden = false;
+    success.setAttribute("tabindex", "-1");
+    success.focus();
+    /* tracking: coupon_submitted */
+  });
+})();
+</script>
+
+</body>
+</html>

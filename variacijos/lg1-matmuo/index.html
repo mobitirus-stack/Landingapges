@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matmuo — duomenų lapas su tiksliais matmenimis</title>
+<meta name="description" content="Įrašyk duomenų lapą žinodamas kiekvieną matmenį iš anksto: laukų skaičių, trukmę, kainą ir sistemos apimtį. Be spėjimų, be paslėptų sąlygų.">
+<link rel="canonical" href="https://vyrukambarys.lt/lg1">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matmuo — duomenų lapas su tiksliais matmenimis">
+<meta property="og:description" content="Įrašyk duomenų lapą žinodamas kiekvieną matmenį iš anksto: laukų skaičių, trukmę, kainą ir sistemos apimtį.">
+<meta property="og:url" content="https://vyrukambarys.lt/lg1">
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Crect width='512' height='512' fill='%23E9ECEF'/%3E%3Crect x='32' y='32' width='448' height='448' fill='none' stroke='%2316181D' stroke-width='6'/%3E%3Ctext x='256' y='290' font-family='Arial' font-size='160' font-weight='700' fill='%23D5202C' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@700&amp;family=Newsreader:opsz@6..72&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Matmuo",
+  "url": "https://vyrukambarys.lt/lg1",
+  "description": "Duomenų lapo įrašymo sistema, kurioje kiekvienas teiginys turi matmenį — laukų skaičių, trukmę, kainą ir apimtį."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kiek laiko tai iš tikrųjų užtrunka?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vidutiniškai 70 sekundžių pirmam laukui ir apie 3 minutes visam duomenų lapui, jei pildai visus 5 laukus iš karto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kas mato mano duomenų lapą?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vieša tik žymė ir amžiaus intervalas. Pilna matomumo specifikacija — laukas po lauko su reikšme „vieša“ arba „nerodoma“ — pateikta prie pilno duomenų lapo šiame puslapyje."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ar vėliau atsiras mokestis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kainos matmenys: kaina — be mokesčio, mokamo lygio būsena — nėra, paskutinis pakeitimas — 2026-09-13. Pasikeitus bet kuriam iš šių skaičių, pasikeičia ta pati eilutė šiame puslapyje."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kaip patikrinama, kad kitoje pusėje — tikras dalyvis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Audito matmenys: vidutinis laikas — 4 val., atmetama per mėnesį — 12%. Tai atskiras skaičius nuo bendro sistemos aktyvumo rodiklio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ką daryti, jei noriu išeiti iš sistemos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Matomumo nustatymuose yra mygtukas duomenų lapui paslėpti ir mygtukas jam pašalinti visam laikui."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="sheet__skip" href="#plate-heading">Praleisti iki pagrindinio turinio</a>
+
+<header class="masthead">
+  <div class="sheet__grid">
+    <div class="sheet__content">
+      <div class="masthead__brand">
+        <svg class="sheet__mark" viewBox="0 0 32 32" role="img" aria-label="Matmuo, ženklas">
+          <rect x="1" y="1" width="30" height="30" fill="none" stroke="#16181D" stroke-width="2"></rect>
+          <text x="16" y="22" font-family="Chivo, Arial, sans-serif" font-weight="700" font-size="16" fill="#D5202C" text-anchor="middle">M</text>
+        </svg>
+        <span class="masthead__word">Matmuo</span>
+        <span class="masthead__badge">18+</span>
+      </div>
+      <nav class="masthead__nav" aria-label="Grįžtantiems dalyviams">
+        <a class="masthead__link" href="#">Jau turi duomenų lapą? Prisijungti</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- P + Į + FORM(1 laukas) -->
+  <section class="plate" aria-labelledby="plate-heading">
+    <div class="sheet__grid">
+      <div class="sheet__margin">
+        <div class="callout callout--h1" aria-hidden="true">
+          <svg class="callout__arrow" viewBox="0 0 20 12">
+            <line x1="20" y1="6" x2="2" y2="6" stroke="#D5202C" stroke-width="1.5"></line>
+            <path d="M2 1 L2 11 M20 1 L20 11" stroke="#D5202C" stroke-width="1.5"></path>
+          </svg>
+          <span id="callout-h1-value">h1</span>
+        </div>
+        <div class="callout callout--dims" aria-hidden="true">
+          <svg class="callout__arrow" viewBox="0 0 20 12">
+            <line x1="20" y1="6" x2="2" y2="6" stroke="#D5202C" stroke-width="1.5"></line>
+            <path d="M2 1 L2 11 M20 1 L20 11" stroke="#D5202C" stroke-width="1.5"></path>
+          </svg>
+          <span>3 reikšmės</span>
+        </div>
+      </div>
+      <div class="sheet__content">
+        <h1 id="plate-heading" class="plate__heading">Prieš įrašydamas duomenis — pamatuok, ką tiksliai gauni.</h1>
+        <p class="plate__lede">Kitos programėlės žada jausmą. Čia — matmenys: kiek laukų reikia užpildyti, kiek tai trunka, kiek kainuoja ir kiek naujų dalyvių prisijungia per parą.</p>
+
+        <div class="spec spec--dims" aria-label="Pagrindiniai matmenys">
+          <div class="spec__row">
+            <span class="spec__label">Laukų</span>
+            <span class="spec__value">5</span>
+          </div>
+          <div class="spec__row">
+            <span class="spec__label">Trukmė</span>
+            <span class="spec__value">~70 s</span>
+          </div>
+          <div class="spec__row">
+            <span class="spec__label">Kaina</span>
+            <span class="spec__value">be mokesčio</span>
+          </div>
+        </div>
+        <p class="plate__note">Iš jų privalomų: 4. Tai užima tiek, kiek užima — vidutiniškai 70 sekundžių.</p>
+
+        <form class="plate__entry" id="entry-start" action="#" novalidate>
+          <div class="plate__entry-row">
+            <div class="plate__entry-field">
+              <label for="email-start">Pašto adresas</label>
+              <input type="email" id="email-start" name="email-start" required placeholder="vardas@pastas.lt" autocomplete="email">
+            </div>
+            <button type="submit" class="sheet__button">Įrašyti pašto adresą</button>
+          </div>
+          <p class="plate__entry-error" id="email-start-error" role="alert" hidden></p>
+          <p class="plate__entry-hint">Adresas perkeliamas į pilną duomenų lapą žemiau — nieko nesiunčiame, kol neįrašysi likusių laukų.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- € -->
+  <section class="spec spec--price" aria-labelledby="price-heading">
+    <div class="sheet__grid">
+      <div class="sheet__margin"></div>
+      <div class="sheet__content">
+        <h2 id="price-heading">Kaina šiandien</h2>
+        <div class="spec spec--audit" aria-label="Kainos matmenys">
+          <div class="spec__row">
+            <span class="spec__label">Kaina</span>
+            <span class="spec__value">be mokesčio</span>
+          </div>
+          <div class="spec__row">
+            <span class="spec__label">Mokamo lygio būsena</span>
+            <span class="spec__value">nėra</span>
+          </div>
+          <div class="spec__row">
+            <span class="spec__label">Paskutinis pakeitimas</span>
+            <span class="spec__value">2026-09-13</span>
+          </div>
+        </div>
+        <p class="panel__note">Jei kuris nors skaičius pasikeis, jis pasikeis ir čia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- M -->
+  <section class="panel" aria-labelledby="process-heading">
+    <div class="sheet__grid">
+      <div class="sheet__margin"></div>
+      <div class="sheet__content">
+        <h2 id="process-heading">Kas vyksta po įrašymo</h2>
+        <ol class="panel__steps">
+          <li>Įrašius kodą, duomenų lapas patenka į auditą.</li>
+          <li>Po audito jis tampa matomas sistemoje pagal tavo pasirinktus matomumo nustatymus.</li>
+          <li>Kai įvyksta sutapimas, žinutę gauni pašto adresu ir sistemos viduje.</li>
+        </ol>
+        <p class="panel__note">Dažniausias sutapimų laikas šioje sistemoje — 20–23 val. kiekvieną vakarą. Įrašęs duomenų lapą dabar, spėsi iki jo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- A -->
+  <section class="panel" aria-labelledby="audit-heading">
+    <div class="sheet__grid">
+      <div class="sheet__margin"></div>
+      <div class="sheet__content">
+        <h2 id="audit-heading">Auditas prieš paskelbimą</h2>
+        <div class="spec spec--audit">
+          <div class="spec__row">
+            <span class="spec__label">Vidutinis audito laikas</span>
+            <span class="spec__value">4 val.</span>
+          </div>
+          <div class="spec__row">
+            <span class="spec__label">Atmetama per mėnesį</span>
+            <span class="spec__value">12%</span>
+          </div>
+        </div>
+        <p class="panel__note">Daugiausia dėl nepilnai užpildytų laukų arba pasikartojančio turinio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Q -->
+  <section class="spec spec--scope" aria-labelledby="scope-heading">
+    <div class="sheet__grid">
+      <div class="sheet__margin"></div>
+      <div class="sheet__content">
+        <h2 id="scope-heading">Apimtis</h2>
+        <div class="spec__row">
+          <span class="spec__label">Praėjusią parą</span>
+          <span class="spec__value">40–65 nauji lapai</span>
+        </div>
+        <div class="spec__row">
+          <span class="spec__label">Šiuo metu sistemoje</span>
+          <span class="spec__value">1 200+ aktyvūs lapai</span>
+        </div>
+        <div class="spec__row">
+          <span class="spec__label">Atsakymo į žinutę laikas</span>
+          <span class="spec__value">~6 val.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM(pilna) + sėkmė -->
+  <section class="entry" id="entry-full" aria-labelledby="entry-full-heading">
+    <div class="sheet__grid">
+      <div class="sheet__margin"></div>
+      <div class="sheet__content">
+        <h2 id="entry-full-heading">Pilnas duomenų lapas</h2>
+
+        <form class="entry__form" id="full-form" action="#" novalidate>
+          <div class="entry__field">
+            <label for="email">Pašto adresas</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+            <p class="entry__error" id="email-error" role="alert" hidden></p>
+          </div>
+
+          <div class="entry__field">
+            <label for="nickname">Žymė</label>
+            <input type="text" id="nickname" name="nickname" required minlength="3" placeholder="pvz. matininkas21" autocomplete="nickname">
+            <p class="entry__error" id="nickname-error" role="alert" hidden></p>
+          </div>
+
+          <div class="entry__field">
+            <label for="passcode">Kodas</label>
+            <input type="password" id="passcode" name="passcode" required minlength="8" autocomplete="new-password">
+            <p class="entry__hint">Bent 8 simboliai ir bent vienas skaičius.</p>
+            <p class="entry__error" id="passcode-error" role="alert" hidden></p>
+          </div>
+
+          <div class="entry__field entry__field--optional">
+            <label for="location">Vietovė <span class="entry__optional-tag">(nebūtina)</span></label>
+            <input type="text" id="location" name="location" placeholder="pvz. Kaunas" autocomplete="address-level2">
+          </div>
+
+          <div class="entry__field">
+            <label for="age-range">Amžiaus intervalas</label>
+            <select id="age-range" name="age-range" required>
+              <option value="" disabled selected>Pasirink</option>
+              <option value="18-24">18–24</option>
+              <option value="25-34">25–34</option>
+              <option value="35-44">35–44</option>
+              <option value="45-54">45–54</option>
+              <option value="55+">55+</option>
+            </select>
+            <p class="entry__error" id="age-range-error" role="alert" hidden></p>
+          </div>
+
+          <div class="entry__field entry__field--check">
+            <input type="checkbox" id="declaration" name="declaration" required>
+            <label for="declaration">Patvirtinu, kad man yra 18 ir daugiau metų, ir sutinku su taisyklėmis bei privatumo politika.</label>
+          </div>
+          <p class="entry__error" id="declaration-error" role="alert" hidden></p>
+
+          <button type="submit" class="sheet__button entry__submit">Įrašyti duomenų lapą</button>
+        </form>
+
+        <div class="entry__success" id="entry-success" role="status" tabindex="-1" hidden>
+          <p class="entry__success-title">Duomenų lapas įrašytas.</p>
+          <p>Auditas prasidės per artimiausias valandas. Apie rezultatą pranešime pašto adresu, kurį įrašei.</p>
+        </div>
+
+        <h3 id="visibility-spec">Matomumo specifikacija</h3>
+        <div class="spec spec--audit" aria-label="Kas matoma viešai">
+          <div class="spec__row">
+            <span class="spec__label">Žymė</span>
+            <span class="spec__value">vieša</span>
+          </div>
+          <div class="spec__row">
+            <span class="spec__label">Amžiaus intervalas</span>
+            <span class="spec__value">vieša</span>
+          </div>
+          <div class="spec__row">
+            <span class="spec__label">Pašto adresas</span>
+            <span class="spec__value">nerodoma</span>
+          </div>
+          <div class="spec__row">
+            <span class="spec__label">Kodas</span>
+            <span class="spec__value">nerodoma</span>
+          </div>
+          <div class="spec__row">
+            <span class="spec__label">Tiksli vietovė</span>
+            <span class="spec__value">nerodoma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D -->
+  <section class="faq" aria-labelledby="faq-heading">
+    <div class="sheet__grid">
+      <div class="sheet__margin"></div>
+      <div class="sheet__content">
+        <h2 id="faq-heading">Dažniausi klausimai</h2>
+
+        <div class="faq__item">
+          <h3 class="faq__question">Kiek laiko tai iš tikrųjų užtrunka?</h3>
+          <p class="faq__answer">Vidutiniškai 70 sekundžių pirmam laukui ir apie 3 minutes visam duomenų lapui, jei pildai visus 5 laukus iš karto.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__question">Kas mato mano duomenų lapą?</h3>
+          <p class="faq__answer">Vieša tik žymė ir amžiaus intervalas. Pilna <a href="#visibility-spec">matomumo specifikacija</a> yra prie pilno duomenų lapo — laukas po lauko, su reikšme „vieša“ arba „nerodoma“.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__question">Ar vėliau atsiras mokestis?</h3>
+          <p class="faq__answer">Kainos matmenys yra aukščiau, skyriuje „Kaina šiandien“: kaina — be mokesčio, mokamo lygio būsena — nėra, paskutinis pakeitimas — 2026-09-13. Pasikeitus bet kuriam iš šių skaičių, pasikeičia ta pati eilutė.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__question">Kaip patikrinama, kad kitoje pusėje — tikras dalyvis?</h3>
+          <p class="faq__answer">Audito matmenys yra aukščiau: vidutinis laikas — 4 val., atmetama per mėnesį — 12%. Tai atskiras skaičius nuo bendro sistemos aktyvumo skaičiaus žemiau.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__question">Ką daryti, jei noriu išeiti iš sistemos?</h3>
+          <p class="faq__answer">Matomumo nustatymuose yra vienas mygtukas duomenų lapui paslėpti ir vienas — jam pašalinti visam laikui. Abu veikia be papildomo prašymo mums.</p>
+        </div>
+
+        <a class="faq__repeat" href="#entry-start">↑ Grįžti prie pašto adreso lauko</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- L -->
+<footer class="legal">
+  <div class="sheet__grid">
+    <div class="sheet__margin"></div>
+    <div class="sheet__content">
+      <p class="legal__row">Sistema skirta asmenims nuo 18 metų.</p>
+      <ul class="legal__links">
+        <li><a class="legal__link" href="#">Taisyklės</a></li>
+        <li><a class="legal__link" href="#">Privatumo politika</a></li>
+      </ul>
+      <p class="legal__row">Duomenų tvarkymas ir pasitraukimo tvarka aprašyti taisyklėse.</p>
+      <p class="legal__row">© 2026 Matmuo.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- C -->
+<div class="consent" id="consent" role="region" aria-label="Slapukų informavimas">
+  <p class="consent__text">Šis puslapis naudoja būtinuosius slapukus lankomumui matuoti.</p>
+  <button type="button" class="sheet__button" id="consent-accept">Supratau</button>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lenta — rajono skelbimų lenta suaugusiems</title>
+<meta name="description" content="Pakabink lapelį, gauk atsaką, susirašinėk. Rajono skelbimų lenta suaugusiems — už dyką, be algoritmo ir be slankiojimo.">
+<link rel="canonical" href="https://vyrukambarys.lt/lg2">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lenta — rajono skelbimų lenta suaugusiems">
+<meta property="og:description" content="Pakabink lapelį, gauk atsaką, susirašinėk. Rajono skelbimų lenta suaugusiems — už dyką, be algoritmo ir be slankiojimo.">
+<meta property="og:url" content="https://vyrukambarys.lt/lg2">
+<meta property="og:locale" content="lt_LT">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles/main.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Lenta",
+  "url": "https://vyrukambarys.lt/lg2",
+  "description": "Rajono skelbimų lenta suaugusiems — pakabink lapelį, gauk atsaką, susirašinėk. Už dyką.",
+  "inLanguage": "lt"
+}
+</script>
+</head>
+<body>
+
+<header class="board board-topbar">
+  <p class="board-mark">
+    Lenta
+    <span class="age-stamp" aria-label="Turinys skirtas pilnametystės sulaukusiems, 18 ir daugiau metų">18+</span>
+  </p>
+  <details class="board-return">
+    <summary>Turi lapelį. Prisijunk.</summary>
+    <p>Prisijungimas veikia el. paštu, kurį naudojai iškabindamas lapelį — nuoroda ateina į tavo paštą.</p>
+  </details>
+</header>
+
+<main>
+
+  <!-- P — Herojus: pozicionavimas (F3), be jokio UI, tik antraštė + antspaudas + mygtukas -->
+  <section class="board offerboard">
+    <h1 class="offerboard-heading">
+      <span class="line">Pakabini lapelį.</span>
+      <span class="line">Kažkas nuplėšia numerį.</span>
+      <span class="line">Viskas.</span>
+    </h1>
+    <p class="offerboard-sub">Jokio algoritmo, jokio begalinio slankiojimo. Nieko čia gudraus nėra — parašai lapelį, kažkas atsiliepia, susirašote.</p>
+
+    <div class="stamp" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="6"/>
+        <text x="100" y="92" text-anchor="middle" font-family="Anton, sans-serif" font-size="36" fill="currentColor">18+</text>
+        <text x="100" y="124" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" letter-spacing="2" fill="currentColor">RAJONO LENTA</text>
+      </svg>
+    </div>
+
+    <div class="offerboard-actions">
+      <!-- tracking: cta_open_modal_hero -->
+      <button type="button" class="post-btn" data-open-modal>Iškabinti lapelį</button>
+    </div>
+  </section>
+
+  <!-- N — Kodėl dabar (F17): sąžiningas, be laikmačių ir trūkumo -->
+  <section class="board">
+    <div class="board-row board-row--pair">
+      <div class="pinnote pinnote--a">
+        <h2>Kodėl dabar</h2>
+        <p>Lenta pilnėja vakarais. Lapelis, pakabintas dabar, dažniausiai jau turi atsaką iki vidurnakčio — ne todėl, kad skubiname, o todėl, kad tada čia daugiausia žmonių.</p>
+      </div>
+
+      <!-- A — Kas iš tikrųjų kabo lentoje (F5, autentiškumas / moderavimas, atskiras mechanizmas nuo Q) -->
+      <div class="pinnote pinnote--b">
+        <h2>Kas iš tikrųjų kabo lentoje</h2>
+        <p>Tuščias, pasikartojantis ar akivaizdžiai netikras lapelis lentoje neprikimba. Kabo tik tai, kas realu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM-explainer — F7 įsipareigojimo dydis + antras CTA taškas (F15) -->
+  <section class="board">
+    <div class="pinnote pinnote--a board-form-note">
+      <h2>Kiek tai užima</h2>
+      <p>Vienas laukas dabar — tavo rajonas. Likę keturi laukai tame pačiame lange, iškart po to. Viso — mažiau nei minutę.</p>
+      <!-- tracking: cta_open_modal_repeat -->
+      <button type="button" class="post-btn" data-open-modal>Iškabinti lapelį</button>
+    </div>
+  </section>
+
+  <!-- M — Kas vyksta po iškabinimo (F6) -->
+  <section class="board">
+    <div class="board-row board-row--pair">
+      <div class="pinnote pinnote--b">
+        <h2>Kas vyksta po iškabinimo</h2>
+        <ol>
+          <li>Lapelis pasirodo lentoje per kelias minutes, kai tik praeina valymą.</li>
+          <li>Kai kaimynas nuplėšia tavo numerį, gauni pranešimą į savo el. paštą.</li>
+          <li>Atsakęs, pradedi pokalbį tiesiai lentoje — niekur kitur registruotis nereikia.</li>
+          <li>Lapelį gali nuimti pats, bet kada, vienu mygtuku.</li>
+        </ol>
+      </div>
+
+      <!-- € — Pinigų klausimas (F8) -->
+      <div class="pinnote pinnote--a">
+        <h2>Kiek tai kainuoja</h2>
+        <p>Lenta — už dyką. Iškabinimas, atsakas, pokalbis — viskas įskaičiuota. Tiek ir yra iš tikrųjų.</p>
+      </div>
+    </div>
+
+    <div class="board-row board-row--pair">
+      <!-- Q — Kiekybinis aktyvumas (F4), negali sugriūti: apatinė riba, ne gyvas skaitiklis -->
+      <div class="pinnote pinnote--b">
+        <h2>Kiek lentoje judesio</h2>
+        <p>Kiekviename rajone — bent 15 aktyvių lapelių, dažniausiai daugiau. Jei kuriame nors rajone jų mažai, taip ir parašome — o ne pučiame skaičiaus.</p>
+      </div>
+
+      <!-- K — Privatumas ir kontrolė (F9) -->
+      <div class="pinnote pinnote--a">
+        <h2>Kas mato tavo lapelį</h2>
+        <p>Ant lapelio užrašai tik pravardę, metus ir rajoną — daugiau ten nieko nėra. Netinka — nuimk lapelį, ir jo nebėra.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- D — Jei dar dvejoji (F16, mažo įsipareigojimo kelias) -->
+  <section class="board board-faq">
+    <div class="pinnote pinnote--b">
+      <h2>Klausimai. Tiesiai.</h2>
+
+      <details>
+        <summary>Kas atsitinka su netikru lapeliu?</summary>
+        <p>Nepasirodo. Padirbtas vardas, dublis ar beprasmis tekstas iš lentos iškrenta savaime.</p>
+      </details>
+      <details>
+        <summary>Kiek tai kainuoja?</summary>
+        <p>Nieko. Tiek ir yra.</p>
+      </details>
+      <details>
+        <summary>Kas matys mano lapelį?</summary>
+        <p>Tai, kas parašyta ant lapelio: pravardė, metai, rajonas. Daugiau nieko.</p>
+      </details>
+      <details>
+        <summary>Kiek tai užtrunka?</summary>
+        <p>Mažiau nei minutę. Penki laukai, vienas langas, jokių žingsnių.</p>
+      </details>
+      <details>
+        <summary>Kaip nuimti lapelį?</summary>
+        <p>Vienu mygtuku, bet kada. Netinka — nuimk lapelį, ir jo nebėra.</p>
+      </details>
+
+      <!-- tracking: cta_open_modal_faq -->
+      <button type="button" class="board-faq-return" data-open-modal>Pasiruošęs? Iškabink lapelį.</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- L — Teisinė poraštė (F11) -->
+<footer class="board board-footer">
+  <h2 class="visually-hidden">Teisinė informacija</h2>
+  <p>Lenta skirta tik pilnamečiams (18+). Iškabindamas lapelį patvirtini savo parašą — kad esi pilnametis ir sutinki su taisyklėmis.</p>
+  <nav aria-label="Teisinės nuorodos">
+    <a href="#">Taisyklės</a>
+    <a href="#">Privatumo politika</a>
+  </nav>
+  <p>© 2026 Lenta.</p>
+</footer>
+
+<!-- C — Slapukų sutikimas (F14): statinė juosta, be vėlavimo, be plaukiojančio kampo langelio -->
+<aside class="cookie-strip" id="cookie-strip" aria-label="Slapukų pranešimas" hidden>
+  <p>Naudojame būtinuosius slapukus, kad lenta veiktų. Analitikos slapukų be tavo sutikimo nenaudojame.</p>
+  <!-- tracking: cookie_consent_accept -->
+  <button type="button" class="post-btn" id="cookie-accept">Supratau</button>
+</aside>
+
+<!-- Modalas (F10 konversijos priemonė, CTA modelis „pilno ekrano modalas“) -->
+<dialog class="board-modal" id="board-modal" aria-labelledby="board-modal-title">
+  <div class="board-modal__sheet">
+    <div class="board-modal__head">
+      <h2 id="board-modal-title">Iškabink savo lapelį</h2>
+      <button type="button" class="board-modal__close" id="board-modal-close" aria-label="Uždaryti langą">✕</button>
+    </div>
+
+    <form id="board-form" novalidate>
+      <div class="board-field" data-field="district">
+        <label for="field-district">Rajonas</label>
+        <input type="text" id="field-district" name="district" required minlength="2" autocomplete="address-level2" aria-describedby="error-district">
+        <p class="board-error" id="error-district" aria-live="polite"></p>
+      </div>
+
+      <div class="board-field" data-field="years">
+        <label for="field-years">Metai</label>
+        <select id="field-years" name="years" required aria-describedby="error-years">
+          <option value="">Pasirink amžiaus grupę</option>
+          <option value="18-24">18–24</option>
+          <option value="25-34">25–34</option>
+          <option value="35-44">35–44</option>
+          <option value="45-54">45–54</option>
+          <option value="55+">55 ir daugiau</option>
+        </select>
+        <p class="board-error" id="error-years" aria-live="polite"></p>
+      </div>
+
+      <div class="board-field" data-field="nickname">
+        <label for="field-nickname">Pravardė</label>
+        <input type="text" id="field-nickname" name="nickname" required minlength="2" maxlength="24" autocomplete="nickname" aria-describedby="error-nickname">
+        <p class="board-error" id="error-nickname" aria-live="polite"></p>
+      </div>
+
+      <div class="board-field" data-field="email">
+        <label for="field-email">El. paštas</label>
+        <input type="email" id="field-email" name="email" required autocomplete="email" aria-describedby="error-email">
+        <p class="board-error" id="error-email" aria-live="polite"></p>
+      </div>
+
+      <div class="board-field" data-field="password">
+        <label for="field-password">Slaptažodis</label>
+        <input type="password" id="field-password" name="password" required minlength="8" autocomplete="new-password" aria-describedby="error-password">
+        <p class="board-error" id="error-password" aria-live="polite"></p>
+      </div>
+
+      <div class="board-field" data-field="consent">
+        <div class="board-field-check">
+          <input type="checkbox" id="field-consent" name="consent" required aria-describedby="error-consent">
+          <label for="field-consent">Pasirašau, kad man 18+ ir sutinku su taisyklėmis ir privatumo politika.</label>
+        </div>
+        <p class="board-error" id="error-consent" aria-live="polite"></p>
+      </div>
+
+      <!-- tracking: form_submit_attempt -->
+      <button type="submit" class="post-btn">Iškabinti lapelį</button>
+    </form>
+
+    <div id="board-success" class="board-success" hidden aria-live="polite">
+      <h2>Lapelis iškabintas.</h2>
+      <p>Kai kas nors nuplėš tavo numerį, gausi pranešimą adresu <strong id="board-success-email"></strong>.</p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+
+  var modal = document.getElementById("board-modal");
+  var openButtons = document.querySelectorAll("[data-open-modal]");
+  var closeButton = document.getElementById("board-modal-close");
+  var form = document.getElementById("board-form");
+  var success = document.getElementById("board-success");
+  var successEmail = document.getElementById("board-success-email");
+
+  function openModal() {
+    // tracking: modal_open
+    if (typeof modal.showModal === "function") {
+      modal.showModal();
+    } else {
+      modal.setAttribute("open", "open");
+    }
+  }
+
+  function closeModal() {
+    if (typeof modal.close === "function") {
+      modal.close();
+    } else {
+      modal.removeAttribute("open");
+    }
+  }
+
+  openButtons.forEach(function (btn) {
+    btn.addEventListener("click", openModal);
+  });
+
+  closeButton.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", function (event) {
+    var sheet = modal.querySelector(".board-modal__sheet");
+    if (!sheet.contains(event.target)) {
+      closeModal();
+    }
+  });
+
+  var validators = {
+    district: function (v) { return v.trim().length >= 2 ? "" : "Įrašyk rajoną — bent 2 raides."; },
+    years: function (v) { return v ? "" : "Pasirink amžiaus grupę."; },
+    nickname: function (v) { return v.trim().length >= 2 ? "" : "Įrašyk pravardę — bent 2 raides."; },
+    email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "Įrašyk teisingą el. pašto adresą."; },
+    password: function (v) { return v.length >= 8 ? "" : "Slaptažodis — bent 8 ženklai."; },
+    consent: function (v) { return v ? "" : "Pažymėk, kad pasirašai — be to lapelio neiškabinsime."; }
+  };
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    // tracking: form_submit_attempt
+
+    var firstInvalid = null;
+    var hasError = false;
+
+    Object.keys(validators).forEach(function (name) {
+      var field = form.elements[name];
+      var value = field.type === "checkbox" ? field.checked : field.value;
+      var message = validators[name](value);
+      var wrapper = form.querySelector('[data-field="' + name + '"]');
+      var errorEl = document.getElementById("error-" + name);
+
+      if (message) {
+        hasError = true;
+        wrapper.classList.add("has-error");
+        errorEl.textContent = message;
+        if (!firstInvalid) firstInvalid = field;
+      } else {
+        wrapper.classList.remove("has-error");
+        errorEl.textContent = "";
+      }
+    });
+
+    if (hasError) {
+      firstInvalid.focus();
+      return;
+    }
+
+    // tracking: form_submit_success
+    successEmail.textContent = form.elements.email.value;
+    form.hidden = true;
+    success.hidden = false;
+  });
+
+  // C — slapukų juosta: statinė, be vėlavimo, atmena localStorage
+  var cookieStrip = document.getElementById("cookie-strip");
+  var cookieAccept = document.getElementById("cookie-accept");
+  var COOKIE_KEY = "lenta_cookie_ok";
+
+  try {
+    if (!localStorage.getItem(COOKIE_KEY)) {
+      cookieStrip.hidden = false;
+    }
+  } catch (e) {
+    cookieStrip.hidden = false;
+  }
+
+  cookieAccept.addEventListener("click", function () {
+    cookieStrip.hidden = true;
+    try { localStorage.setItem(COOKIE_KEY, "1"); } catch (e) { /* be localStorage - juosta tiesiog uždaroma */ }
+  });
+})();
+</script>
+
+</body>
+</html>

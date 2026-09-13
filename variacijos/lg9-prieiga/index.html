@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prieiga: paleisk paskyrą per penkis klausimus</title>
+<meta name="description" content="Prieiga: mazgas nuo 1997, be modemo. Paleisk paskyrą per penkis klausimus, be kainos. Validacija rankinė, atsakymai matomi kaip seanso istorija." />
+<link rel="canonical" href="https://vyrukambarys.lt/lg9" />
+<meta name="theme-color" content="#2B2B28" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Prieiga: paleisk paskyrą per penkis klausimus" />
+<meta property="og:description" content="Mazgas nuo 1997, be modemo. Penki klausimai, validacija rankinė, paskyra be kainos." />
+<meta property="og:url" content="https://vyrukambarys.lt/lg9" />
+<meta property="og:locale" content="lt_LT" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter+Tight:wght@400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="bin/term.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Prieiga",
+  "url": "https://vyrukambarys.lt/lg9",
+  "description": "Mazgas nuo 1997, be modemo. Paleisk paskyrą per penkis klausimus, be kainos.",
+  "inLanguage": "lt"
+}
+</script>
+</head>
+<body>
+
+<a class="tm-skip" href="#tm-main">peršokti į turinį</a>
+
+<div class="tm-shell">
+
+  <header class="tm-topline">
+    <a class="tm-mark" href="#">prieiga@mazgas:~$</a>
+    <a class="tm-nav-link" href="#tm-login-note">turintiems paskyrą: prisijungti</a>
+  </header>
+
+  <main id="tm-main" tabindex="-1">
+
+    <section id="tm-hero" class="tm-block" aria-labelledby="tm-h1">
+      <div class="tm-pane">
+        <p class="tm-comment"># mazgas veikia nuo 1997 metų. be modemo, tos pačios taisyklės.</p>
+        <p class="tm-comment"># validacija: rankinė, ne automatinė.</p>
+        <div class="tm-hero-lines">
+          <h1 id="tm-h1" class="tm-h1">Atsakai į penkis klausimus ir iš karto matai, kas mazge aktyvus dabar.</h1>
+          <p class="tm-lede">Validacija rankinė. Paskyra be kainos. Pirmas sujungimas dažnai įvyksta dar tą pačią valandą.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tm-commit" class="tm-block" aria-labelledby="tm-commit-h">
+      <h2 id="tm-commit-h" class="tm-cmd">kiek tai užima</h2>
+      <p class="tm-prose">Penki klausimai. Apie tris minutes. Reikalingi duomenys: prisijungimo vardas, amžiaus rėžis, regionas, e-adresas, prieigos frazė. Nieko daugiau neprašome.</p>
+    </section>
+
+    <section id="tm-mechanics" class="tm-block" aria-labelledby="tm-mech-h">
+      <h2 id="tm-mech-h" class="tm-cmd">kas įvyksta iš karto</h2>
+      <div class="tm-steps">
+        <p class="tm-out">per pirmą minutę: paskyra sukurta, validacija paleista.</p>
+        <p class="tm-out">per parą: el. paštu atkeliauja patvirtinimas, kai validacija baigta.</p>
+        <p class="tm-out">nuo to momento: matai mazgo naudotojus pagal regioną ir gali siūlyti sujungimą. po sujungimo prasideda seansas — susirašinėjimas tarp jūsų dviejų.</p>
+      </div>
+    </section>
+
+    <section id="tm-form" class="tm-block" aria-labelledby="tm-form-h">
+      <div class="tm-pane tm-form-pane">
+        <h2 id="tm-form-h" class="tm-cmd">paleidimas</h2>
+
+        <p id="tm-status" class="tm-sr-only" aria-live="polite"></p>
+
+        <form id="tm-form-el" action="#" method="post">
+          <ol id="tm-history" class="tm-history" aria-label="jau pateikti atsakymai"></ol>
+
+          <fieldset class="tm-step" data-step="1">
+            <label for="tm-f-user">prisijungimo vardas</label>
+            <div class="tm-prompt">
+              <span class="tm-glyph" aria-hidden="true">$</span>
+              <input type="text" id="tm-f-user" name="user" required minlength="3" maxlength="20"
+                     pattern="[A-Za-z0-9_]{3,20}" autocomplete="username" aria-describedby="tm-f-user-hint" />
+              <span class="tm-cursor" aria-hidden="true"></span>
+              <button type="submit" class="tm-run">priimti vardą</button>
+            </div>
+            <small id="tm-f-user-hint" class="tm-comment tm-hint">3–20 simbolių: raidės, skaičiai, apatinis brūkšnys.</small>
+            <p class="tm-out tm-err" id="tm-f-user-err" role="alert" hidden></p>
+          </fieldset>
+
+          <fieldset class="tm-step" data-step="2">
+            <label for="tm-f-age">amžiaus rėžis</label>
+            <div class="tm-prompt">
+              <span class="tm-glyph" aria-hidden="true">$</span>
+              <select id="tm-f-age" name="age" required aria-describedby="tm-f-age-hint">
+                <option value="" selected disabled>pasirink</option>
+                <option value="18–24">18–24</option>
+                <option value="25–34">25–34</option>
+                <option value="35–44">35–44</option>
+                <option value="45–54">45–54</option>
+                <option value="55 ir daugiau">55 ir daugiau</option>
+              </select>
+              <button type="submit" class="tm-run">priimti rėžį</button>
+            </div>
+            <small id="tm-f-age-hint" class="tm-comment tm-hint">artimiausias tavo amžiaus rėžis.</small>
+            <p class="tm-out tm-err" id="tm-f-age-err" role="alert" hidden></p>
+          </fieldset>
+
+          <fieldset class="tm-step" data-step="3">
+            <label for="tm-f-region">regionas</label>
+            <div class="tm-prompt">
+              <span class="tm-glyph" aria-hidden="true">$</span>
+              <input type="text" id="tm-f-region" name="region" required minlength="2" maxlength="60"
+                     autocomplete="address-level2" aria-describedby="tm-f-region-hint" />
+              <button type="submit" class="tm-run">priimti regioną</button>
+            </div>
+            <small id="tm-f-region-hint" class="tm-comment tm-hint">miestas ar apylinkė, kaip supranti pats.</small>
+            <p class="tm-out tm-err" id="tm-f-region-err" role="alert" hidden></p>
+          </fieldset>
+
+          <fieldset class="tm-step" data-step="4">
+            <label for="tm-f-email">e-adresas</label>
+            <div class="tm-prompt">
+              <span class="tm-glyph" aria-hidden="true">$</span>
+              <input type="email" id="tm-f-email" name="email" required autocomplete="email"
+                     aria-describedby="tm-f-email-hint" />
+              <button type="submit" class="tm-run">priimti adresą</button>
+            </div>
+            <small id="tm-f-email-hint" class="tm-comment tm-hint">adresu atkeliaus validacijos patvirtinimas.</small>
+            <p class="tm-out tm-err" id="tm-f-email-err" role="alert" hidden></p>
+          </fieldset>
+
+          <fieldset class="tm-step" data-step="5">
+            <label for="tm-f-pass">prieigos frazė</label>
+            <div class="tm-prompt">
+              <span class="tm-glyph" aria-hidden="true">$</span>
+              <input type="password" id="tm-f-pass" name="pass" required minlength="8"
+                     autocomplete="new-password" aria-describedby="tm-f-pass-hint" />
+              <button type="submit" class="tm-run">paleisti paskyrą</button>
+            </div>
+            <small id="tm-f-pass-hint" class="tm-comment tm-hint">bent 8 simboliai.</small>
+            <p class="tm-out tm-err" id="tm-f-pass-err" role="alert" hidden></p>
+          </fieldset>
+
+          <p class="tm-comment tm-hint">Paspausdamas/-a „paleisti paskyrą" patvirtini, kad esi pilnametis/-ė ir sutinki su mazgo taisyklėmis (žr. poraštę).</p>
+        </form>
+
+        <div id="tm-success" class="tm-success" hidden>
+          <p class="tm-out"><span aria-hidden="true">$ </span>paleidimas --patvirtinti</p>
+          <p class="tm-out">paskyra paleista.</p>
+          <p class="tm-out" id="tm-success-email">validacija prasidėjo.</p>
+          <p class="tm-out">gali grįžti į šį puslapį bet kada — seansas išliks.</p>
+        </div>
+        <!-- tracking: registration_completed -->
+      </div>
+    </section>
+
+    <section id="tm-auth" class="tm-block" aria-labelledby="tm-auth-h">
+      <h2 id="tm-auth-h" class="tm-cmd">kas tikrina naudotojus</h2>
+      <p class="tm-out">būsena: laukianti — kol nepatvirtinta.</p>
+      <p class="tm-out">terminas: įtartina paskyra įvertinama per parą; pasitvirtinus — pašalinama.</p>
+    </section>
+
+    <section id="tm-price" class="tm-block" aria-labelledby="tm-price-h">
+      <h2 id="tm-price-h" class="tm-cmd">kaina</h2>
+      <p class="tm-out">kaina: be kainos. apmokamo lygio šiuo metu nėra.</p>
+    </section>
+
+    <section id="tm-activity" class="tm-block" aria-labelledby="tm-activity-h">
+      <h2 id="tm-activity-h" class="tm-cmd">aktyvumas dabar</h2>
+      <p class="tm-out">praėjusią savaitę mazge įvyko nuo 40 iki 90 naujų sujungimų kas dieną, priklausomai nuo regiono.</p>
+      <p class="tm-out">aktyviausias mazgo laikas yra nuo 19 iki 23 valandos. paleidus paskyrą dabar, pataikai į šios savaitės aktyviausią langą.</p>
+    </section>
+
+    <section id="tm-privacy" class="tm-block" aria-labelledby="tm-privacy-h">
+      <h2 id="tm-privacy-h" class="tm-cmd">teisės ir matomumas</h2>
+      <p class="tm-out">prieiga: pagal nutylėjimą — ribota iki minimumo.</p>
+      <p class="tm-out">keisti: prieigos skydelyje, tame pačiame mazge, bet kada.</p>
+      <p class="tm-out">valdymas: paskyrą gali sustabdyti arba ištrinti tiesiai mazge.</p>
+    </section>
+
+    <section id="tm-faq" class="tm-block" aria-labelledby="tm-faq-h">
+      <h2 id="tm-faq-h" class="tm-cmd">pagalba</h2>
+
+      <div class="tm-faq-item">
+        <h3>kiek trunka paleidimas?</h3>
+        <p class="tm-prose">Mažiau nei tris minutes. Penki klausimai, be tarpinių puslapių. <a class="tm-link" href="#tm-form">paleisti dabar</a>.</p>
+      </div>
+
+      <div class="tm-faq-item">
+        <h3>ar reikės mokėti?</h3>
+        <p class="tm-out">kaina: be kainos, tiek paleidimui, tiek pagrindinėms funkcijoms.</p>
+      </div>
+
+      <div class="tm-faq-item">
+        <h3>kaip patikrinami naudotojai?</h3>
+        <p class="tm-prose">Būsena prieš patvirtinimą — laukianti. Įtartiną paskyrą įvertiname per parą ir pašaliname, jei pasitvirtina.</p>
+      </div>
+
+      <div class="tm-faq-item">
+        <h3>kas matys mano duomenis?</h3>
+        <p class="tm-prose">Kiek prieigos suteikta pagal nutylėjimą, aprašyta sekcijoje aukščiau. Ją keisti gali tik tu, prieigos skydelyje.</p>
+      </div>
+
+      <div class="tm-faq-item">
+        <h3>ar galiu vėliau pasitraukti?</h3>
+        <p class="tm-prose">Taip. Paskyrą sustabdai arba ištrini pačiame mazge. <a class="tm-link" href="#tm-form">paleisti dabar</a>.</p>
+      </div>
+    </section>
+
+    <section id="tm-repeat" class="tm-block" aria-labelledby="tm-repeat-h">
+      <div class="tm-repeat">
+        <h2 id="tm-repeat-h" class="tm-cmd">pasiruošęs?</h2>
+        <p><a class="tm-link tm-run-link" href="#tm-form">Paleisti paskyrą dabar</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="tm-footer" id="tm-legal">
+    <h2 class="tm-cmd">autorizacija</h2>
+    <p>Prieiga skirta tik pilnamečiams (18+). Tęsdamas/-a čia patvirtini savo amžių ir sutinki su mazgo taisyklėmis.</p>
+
+    <details>
+      <summary>taisyklės</summary>
+      <ol>
+        <li>Reikia būti pilnametystės.</li>
+        <li>Vienas žmogus — viena paskyra.</li>
+        <li>Kito naudotojo duomenų neplatink už mazgo ribų.</li>
+        <li>Pažeidimą praneši — paskyrą peržiūrime per parą.</li>
+      </ol>
+    </details>
+
+    <p id="tm-login-note">jau turi paskyrą? prisijungimo nuoroda atkeliauja el. paštu po validacijos — atskiro prisijungimo puslapio čia (dar) nėra.</p>
+
+    <div class="tm-footer-links">
+      <a class="tm-link" href="#tm-privacy">privatumo teisės</a>
+    </div>
+
+    <p class="tm-copyright">© 2026 Prieiga</p>
+  </footer>
+
+</div>
+
+<div class="tm-bar" id="tm-cookies" role="region" aria-label="slapukų pranešimas" hidden>
+  <p>Šis mazgas naudoja slapukus veikimui ir statistikai.</p>
+  <button type="button" class="tm-run" id="tm-cookies-ok">supratau</button>
+  <!-- tracking: cookies_acknowledged -->
+</div>
+
+<script src="bin/term.js" defer></script>
+</body>
+</html>

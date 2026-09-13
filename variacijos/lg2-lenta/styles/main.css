@@ -1,0 +1,383 @@
+/*
+  Lenta (lg2-lenta) — fizinė skelbimų lenta.
+  Konvencija: semantiniai vientisi klasių vardai (board / offerboard / pinnote / stamp).
+  Mobile-first. Breakpoints: 360 / 768 / 1024 / 1440.
+  Spalvos ir tarpai — tik iš VARIANT.md lentelės (5 hex, 2 tarpų reikšmės: 24px / 72px).
+*/
+
+/* ===== Tokenai ===== */
+:root {
+  --color-bg: #F2E205;      /* fonas — lentos geltona */
+  --color-ink: #000000;     /* tekstas / rašalas / ribos */
+  --color-accent: #2B4BFF;  /* akcentas — antspaudo mėlyna */
+  --color-paper: #FFFDF2;   /* paviršius — lapelis */
+  --color-pressed: #E0D400; /* riba / paspaudimo būsena — nuspausta geltona */
+
+  --space-sm: 24px;
+  --space-lg: 72px;
+
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-text: "Space Grotesk", "Segoe UI", sans-serif;
+
+  --fs-base: 1rem;
+  --fs-md: 1.618rem;
+  --fs-lg: 2.618rem;
+  --fs-xl: 4.236rem;
+  --fs-xxl: 6.854rem;
+
+  --border: 3px solid var(--color-ink);
+  --shadow-hard: 6px 6px 0 var(--color-ink);
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+  overflow-x: hidden; /* saugiklis nuo pasuktų blokų krašto persidengimo */
+}
+img, svg { max-width: 100%; display: block; }
+a { color: var(--color-accent); }
+ul, ol { padding-left: 1.2em; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 1.08;
+  margin: 0;
+}
+p { margin: 0 0 1em; max-width: 58ch; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ===== Layout wrapper ===== */
+.board {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: var(--space-sm);
+}
+@media (min-width: 768px) {
+  .board { padding: var(--space-sm) var(--space-lg); }
+}
+
+/* ===== H — viršutinė juosta ===== */
+.board-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-block: var(--space-sm);
+}
+.board-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.age-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 32px;
+  padding: 0 8px;
+  border: var(--border);
+  border-radius: 0;
+  background: var(--color-paper);
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transform: rotate(-2deg);
+}
+.board-return {
+  font-size: 0.95rem;
+}
+.board-return summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.board-return summary::-webkit-details-marker { display: none; }
+.board-return p {
+  margin-top: 8px;
+  max-width: 32ch;
+}
+
+/* ===== P — Herojus / offerboard (be UI, tik antraštė + antspaudas + mygtukas) ===== */
+.offerboard {
+  position: relative;
+  padding-block: var(--space-lg) var(--space-lg);
+}
+.offerboard-heading {
+  font-size: clamp(2.4rem, 5vw + 1.4rem, var(--fs-xxl));
+  max-width: 16ch;
+}
+.offerboard-heading .line { display: block; }
+.offerboard-sub {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-md);
+  font-weight: 400;
+  max-width: 42ch;
+}
+.stamp {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: clamp(96px, 16vw, 176px);
+  height: clamp(96px, 16vw, 176px);
+  transform: rotate(-9deg);
+  z-index: 1;
+  color: var(--color-accent);
+}
+@media (min-width: 1024px) {
+  .stamp {
+    top: 0.4em;
+    right: 8%;
+    transform: rotate(-9deg) translateY(-10%);
+  }
+}
+.stamp svg { width: 100%; height: 100%; }
+
+.offerboard-actions {
+  margin-top: var(--space-lg);
+}
+
+/* ===== post-btn — vienintelis CTA mygtukas per visą srautą ===== */
+.post-btn {
+  display: inline-block;
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  border: var(--border);
+  padding: 18px 28px;
+  cursor: pointer;
+  box-shadow: var(--shadow-hard);
+  transition: transform 80ms ease, box-shadow 80ms ease, background-color 80ms ease;
+}
+.post-btn:hover { background: #fff; }
+.post-btn:active,
+.post-btn.is-pressed {
+  transform: translate(6px, 6px);
+  box-shadow: none;
+  background: var(--color-pressed);
+}
+
+/* ===== pinnote — prisegtas lapelis, universalus turinio blokas ===== */
+.pinnote {
+  background: var(--color-paper);
+  border: var(--border);
+  box-shadow: var(--shadow-hard);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+.pinnote--a { transform: rotate(-1.5deg); }
+.pinnote--b { transform: rotate(1deg); }
+.pinnote h2 { font-size: var(--fs-lg); margin-bottom: 12px; }
+.pinnote h3 { font-size: var(--fs-md); margin-bottom: 8px; }
+.pinnote p:last-child { margin-bottom: 0; }
+.pinnote ol { margin: 0; }
+.pinnote li { margin-bottom: 8px; }
+.pinnote li:last-child { margin-bottom: 0; }
+
+.board-row {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .board-row--pair {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: flex-start;
+  }
+  .board-row--pair > .pinnote { flex: 1 1 40%; }
+}
+@media (min-width: 1024px) {
+  .board-row--quad > .pinnote { flex: 1 1 21%; }
+}
+
+/* Ties siauru ekranu pasukimas ramesnis — kad pasuktas kraštas
+   niekada neišstumtų turinio už 360px pločio ir nekurtų horizontalaus scroll. */
+@media (max-width: 480px) {
+  .pinnote--a, .pinnote--b { transform: rotate(0deg); }
+  .stamp { transform: rotate(-4deg); }
+}
+
+/* ===== FORM-explainer (F7 + antras CTA taškas) ===== */
+.board-form-note .post-btn { margin-top: var(--space-sm); }
+
+/* ===== D — FAQ ===== */
+.board-faq {
+  padding-bottom: var(--space-sm);
+}
+.board-faq summary {
+  cursor: pointer;
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  list-style: none;
+}
+.board-faq summary::-webkit-details-marker { display: none; }
+.board-faq summary::before {
+  content: "+ ";
+  color: var(--color-accent);
+}
+.board-faq details[open] summary::before { content: "− "; }
+.board-faq details p { margin-top: 10px; }
+.board-faq-return {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--color-accent);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: var(--font-text);
+}
+
+/* ===== L — poraštė ===== */
+.board-footer {
+  border-top: var(--border);
+  padding-block: var(--space-sm);
+  font-size: 0.9rem;
+}
+.board-footer nav {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: 8px;
+}
+.board-footer nav a { font-weight: 700; }
+
+/* ===== C — slapukų juosta (statinė, per visą plotį, be vėlavimo) ===== */
+.cookie-strip {
+  border-top: var(--border);
+  background: var(--color-paper);
+  padding: var(--space-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+  justify-content: space-between;
+}
+.cookie-strip p { margin: 0; max-width: 60ch; }
+.cookie-strip[hidden] { display: none; }
+.cookie-strip .post-btn { padding: 12px 20px; font-size: 0.95rem; }
+
+/* ===== Modalas (F10) ===== */
+.board-modal {
+  border: var(--border);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  inset: 0;
+}
+.board-modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+.board-modal__sheet {
+  min-height: 100%;
+  padding: var(--space-sm);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .board-modal__sheet { padding: var(--space-lg); }
+}
+.board-modal__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+.board-modal__head h2 { font-size: var(--fs-lg); }
+.board-modal__close {
+  border: var(--border);
+  background: var(--color-bg);
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 1rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  flex: none;
+}
+
+.board-field {
+  margin-bottom: var(--space-sm);
+}
+.board-field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.board-field input,
+.board-field select {
+  width: 100%;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  padding: 12px;
+  border: var(--border);
+  background: #fff;
+}
+.board-field-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.board-field-check input { width: 20px; height: 20px; flex: none; margin-top: 3px; }
+.board-field-check label { font-weight: 400; margin: 0; }
+
+.board-error {
+  color: #B00020;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 6px;
+  min-height: 1.2em;
+}
+.board-field.has-error input,
+.board-field.has-error select {
+  border-color: #B00020;
+}
+
+.board-success {
+  border: var(--border);
+  background: var(--color-bg);
+  padding: var(--space-sm);
+}
+.board-success h2 { font-size: var(--fs-lg); margin-bottom: 8px; }
+
+/* ===== Prieinamumas: prefers-reduced-motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .post-btn { transition: none; }
+}

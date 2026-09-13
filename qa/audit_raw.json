@@ -1,0 +1,1352 @@
+{
+  "results": {
+    "lg1-matmuo": {
+      "variant": "lg1-matmuo",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Matmuo — duomenų lapas su tiksliais matmenimis",
+        "desc": "Įrašyk duomenų lapą žinodamas kiekvieną matmenį iš anksto: laukų skaičių, trukmę, kainą ir sistemos apimtį. Be spėjimų, be paslėptų sąlygų.",
+        "title_len": 46,
+        "desc_len": 139
+      },
+      "fonts": [
+        "Newsreader",
+        "Chivo"
+      ],
+      "colors": [
+        "#16181d",
+        "#d5202c"
+      ],
+      "classes": [
+        "masthead__link",
+        "panel",
+        "faq__question",
+        "consent",
+        "masthead__nav",
+        "entry__optional-tag",
+        "masthead__word",
+        "callout__arrow",
+        "plate__entry-row",
+        "faq__answer",
+        "spec__label",
+        "spec--scope",
+        "spec",
+        "faq__repeat",
+        "plate__heading",
+        "entry",
+        "sheet__margin",
+        "entry__field",
+        "panel__steps",
+        "entry__field--check",
+        "faq__item",
+        "sheet__content",
+        "plate__entry",
+        "legal__links",
+        "spec--price",
+        "masthead__brand",
+        "legal__link",
+        "entry__field--optional",
+        "spec--audit",
+        "callout--dims",
+        "sheet__grid",
+        "spec__value",
+        "plate__entry-hint",
+        "panel__note",
+        "entry__success",
+        "spec__row",
+        "legal",
+        "legal__row",
+        "plate",
+        "sheet__mark",
+        "plate__entry-field",
+        "masthead",
+        "masthead__badge",
+        "callout",
+        "entry__hint",
+        "entry__submit",
+        "callout--h1",
+        "plate__lede",
+        "faq",
+        "plate__entry-error",
+        "sheet__skip",
+        "sheet__button",
+        "spec--dims",
+        "entry__form",
+        "entry__success-title",
+        "entry__error",
+        "plate__note",
+        "consent__text"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2,
+          3
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg1",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com/css2?family=Chivo:wght@700&amp;family=Newsreader:opsz@6..72&amp;display=swap",
+          "assets/style.css",
+          "#plate-heading",
+          "#",
+          "#entry-start",
+          "#",
+          "#"
+        ],
+        "issues": [
+          "Tušti href='#': 3"
+        ]
+      }
+    },
+    "lg2-lenta": {
+      "variant": "lg2-lenta",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Lenta — rajono skelbimų lenta suaugusiems",
+        "desc": "Pakabink lapelį, gauk atsaką, susirašinėk. Rajono skelbimų lenta suaugusiems — už dyką, be algoritmo ir be slankiojimo.",
+        "title_len": 41,
+        "desc_len": 119
+      },
+      "fonts": [
+        "Anton",
+        "Space Grotesk"
+      ],
+      "colors": [],
+      "classes": [
+        "line",
+        "board-modal",
+        "board-mark",
+        "post-btn",
+        "board-footer",
+        "board-return",
+        "board-faq-return",
+        "stamp",
+        "offerboard",
+        "visually-hidden",
+        "board-row--pair",
+        "board-modal__sheet",
+        "board-modal__head",
+        "board-topbar",
+        "board-faq",
+        "board-error",
+        "board-row",
+        "age-stamp",
+        "pinnote--b",
+        "offerboard-sub",
+        "cookie-strip",
+        "board-modal__close",
+        "board-success",
+        "board-field",
+        "offerboard-heading",
+        "board",
+        "board-field-check",
+        "board-form-note",
+        "pinnote--a",
+        "pinnote",
+        "offerboard-actions"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg2",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;700&display=swap",
+          "styles/main.css",
+          "#",
+          "#"
+        ],
+        "issues": [
+          "Tušti href='#': 2"
+        ]
+      }
+    },
+    "lg3-pultas": {
+      "variant": "lg3-pultas",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Pultas: 18+ eteris su gyvais rodmenimis",
+        "desc": "Pultas: 18+ eteris, kur rodyklė reaguoja į tavo pasirinktą zoną. Kanalą įjungi be abonento mokesčio, rodmenis matai iš karto.",
+        "title_len": 39,
+        "desc_len": 125
+      },
+      "fonts": [
+        "Sora",
+        "IBM Plex Sans"
+      ],
+      "colors": [
+        "#12253f",
+        "#3fd0e8",
+        "#6e8ba8"
+      ],
+      "classes": [
+        "pultas-footer__links",
+        "pultas-gauge",
+        "pultas-cookie__actions",
+        "pultas-stat",
+        "pultas-skip",
+        "pultas-footer__copy",
+        "pultas-form",
+        "pultas-faq__item",
+        "pultas-footer",
+        "pultas-error",
+        "pultas-gauge__track",
+        "pultas-success__title",
+        "pultas-form__stage",
+        "pultas-action--primary",
+        "pultas-action",
+        "pultas-field",
+        "pultas-field--check",
+        "pultas-intro",
+        "pultas-panel",
+        "pultas-hint",
+        "pultas-visually-hidden",
+        "pultas-gauge__readout",
+        "pultas-success",
+        "pultas-feed",
+        "pultas-cookie",
+        "pultas-brand__name",
+        "pultas-topbar",
+        "pultas-timeline__row",
+        "pultas-brand__mark",
+        "pultas-brand",
+        "pultas-nav-link",
+        "pultas-repeat",
+        "pultas-intro__lede",
+        "pultas-topbar__nav",
+        "pultas-tag18",
+        "pultas-gauge__svg",
+        "pultas-timeline",
+        "pultas-faq",
+        "pultas-split"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg3",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com/css2?family=Sora:wght@600&family=IBM+Plex+Sans:wght@400;500&display=swap",
+          "static/panel.css",
+          "#pultas-panel",
+          "#",
+          "#pultas-panel",
+          "#pultas-panel",
+          "#pultas-panel",
+          "#pultas-panel",
+          "#pultas-panel",
+          "#",
+          "#"
+        ],
+        "issues": [
+          "Tušti href='#': 3"
+        ]
+      }
+    },
+    "lg4-silas": {
+      "variant": "lg4-silas",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Šilas — ratas, kuriame tu sprendi, kas mato",
+        "desc": "Šilas yra ratas, kuriame pats nusprendi, kiek apie tave žino kiti. Nieko nekainuoja, niekas neskubina, pasitraukti gali bet kada.",
+        "title_len": 43,
+        "desc_len": 129
+      },
+      "fonts": [
+        "Fraunces",
+        "Karla"
+      ],
+      "colors": [
+        "#22301f",
+        "#7a3352",
+        "#f1f4ea"
+      ],
+      "classes": [
+        "silas-form__password-row",
+        "silas-scene-frame__text",
+        "silas-scene",
+        "silas-submit",
+        "silas-query",
+        "u-measure",
+        "silas-mark__tag",
+        "silas-form__field--full",
+        "silas-header",
+        "silas-form__hint",
+        "u-visually-hidden",
+        "silas-footer",
+        "silas-footer__links",
+        "silas-mark",
+        "silas-form__grid",
+        "silas-scene__evening",
+        "silas-tally",
+        "silas-form__field",
+        "silas-form__error",
+        "silas-split__box",
+        "silas-scene__grain",
+        "silas-form__consent",
+        "silas-scene-frame",
+        "silas-split",
+        "silas-form__success",
+        "silas-form__toggle",
+        "silas-consent",
+        "silas-query__icon",
+        "silas-page",
+        "silas-header__return",
+        "silas-scene__horizon",
+        "silas-form",
+        "silas-bar",
+        "silas-entry"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2,
+          3
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg4",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;700&display=swap",
+          "assets/garden.css",
+          "#silas-turinys",
+          "#silas-grizk",
+          "#",
+          "#",
+          "#silas-forma"
+        ],
+        "issues": [
+          "Tušti href='#': 2"
+        ]
+      }
+    },
+    "lg5-salyga": {
+      "variant": "lg5-salyga",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Sąlyga — registras, kuriame kiekvienas punktas sunumeruotas",
+        "desc": "Sąlyga: viešas registras, kuriame kiekviena sąlyga sunumeruota, susieta su Taisyklėmis ir paverčiama buitine kalba vienu paspaudimu.",
+        "title_len": 59,
+        "desc_len": 132
+      },
+      "fonts": [
+        "Atkinson Hyperlegible",
+        "Source Serif 4"
+      ],
+      "colors": [],
+      "classes": [
+        "ledger-consent__actions",
+        "ledger-list",
+        "terms-faq",
+        "ledger-returning-link",
+        "ledger-hero",
+        "ledger-legal",
+        "ledger-skip-link",
+        "ledger-quickjump",
+        "ledger-lede",
+        "terms-columns-heading__num",
+        "terms-clause",
+        "terms-panel",
+        "ledger-consent__box",
+        "ledger-identity",
+        "ledger-shell",
+        "terms-label",
+        "terms-panel-wrap",
+        "ledger-section",
+        "ledger-signup-fields",
+        "terms-number",
+        "terms-toggle",
+        "ledger-field",
+        "ledger-figures",
+        "ledger-brandmark",
+        "ledger-quickjump__button",
+        "ledger-repeat__link",
+        "terms-clause-group",
+        "ledger-legal__meta",
+        "ledger-header__row",
+        "terms-columns-heading__toggle",
+        "ledger-consent-field",
+        "terms-columns-heading__clause",
+        "ledger-select",
+        "terms-reference",
+        "ledger-submit",
+        "ledger-section__lede",
+        "terms-clause-block",
+        "terms-ledger-section",
+        "terms-ledger",
+        "terms-faq__item",
+        "ledger-age-signal",
+        "ledger-sr-only",
+        "ledger-error",
+        "terms-columns-heading__ref",
+        "ledger-input",
+        "ledger-repeat",
+        "terms-question",
+        "terms-line__row",
+        "ledger-figure",
+        "ledger-consent__status",
+        "ledger-figure-caption",
+        "ledger-header",
+        "terms-line--signup",
+        "terms-toggle__icon",
+        "terms-columns-heading",
+        "terms-panel__inner",
+        "ledger-success",
+        "ledger-field__hint",
+        "ledger-consent",
+        "terms-line"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2,
+          3
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg5",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600&family=Atkinson+Hyperlegible:wght@400;700&display=swap",
+          "css/ledger.css",
+          "#ledger-main",
+          "#ledger-returning-note",
+          "#terms-line-5",
+          "#taisykles-3-1",
+          "#taisykles-2-2",
+          "#taisykles-4-1",
+          "#taisykles-4-2",
+          "#taisykles-2",
+          "#taisykles-5",
+          "#taisykles-6",
+          "#terms-line-5"
+        ],
+        "issues": []
+      }
+    },
+    "lg6-talonas": {
+      "variant": "lg6-talonas",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Talonas — skelbimų rubrika suaugusiems",
+        "desc": "Talonas: užpildai atkarpą, korektūra patikrina, kad kitoje pusėje tikrai kažkas yra. Visada veltui, be paslėptų mokesčių.",
+        "title_len": 38,
+        "desc_len": 121
+      },
+      "fonts": [],
+      "colors": [
+        "#6e6353",
+        "#3aa35c",
+        "#0b57a4"
+      ],
+      "classes": [
+        "ink-strip-track",
+        "mechanics-list",
+        "member-link",
+        "lead-grid",
+        "commitment-note",
+        "press-section",
+        "brand-mark",
+        "faq-item",
+        "age-signal",
+        "coupon-field-error",
+        "ink-strip",
+        "legal-links",
+        "coupon-actions",
+        "press-mark",
+        "visually-hidden",
+        "positioning",
+        "moderation-block",
+        "coupon-intro",
+        "coupon-consent",
+        "privacy-block",
+        "legal-footer",
+        "repeat-link",
+        "skip-link",
+        "activity-note",
+        "money-note",
+        "coupon-back",
+        "coupon-head",
+        "coupon-field",
+        "coupon-help",
+        "coupon-tear",
+        "moderation-figure",
+        "coupon-success",
+        "faq-answer",
+        "coupon-side",
+        "masthead",
+        "faq-list",
+        "faq-question",
+        "coupon-serial",
+        "moderation-copy",
+        "lead",
+        "coupon-button",
+        "press-mark-dismiss"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg6",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "assets/style.css",
+          "#main",
+          "#coupon-side-2",
+          "#legal-rules",
+          "#coupon",
+          "#legal-rules",
+          "#legal-rules",
+          "#coupon"
+        ],
+        "issues": []
+      }
+    },
+    "lg7-kabinetas": {
+      "variant": "lg7-kabinetas",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Kabinetas — tu sprendi, kas tave mato",
+        "desc": "Suaugusiems skirtas kabinetas, kuriame matomumą nustatai pats. Be įmokos. Prašymas — vienas sakinys, be žingsnių ir be pertekliaus.",
+        "title_len": 37,
+        "desc_len": 131
+      },
+      "fonts": [
+        "Gloock",
+        "Jost"
+      ],
+      "colors": [],
+      "classes": [
+        "Figure_digit",
+        "Privacy_root",
+        "Money_title",
+        "Nav_mark",
+        "Path_list",
+        "Form_title",
+        "Figure_value",
+        "Path_root",
+        "Faq_root",
+        "Privacy_title",
+        "Scope_title",
+        "Faq_title",
+        "Mark_title",
+        "Foot_legal",
+        "sr-only",
+        "Field_root",
+        "Path_title",
+        "Signal_text",
+        "Foot_links",
+        "Form_paragraph",
+        "Mark_lede",
+        "Money_text",
+        "Signal_title",
+        "Mark_root",
+        "Faq_item",
+        "Money_root",
+        "Path_item",
+        "Scope_text",
+        "Privacy_text",
+        "Repeat_root",
+        "Figure_track--b",
+        "Repeat_link",
+        "Foot_root",
+        "Nav_age",
+        "Form_root",
+        "Form_successText",
+        "Signal_root",
+        "Button_primary",
+        "Nav_return",
+        "Foot_copy",
+        "Form_successTitle",
+        "Repeat_text",
+        "Figure_track--a",
+        "Form_sentence",
+        "Field_input--select",
+        "Figure_track",
+        "Button_quiet",
+        "Faq_question",
+        "Skip_link",
+        "Review_title",
+        "Faq_answer",
+        "Form_errors",
+        "Figure_caption",
+        "Field_root--check",
+        "Review_root",
+        "Field_label",
+        "Field_input",
+        "Cookie_text",
+        "Review_text",
+        "Scope_root",
+        "Nav_bar",
+        "Band_root",
+        "Form_success",
+        "Button_primary--sm",
+        "Figure_root",
+        "Form_error",
+        "Cookie_root",
+        "Nav_root",
+        "Field_check",
+        "Cookie_actions",
+        "Field_label--check"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg7",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@300;500&display=swap",
+          "assets/study.css",
+          "#pagrindinis",
+          "#viršus",
+          "#kelias",
+          "#prasymas",
+          "#",
+          "#"
+        ],
+        "issues": [
+          "Tušti href='#': 2"
+        ]
+      }
+    },
+    "lg8-vakaras": {
+      "variant": "lg8-vakaras",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Vakaras — pasirink vakarą, mes sudėsim likusią dalį",
+        "desc": "Pasirink šiandienos vakaro tipą keturiuose bento blokuose — likusi forma atsiskleidžia pati. Nemokamas įsirašymas per kelias minutes, tik pilnamečiams.",
+        "title_len": 51,
+        "desc_len": 151
+      },
+      "fonts": [
+        "Fredoka",
+        "Plus Jakarta Sans"
+      ],
+      "colors": [
+        "#c3f53c"
+      ],
+      "classes": [
+        "c-block__meta",
+        "c-cta",
+        "c-block--consent",
+        "c-field__error",
+        "c-skip",
+        "c-radio__dot",
+        "c-radio",
+        "l-stack",
+        "c-block--field",
+        "l-board",
+        "c-block--intro",
+        "c-link",
+        "c-block__title",
+        "c-brand__dot",
+        "c-success",
+        "c-visually-hidden",
+        "c-field__label",
+        "c-brand",
+        "l-board__grid",
+        "c-cta--secondary",
+        "c-block__status",
+        "c-legal__copy",
+        "c-link--muted",
+        "c-faq",
+        "c-block__sub",
+        "c-field__check",
+        "c-block__pick",
+        "c-cta--primary",
+        "c-cookie",
+        "l-nav__row",
+        "c-toggle",
+        "c-block--wide",
+        "l-shell",
+        "c-field__row",
+        "l-nav",
+        "c-legend",
+        "c-block__desc",
+        "c-block",
+        "c-list",
+        "l-legal",
+        "c-legal__links",
+        "c-block__status--inline",
+        "c-fieldset",
+        "c-field__input",
+        "c-block--option"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg8",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Plus+Jakarta+Sans:wght@400;600&display=swap",
+          "ui/board.css",
+          "#klausimas-heading",
+          "#top",
+          "#prisijungti",
+          "#vakaras-pradzia",
+          "#",
+          "#",
+          "#"
+        ],
+        "issues": [
+          "Tušti href='#': 3"
+        ]
+      }
+    },
+    "lg9-prieiga": {
+      "variant": "lg9-prieiga",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Prieiga: paleisk paskyrą per penkis klausimus",
+        "desc": "Prieiga: mazgas nuo 1997, be modemo. Paleisk paskyrą per penkis klausimus, be kainos. Validacija rankinė, atsakymai matomi kaip seanso istorija.",
+        "title_len": 45,
+        "desc_len": 144
+      },
+      "fonts": [
+        "Inter Tight",
+        "JetBrains Mono"
+      ],
+      "colors": [
+        "#2b2b28"
+      ],
+      "classes": [
+        "tm-prose",
+        "tm-faq-item",
+        "tm-skip",
+        "tm-footer-links",
+        "tm-glyph",
+        "tm-out",
+        "tm-lede",
+        "tm-history",
+        "tm-link",
+        "tm-prompt",
+        "tm-nav-link",
+        "tm-topline",
+        "tm-run-link",
+        "tm-h1",
+        "tm-cursor",
+        "tm-bar",
+        "tm-comment",
+        "tm-step",
+        "tm-err",
+        "tm-cmd",
+        "tm-block",
+        "tm-sr-only",
+        "tm-run",
+        "tm-copyright",
+        "tm-hint",
+        "tm-hero-lines",
+        "tm-success",
+        "tm-form-pane",
+        "tm-repeat",
+        "tm-steps",
+        "tm-shell",
+        "tm-footer",
+        "tm-mark",
+        "tm-pane"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2,
+          3
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg9",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter+Tight:wght@400&display=swap",
+          "bin/term.css",
+          "#tm-main",
+          "#",
+          "#tm-login-note",
+          "#tm-form",
+          "#tm-form",
+          "#tm-form",
+          "#tm-form",
+          "#tm-form",
+          "#tm-form",
+          "#tm-privacy"
+        ],
+        "issues": [
+          "Tušti href='#': 1"
+        ]
+      }
+    },
+    "lg10-atvirukas": {
+      "variant": "lg10-atvirukas",
+      "files": {
+        "index.html": true,
+        "variant_md": true
+      },
+      "meta": {
+        "title": "Atvirukas — dėžutė, kurią pildai savo tempu",
+        "desc": "Atvirukas: penkios kortelės savo tempu, niekas neišsiunčiama be tavo sutikimo. Nemokama, tik pilnametystės sulaukusiems.",
+        "title_len": 43,
+        "desc_len": 120
+      },
+      "fonts": [
+        "Lora",
+        "Manrope"
+      ],
+      "colors": [],
+      "classes": [
+        "site-header",
+        "field-row--password",
+        "site-mark-note",
+        "hero-block",
+        "password-toggle",
+        "password-shell",
+        "answer-list",
+        "answer-item--faq",
+        "deck-question",
+        "deck-card",
+        "deck-send",
+        "legal-links",
+        "quiet-link",
+        "deck-flip",
+        "success-panel",
+        "page-frame--header",
+        "content-column",
+        "site-mark-name",
+        "site-mark",
+        "hero-lede",
+        "deck-status",
+        "story-panel",
+        "deck-next",
+        "answer-block",
+        "deck-stack",
+        "success-heading",
+        "field-error",
+        "repeat-link",
+        "skip-link",
+        "deck-card-inner",
+        "answer-item-q",
+        "topic-steps",
+        "site-footer",
+        "cookie-strip",
+        "answer-item",
+        "deck-form",
+        "topic-block",
+        "field-row",
+        "deck-back",
+        "legal-copy",
+        "field-row--check",
+        "legal-block",
+        "answer-list--options",
+        "postcard-note",
+        "page-frame",
+        "deck-front"
+      ],
+      "structure": {
+        "h1_count": 1,
+        "heading_levels": [
+          1,
+          2
+        ],
+        "img_without_alt": 0,
+        "issues": [
+          "canonical missing"
+        ]
+      },
+      "links": {
+        "internal_links": [
+          "https://vyrukambarys.lt/lg10",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&family=Manrope:wght@400;600&display=swap",
+          "assets/pastel.css",
+          "#atvirukas-dek",
+          "#prisijungimas",
+          "#ribos-heading",
+          "#pinigai-heading",
+          "#priezura-heading",
+          "#atvirukas-dek",
+          "#atvirukas-dek",
+          "#taisykles",
+          "#privatumas"
+        ],
+        "issues": []
+      }
+    }
+  },
+  "ngram_issues": [
+    {
+      "variant1": "lg1-matmuo",
+      "variant2": "lg10-atvirukas",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "metų, ir sutinku su",
+        "25–34 35–44 45–54 55+",
+        "pasirink 18–24 25–34 35–44"
+      ]
+    },
+    {
+      "variant1": "lg1-matmuo",
+      "variant2": "lg2-lenta",
+      "common_ngrams": [
+        "ir sutinku su taisyklėmis",
+        "18–24 25–34 35–44 45–54"
+      ]
+    },
+    {
+      "variant1": "lg1-matmuo",
+      "variant2": "lg3-pultas",
+      "common_ngrams": [
+        "taisyklėmis bei privatumo politika.",
+        "tai atskiras žingsnis nuo"
+      ]
+    },
+    {
+      "variant1": "lg1-matmuo",
+      "variant2": "lg5-salyga",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "jei jis kada nors",
+        "jis kada nors atsirastų,",
+        "nėra. jei jis kada",
+        "pasirink 18–24 25–34 35–44"
+      ]
+    },
+    {
+      "variant1": "lg1-matmuo",
+      "variant2": "lg6-talonas",
+      "common_ngrams": [
+        "ir sutinku su taisyklėmis",
+        "18–24 25–34 35–44 45–54"
+      ]
+    },
+    {
+      "variant1": "lg1-matmuo",
+      "variant2": "lg7-kabinetas",
+      "common_ngrams": [
+        "metų. taisyklės privatumo politika",
+        "18 metų. taisyklės privatumo"
+      ]
+    },
+    {
+      "variant1": "lg1-matmuo",
+      "variant2": "lg8-vakaras",
+      "common_ngrams": [
+        "iš karto. kas mato",
+        "karto. kas mato mano",
+        "18–24 25–34 35–44 45–54",
+        "25–34 35–44 45–54 55+",
+        "sutinku su taisyklėmis bei"
+      ]
+    },
+    {
+      "variant1": "lg1-matmuo",
+      "variant2": "lg9-prieiga",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "pasirink 18–24 25–34 35–44"
+      ]
+    },
+    {
+      "variant1": "lg10-atvirukas",
+      "variant2": "lg2-lenta",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "— ne todėl, kad",
+        "taisyklės privatumo politika ©",
+        "jei kada nors atsirastų"
+      ]
+    },
+    {
+      "variant1": "lg10-atvirukas",
+      "variant2": "lg3-pultas",
+      "common_ngrams": [
+        "taisyklės privatumo politika ©",
+        "jei kada nors atsirastų"
+      ]
+    },
+    {
+      "variant1": "lg10-atvirukas",
+      "variant2": "lg4-silas",
+      "common_ngrams": [
+        "šiandien, o ne kada",
+        "šis puslapis naudoja tik",
+        "kad forma veiktų ir",
+        "puslapis naudoja tik būtinuosius"
+      ]
+    },
+    {
+      "variant1": "lg10-atvirukas",
+      "variant2": "lg5-salyga",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "pasirink 18–24 25–34 35–44"
+      ]
+    },
+    {
+      "variant1": "lg10-atvirukas",
+      "variant2": "lg6-talonas",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "už tai nereikės mokėti?",
+        "ar tikrai už tai",
+        "jei kada nors atsirastų",
+        "tikrai už tai nereikės"
+      ]
+    },
+    {
+      "variant1": "lg10-atvirukas",
+      "variant2": "lg7-kabinetas",
+      "common_ngrams": [
+        "taisyklės privatumo politika ©",
+        "jei kada nors atsirastų"
+      ]
+    },
+    {
+      "variant1": "lg10-atvirukas",
+      "variant2": "lg8-vakaras",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "25–34 35–44 45–54 55+",
+        "tik pilnametystės sulaukusiems asmenims.",
+        "veiktų ir prisimintų tavo",
+        "jei kada nors atsirastų"
+      ]
+    },
+    {
+      "variant1": "lg10-atvirukas",
+      "variant2": "lg9-prieiga",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "žmogus, ne vien algoritmas.",
+        "pasirink 18–24 25–34 35–44"
+      ]
+    },
+    {
+      "variant1": "lg2-lenta",
+      "variant2": "lg3-pultas",
+      "common_ngrams": [
+        "taisyklės privatumo politika ©",
+        "jei kada nors atsirastų"
+      ]
+    },
+    {
+      "variant1": "lg2-lenta",
+      "variant2": "lg4-silas",
+      "common_ngrams": [
+        "po to, kai jau"
+      ]
+    },
+    {
+      "variant1": "lg2-lenta",
+      "variant2": "lg5-salyga",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "35–44 45–54 55 ir",
+        "45–54 55 ir daugiau",
+        "25–34 35–44 45–54 55"
+      ]
+    },
+    {
+      "variant1": "lg2-lenta",
+      "variant2": "lg6-talonas",
+      "common_ngrams": [
+        "jei dar dvejoji ar",
+        "18–24 25–34 35–44 45–54",
+        "nors atsirastų mokamas lygis,",
+        "35–44 45–54 55 ir",
+        "ir sutinku su taisyklėmis"
+      ]
+    },
+    {
+      "variant1": "lg2-lenta",
+      "variant2": "lg7-kabinetas",
+      "common_ngrams": [
+        "kada nors atsirastų mokamas",
+        "ne po to, kai",
+        "privatumo politika © 2026",
+        "po to, kai jau",
+        "to, kai jau būtum"
+      ]
+    },
+    {
+      "variant1": "lg2-lenta",
+      "variant2": "lg8-vakaras",
+      "common_ngrams": [
+        "jei dar dvejoji ar",
+        "18–24 25–34 35–44 45–54",
+        "nors atsirastų mokamas lygis,",
+        "18+ ir sutinku su",
+        "ir sutinku su taisyklėmis"
+      ]
+    },
+    {
+      "variant1": "lg2-lenta",
+      "variant2": "lg9-prieiga",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "skirta tik pilnamečiams (18+).",
+        "35–44 45–54 55 ir",
+        "45–54 55 ir daugiau",
+        "25–34 35–44 45–54 55"
+      ]
+    },
+    {
+      "variant1": "lg3-pultas",
+      "variant2": "lg6-talonas",
+      "common_ngrams": [
+        "tik būtinuosius slapukus puslapio",
+        "būtinuosius slapukus puslapio veikimui",
+        "kad kitoje pusėje tikras",
+        "jei kada nors atsirastų",
+        "adresas neatrodo teisingas —"
+      ]
+    },
+    {
+      "variant1": "lg3-pultas",
+      "variant2": "lg7-kabinetas",
+      "common_ngrams": [
+        "neatrodo teisingas — patikrink",
+        "šis adresas neatrodo teisingas",
+        "teisingas — patikrink formatą.",
+        "taisyklės privatumo politika ©",
+        "jei kada nors atsirastų"
+      ]
+    },
+    {
+      "variant1": "lg3-pultas",
+      "variant2": "lg8-vakaras",
+      "common_ngrams": [
+        "jei kada nors atsirastų"
+      ]
+    },
+    {
+      "variant1": "lg3-pultas",
+      "variant2": "lg9-prieiga",
+      "common_ngrams": [
+        "jei tai kada nors",
+        "tai kada nors pasikeis,"
+      ]
+    },
+    {
+      "variant1": "lg4-silas",
+      "variant2": "lg6-talonas",
+      "common_ngrams": [
+        "naudoja tik būtinuosius slapukus",
+        "po to, kai jau",
+        "gali bet kada —",
+        "nebent pats jį parašai"
+      ]
+    },
+    {
+      "variant1": "lg4-silas",
+      "variant2": "lg7-kabinetas",
+      "common_ngrams": [
+        "naudoja tik būtinuosius slapukus",
+        "po to, kai jau",
+        "mato praleisti į turinį"
+      ]
+    },
+    {
+      "variant1": "lg4-silas",
+      "variant2": "lg8-vakaras",
+      "common_ngrams": [
+        "po to, kai jau"
+      ]
+    },
+    {
+      "variant1": "lg4-silas",
+      "variant2": "lg9-prieiga",
+      "common_ngrams": [
+        "ar reikės mokėti? ne."
+      ]
+    },
+    {
+      "variant1": "lg5-salyga",
+      "variant2": "lg6-talonas",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "35–44 45–54 55 ir",
+        "kas vyksta iškart po",
+        "kas matoma, kas ne",
+        "45–54 55 ir daugiau"
+      ]
+    },
+    {
+      "variant1": "lg5-salyga",
+      "variant2": "lg8-vakaras",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "pasirink 18–24 25–34 35–44"
+      ]
+    },
+    {
+      "variant1": "lg5-salyga",
+      "variant2": "lg9-prieiga",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "35–44 45–54 55 ir",
+        "45–54 55 ir daugiau",
+        "25–34 35–44 45–54 55",
+        "pasirink 18–24 25–34 35–44"
+      ]
+    },
+    {
+      "variant1": "lg6-talonas",
+      "variant2": "lg7-kabinetas",
+      "common_ngrams": [
+        "naudoja tik būtinuosius slapukus",
+        "kada nors atsirastų mokamas",
+        "ne po to, kai",
+        "po to, kai jau",
+        "jei kada nors atsirastų"
+      ]
+    },
+    {
+      "variant1": "lg6-talonas",
+      "variant2": "lg8-vakaras",
+      "common_ngrams": [
+        "jei dar dvejoji ar",
+        "dar dvejoji ar tikrai",
+        "18–24 25–34 35–44 45–54",
+        "nors atsirastų mokamas lygis,",
+        "ir sutinku su taisyklėmis"
+      ]
+    },
+    {
+      "variant1": "lg6-talonas",
+      "variant2": "lg9-prieiga",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "35–44 45–54 55 ir",
+        "45–54 55 ir daugiau",
+        "25–34 35–44 45–54 55"
+      ]
+    },
+    {
+      "variant1": "lg7-kabinetas",
+      "variant2": "lg8-vakaras",
+      "common_ngrams": [
+        "kada nors atsirastų mokamas",
+        "ne po to, kai",
+        "po to, kai jau",
+        "jei kada nors atsirastų"
+      ]
+    },
+    {
+      "variant1": "lg8-vakaras",
+      "variant2": "lg9-prieiga",
+      "common_ngrams": [
+        "18–24 25–34 35–44 45–54",
+        "mums. jei dar dvejoji",
+        "pasirink 18–24 25–34 35–44"
+      ]
+    }
+  ],
+  "forbidden_issues": {},
+  "title_duplicates": {},
+  "color_duplicates": {},
+  "font_duplicates": {},
+  "errors": []
+}

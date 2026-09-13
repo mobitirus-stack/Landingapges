@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atvirukas — dėžutė, kurią pildai savo tempu</title>
+<meta name="description" content="Atvirukas: penkios kortelės savo tempu, niekas neišsiunčiama be tavo sutikimo. Nemokama, tik pilnametystės sulaukusiems.">
+<link rel="canonical" href="https://vyrukambarys.lt/lg10">
+<meta name="robots" content="index,follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Atvirukas — dėžutė, kurią pildai savo tempu">
+<meta property="og:description" content="Penkios kortelės savo tempu, niekas neišsiunčiama be tavo sutikimo. Nemokama, tik pilnametystės sulaukusiems.">
+<meta property="og:url" content="https://vyrukambarys.lt/lg10">
+<meta property="og:locale" content="lt_LT">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/pastel.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Atvirukas",
+  "description": "Nemokamas atviruko išsiuntimas į dėžutę penkiomis kortelėmis, tik pilnametystės sulaukusiems.",
+  "url": "https://vyrukambarys.lt/lg10"
+}
+</script>
+</head>
+<body>
+
+<a class="deck-skip" href="#atvirukas-dek">Peršokti prie atviruko</a>
+
+<header class="site-header">
+  <nav class="page-frame page-frame--header" aria-label="Pagrindinė">
+    <div class="site-mark">
+      <p class="site-mark-name">Atvirukas</p>
+      <p class="site-mark-note">Tik pilnametystės sulaukusiems.</p>
+    </div>
+    <!-- tracking: return_member_click -->
+    <a class="quiet-link" href="#prisijungimas" data-track="return_member_click">Jau turi atviruką? Prisijunk.</a>
+  </nav>
+</header>
+
+<main>
+  <div class="page-frame">
+    <div class="content-column">
+
+      <section class="hero-block" id="atvirukas-dek" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">Atvirukas, kurį rašai savo tempu</h1>
+        <p class="hero-lede">Penkios kortelės, po vieną klausimą. Sustok ties bet kuria ir grįžk, kada
+          patogu — niekas nieko nematys, kol pats nepaspausi siųsti.</p>
+
+        <form class="deck-form" id="deckForm" action="#" novalidate>
+          <!-- tracking: deck_card_flip -->
+          <ol class="deck-stack" id="deckStack">
+
+            <li class="deck-card" data-order="1">
+              <div class="deck-card-inner">
+                <div class="deck-front" aria-hidden="true">
+                  <p class="deck-question">Kokios nuotaikos šiandien atėjai?</p>
+                  <button type="button" class="deck-flip" tabindex="-1" data-flip="1">Versti kortelę</button>
+                </div>
+                <div class="deck-back">
+                  <fieldset class="field-row">
+                    <legend>Nuotaika</legend>
+                    <div class="answer-list answer-list--options">
+                      <label class="answer-item"><input type="radio" name="nuotaika" value="smalsumas" required> Smalsumas</label>
+                      <label class="answer-item"><input type="radio" name="nuotaika" value="atsargumas" required> Atsargumas</label>
+                      <label class="answer-item"><input type="radio" name="nuotaika" value="zaismingumas" required> Žaismingumas</label>
+                      <label class="answer-item"><input type="radio" name="nuotaika" value="ramybe" required> Ramybė</label>
+                    </div>
+                    <p class="field-error" data-error-for="nuotaika" role="alert" hidden></p>
+                  </fieldset>
+                  <button type="button" class="deck-next" data-next="1">Kita kortelė</button>
+                </div>
+              </div>
+            </li>
+
+            <li class="deck-card" data-order="2">
+              <div class="deck-card-inner">
+                <div class="deck-front" aria-hidden="true">
+                  <p class="deck-question">Koks vardelis tave lydės dėžutėje?</p>
+                  <button type="button" class="deck-flip" tabindex="-1" data-flip="2">Versti kortelę</button>
+                </div>
+                <div class="deck-back">
+                  <div class="field-row">
+                    <label for="vardelis">Vardelis</label>
+                    <input type="text" id="vardelis" name="vardelis" required minlength="2" maxlength="24" autocomplete="nickname">
+                    <p class="field-error" data-error-for="vardelis" role="alert" hidden></p>
+                  </div>
+                  <button type="button" class="deck-next" data-next="2">Kita kortelė</button>
+                </div>
+              </div>
+            </li>
+
+            <li class="deck-card" data-order="3">
+              <div class="deck-card-inner">
+                <div class="deck-front" aria-hidden="true">
+                  <p class="deck-question">Koks tavo tarpsnis ir kampelis?</p>
+                  <button type="button" class="deck-flip" tabindex="-1" data-flip="3">Versti kortelę</button>
+                </div>
+                <div class="deck-back">
+                  <div class="field-row">
+                    <label for="tarpsnis">Tarpsnis</label>
+                    <select id="tarpsnis" name="tarpsnis" required>
+                      <option value="">Pasirink</option>
+                      <option value="18-24">18–24</option>
+                      <option value="25-34">25–34</option>
+                      <option value="35-44">35–44</option>
+                      <option value="45-54">45–54</option>
+                      <option value="55+">55+</option>
+                    </select>
+                    <p class="field-error" data-error-for="tarpsnis" role="alert" hidden></p>
+                  </div>
+                  <div class="field-row">
+                    <label for="kampelis">Kampelis</label>
+                    <input type="text" id="kampelis" name="kampelis" required minlength="2" maxlength="40" autocomplete="address-level2">
+                    <p class="field-error" data-error-for="kampelis" role="alert" hidden></p>
+                  </div>
+                  <button type="button" class="deck-next" data-next="3">Kita kortelė</button>
+                </div>
+              </div>
+            </li>
+
+            <li class="deck-card" data-order="4">
+              <div class="deck-card-inner">
+                <div class="deck-front" aria-hidden="true">
+                  <p class="deck-question">Kur atsiųsti atsakymą?</p>
+                  <button type="button" class="deck-flip" tabindex="-1" data-flip="4">Versti kortelę</button>
+                </div>
+                <div class="deck-back">
+                  <div class="field-row">
+                    <label for="atsakymoAdresas">Atsakymo adresas</label>
+                    <input type="email" id="atsakymoAdresas" name="atsakymoAdresas" required autocomplete="email">
+                    <p class="field-error" data-error-for="atsakymoAdresas" role="alert" hidden></p>
+                  </div>
+                  <button type="button" class="deck-next" data-next="4">Kita kortelė</button>
+                </div>
+              </div>
+            </li>
+
+            <li class="deck-card" data-order="5">
+              <div class="deck-card-inner">
+                <div class="deck-front" aria-hidden="true">
+                  <p class="deck-question">Koks bus tavo savas žodis?</p>
+                  <button type="button" class="deck-flip" tabindex="-1" data-flip="5">Versti kortelę</button>
+                </div>
+                <div class="deck-back">
+                  <div class="field-row field-row--password">
+                    <label for="savasZodis">Savas žodis</label>
+                    <div class="password-shell">
+                      <input type="password" id="savasZodis" name="savasZodis" required minlength="8" autocomplete="new-password">
+                      <button type="button" class="password-toggle" aria-pressed="false" aria-label="Rodyti savą žodį">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 5c-5 0-9 4-10 7 1 3 5 7 10 7s9-4 10-7c-1-3-5-7-10-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+                      </button>
+                    </div>
+                    <p class="field-error" data-error-for="savasZodis" role="alert" hidden></p>
+                  </div>
+                  <div class="field-row field-row--check">
+                    <label class="answer-item">
+                      <input type="checkbox" id="pasizadejimas" name="pasizadejimas" required>
+                      Patvirtinu, kad man jau 18 metų, ir sutinku su naudojimosi taisyklėmis.
+                    </label>
+                    <p class="field-error" data-error-for="pasizadejimas" role="alert" hidden></p>
+                  </div>
+                  <!-- tracking: form_submit_attempt -->
+                  <button type="submit" class="deck-send" data-track="form_submit_attempt">Siųsti atviruką</button>
+                </div>
+              </div>
+            </li>
+
+          </ol>
+
+          <p class="deck-status" id="deckStatus" aria-live="polite"></p>
+        </form>
+
+        <div class="success-panel" id="successPanel" tabindex="-1" hidden>
+          <p class="success-heading">Atvirukas išsiųstas.</p>
+          <p>Kai kas nors atsiliepia simpatija, gausi žinutę savo atsakymo adresu — atsakyti ar ne,
+            spręsi tu.</p>
+        </div>
+        <!-- tracking: form_submitted -->
+      </section>
+
+      <section class="topic-block answer-block" aria-labelledby="d-heading">
+        <h2 id="d-heading">Kas dažniausiai neaišku iš pirmo karto</h2>
+        <div class="answer-list">
+          <div class="answer-item answer-item--faq">
+            <p class="answer-item-q">O jeigu persigalvosiu vidury?</p>
+            <p>Niekas neišsiunčiama, kol pats nepaspaudi. Užverk langą ir grįžk rytoj — viskas laukia
+              ten, kur palikai.</p>
+          </div>
+          <div class="answer-item answer-item--faq">
+            <p class="answer-item-q">Kas matys mano atviruką?</p>
+            <p>Tu pats nustatai, kas rodoma. Plačiau — skyriuje <a href="#ribos-heading">Ribos, kurias nustatai tu</a>.</p>
+          </div>
+          <div class="answer-item answer-item--faq">
+            <p class="answer-item-q">Ar tikrai už tai nereikės mokėti?</p>
+            <p>Ne — siuntimą į dėžutę aš laikau dovanai. Plačiau — skyriuje <a href="#pinigai-heading">Ar reikės mokėti</a>.</p>
+          </div>
+          <div class="answer-item answer-item--faq">
+            <p class="answer-item-q">Ar ten iš viso kas nors yra?</p>
+            <p>Taip — bet pirmiau aš pati jį perskaitau, ir tik po to jis atsiranda dėžutėje.
+              Plačiau — skyriuje <a href="#priezura-heading">Kas prižiūri dėžutę</a>.</p>
+          </div>
+          <div class="answer-item answer-item--faq">
+            <p class="answer-item-q">Kodėl turėčiau pradėti dabar, o ne kada nors vėliau?</p>
+            <p>Nebūtinai dabar. Bet jei jau čia — pirma kortelė užtrunka mažiau nei pusę minutės.</p>
+            <!-- tracking: repeat_cta_click -->
+            <a class="deck-retry" href="#atvirukas-dek" data-track="repeat_cta_click">↑ Grįžti prie atviruko</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic-block" aria-labelledby="m-heading">
+        <h2 id="m-heading">Kas nutinka po siuntimo</h2>
+        <ol class="topic-steps">
+          <li>Tavo atvirukas atsiduria dėžutėje, matomas tik tiek, kiek pats leidai.</li>
+          <li>Kai kažkas atsiliepia, tarp jūsų atsiranda simpatija — ne anksčiau.</li>
+          <li>Iš simpatijos gimsta korespondencija — pirmiausia trumpai parašote vienas kitam, toliau tęsiate savo tempu.</li>
+          <li>Šios korespondencijos niekas kitas nemato.</li>
+        </ol>
+      </section>
+
+      <section class="topic-block" aria-labelledby="ribos-heading">
+        <h2 id="ribos-heading">Ribos, kurias nustatai tu</h2>
+        <p>Gali rodyti tiek, kiek nori: vardelis matomas visiems dėžutėje, o tarpsnį ir kampelį gali
+          palikti apytikslius. Atsakymo adresu naudojamės tik mes, kad galėtume su tavimi susisiekti.
+          Ir gali bet kada pasitraukti — tereikia parašyti mums, o tavo atvirukas iš dėžutės dingsta
+          tą pačią dieną.</p>
+      </section>
+
+      <section class="topic-block" aria-labelledby="priezura-heading">
+        <h2 id="priezura-heading">Kas prižiūri dėžutę</h2>
+        <p>Kai kortelė atrodo įtartina — pasikartojantis aprašymas ar akivaizdus melas — aš
+          susisiekiu ir paklausiu, o ne tiesiog ją paslepiu. Tik tada ji atsiranda dėžutėje.</p>
+      </section>
+
+      <section class="topic-block" aria-labelledby="pinigai-heading">
+        <h2 id="pinigai-heading">Ar reikės mokėti</h2>
+        <p>Aš šitą dalį laikau dovanai — atviruko išsiuntimą, simpatijas, korespondenciją. Jokio
+          paslėpto apmokėjimo čia nėra, ir dovanai likęs kelias yra tas pats, kuriuo eini dabar.</p>
+      </section>
+
+      <section class="topic-block" aria-labelledby="aktyvumas-heading">
+        <h2 id="aktyvumas-heading">Kiek žmonių realiai yra dėžutėje</h2>
+        <p>Per praėjusias keturias savaites į dėžutę kiekvieną savaitę atsidūrė nuo 140 iki 210 naujų
+          atvirukų. Skaičius svyruoja, bet neatnaujinamas gyvai — jį perskaičiuojame kartą per savaitę,
+          todėl jis niekada nerodo nulio ar tuščios dėžutės.</p>
+      </section>
+
+      <section class="topic-block" aria-labelledby="isipareigojimas-heading">
+        <h2 id="isipareigojimas-heading">Kiek iš tavęs prašome</h2>
+        <p>Penkios kortelės, apie dvi minutes iš viso. Jokių nuotraukų. Jokio telefono numerio. Tik
+          vardelis, tarpsnis, kampelis, atsakymo adresas ir savas žodis.</p>
+      </section>
+
+      <section class="topic-block" aria-labelledby="kodel-dabar-heading">
+        <h2 id="kodel-dabar-heading">Kodėl verta pradėti šiandien, o ne kada nors</h2>
+        <p>Vakarais dėžutėje daugiausiai judesio — ne todėl, kad turi skubėti, o todėl, kad tuo metu
+          daugiausia korespondentų patys skaito naujus atvirukus. Jei pradedi ryte, tavo atvirukas
+          tiesiog palauks iki vakaro.</p>
+        <!-- tracking: repeat_cta_click -->
+        <a class="deck-retry" href="#atvirukas-dek" data-track="repeat_cta_click">↑ Grįžti prie atviruko</a>
+      </section>
+
+    </div>
+
+    <aside class="story-panel" aria-label="Trumpos pastabos">
+      <p class="postcard-note">„Man irgi nepatiko pirmas kartas — todėl čia jis kitoks.“</p>
+      <p class="postcard-note">„Gali užverti šį langą ir grįžti rytoj. Niekur nedings.“</p>
+      <p class="postcard-note">„Nieko neišsiunčiame, kol tu pats nepasakai.“</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="page-frame">
+    <div class="legal-block">
+      <p>Atvirukas skirtas tik pilnametystės sulaukusiems asmenims. Siųsdamas/-a atviruką patvirtini,
+        kad tau jau 18 metų.</p>
+      <ul class="deck-links">
+        <li><a href="#taisykles">Naudojimosi taisyklės</a></li>
+        <li><a href="#privatumas">Privatumo politika</a></li>
+      </ul>
+      <p class="legal-copy">© Atvirukas.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="deck-consent" id="cookieStrip">
+  <p>Šis puslapis naudoja tik būtinuosius slapukus, kad forma veiktų ir prisimintų tavo dėklo
+    progresą.</p>
+  <!-- tracking: cookie_ack -->
+  <button type="button" id="cookieAccept" data-track="cookie_ack">Supratau</button>
+</div>
+
+<script src="assets/pastel.js"></script>
+</body>
+</html>

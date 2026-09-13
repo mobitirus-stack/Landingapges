@@ -1,0 +1,470 @@
+/* ==========================================================================
+   Pultas — static/panel.css
+   Konvencija: data-atributai + minimalios klasės (matricos ašis 14, eilutė 3)
+   Mobile-first. Breakpoints: 360 / 768 / 1024 / 1440.
+   ========================================================================== */
+
+:root{
+  /* --- paletė (matrica ašis 2, eilutė 3) --- */
+  --c-pultas: #0A1628;      /* pagrindinis fonas */
+  --c-gylis: #071120;       /* gylio sluoksnis / fono gradiento apačia */
+  --c-prietaisas: #12253F;  /* paviršius: panelės, laukai, kortelės */
+  --c-tekstas: #D9E6F4;     /* pagrindinis tekstas */
+  --c-signalas: #3FD0E8;    /* vienintelis akcentas */
+  --c-nuslopintas: #6E8BA8; /* antrinis tekstas, ribos */
+
+  /* --- tipografija --- */
+  --f-antraste: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --f-tekstas: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+
+  --fs-1: 1rem;        /* 16px */
+  --fs-2: 1.25rem;     /* 20px */
+  --fs-3: 1.5625rem;   /* ~25px */
+  --fs-4: 1.9375rem;   /* ~31px */
+  --fs-5: 2.4375rem;   /* ~39px */
+  --fs-6: 3.0625rem;   /* ~49px */
+
+  /* --- ritmas: 4px žingsnis --- */
+  --sp-1: 0.25rem;  /* 4px */
+  --sp-2: 0.5rem;   /* 8px */
+  --sp-3: 0.75rem;  /* 12px */
+  --sp-4: 1rem;     /* 16px */
+  --sp-5: 1.25rem;  /* 20px */
+  --sp-6: 1.5rem;   /* 24px */
+  --sp-8: 2rem;     /* 32px */
+  --sp-10: 2.5rem;  /* 40px */
+  --sp-12: 3rem;    /* 48px */
+  --sp-16: 4rem;    /* 64px */
+
+  /* --- kampų kalba (matrica ašis 10, eilutė 3): 12px, jokių išorinių šešėlių --- */
+  --radius: 12px;
+  --ring-inset: inset 0 0 0 1px rgba(217, 230, 244, 0.14);
+
+  color-scheme: dark;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+/* scroll-behavior sąmoningai NE smooth: vienintelis šio puslapio judesio momentas yra
+   rodyklės reakcija į pasirinktą zoną (žr. [data-gauge-needle] žemiau); nuorodų šuoliai
+   į #pultas-panel lieka betarpiški, kad judesio nebūtų daugiau nei vienas. */
+
+body{
+  margin: 0;
+  min-width: 0;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, var(--c-pultas) 0%, var(--c-gylis) 100%);
+  color: var(--c-tekstas);
+  font-family: var(--f-tekstas);
+  font-size: var(--fs-1);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2{
+  font-family: var(--f-antraste);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--sp-4);
+  color: var(--c-tekstas);
+}
+
+h1{ font-size: var(--fs-5); }
+h2{ font-size: var(--fs-3); }
+
+p{ margin: 0 0 var(--sp-4); max-width: 62ch; }
+
+a{ color: var(--c-signalas); }
+a:not(.pultas-action){ text-underline-offset: 0.15em; }
+
+:focus-visible{
+  outline: 2px solid var(--c-signalas);
+  outline-offset: 2px;
+}
+
+.pultas-visually-hidden{
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pultas-skip{
+  position: absolute;
+  left: var(--sp-4);
+  top: -3rem;
+  background: var(--c-prietaisas);
+  color: var(--c-tekstas);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--radius);
+  z-index: 10;
+}
+.pultas-skip:focus{ top: var(--sp-4); }
+
+/* ---------- topbar (F1 / F2) — statinė, NE sticky, NE permatoma ---------- */
+
+.pultas-topbar{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-4);
+  border-bottom: 1px solid rgba(217, 230, 244, 0.1);
+}
+
+.pultas-brand{
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.pultas-brand__name{
+  font-family: var(--f-antraste);
+  font-weight: 600;
+  font-size: var(--fs-2);
+  letter-spacing: 0;
+}
+
+.pultas-tag18{
+  font-family: var(--f-tekstas);
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--c-pultas);
+  background: var(--c-signalas);
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius);
+  line-height: 1.2;
+}
+
+.pultas-nav-link{
+  font-size: 0.875rem;
+  color: var(--c-nuslopintas);
+  text-decoration: underline;
+}
+.pultas-nav-link:hover{ color: var(--c-tekstas); }
+
+/* ---------- įžanga (P) ---------- */
+
+.pultas-intro{
+  padding: var(--sp-10) var(--sp-4) var(--sp-6);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.pultas-intro__lede{
+  font-size: var(--fs-2);
+  color: var(--c-nuslopintas);
+  max-width: 48ch;
+}
+
+@media (min-width: 768px){
+  .pultas-intro{ padding-top: var(--sp-12); }
+  h1{ font-size: var(--fs-6); }
+}
+
+@media (min-width: 1440px){
+  .pultas-intro{ padding-left: var(--sp-8); padding-right: var(--sp-8); }
+  .pultas-split{ padding-left: var(--sp-8); padding-right: var(--sp-8); }
+}
+
+/* ---------- split layout (ašis 6, eilutė 3) ---------- */
+
+.pultas-split{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "panel"
+    "feed";
+  gap: var(--sp-8);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--sp-4) var(--sp-16);
+  align-items: start;
+}
+
+.pultas-panel{ grid-area: panel; }
+.pultas-feed{ grid-area: feed; min-width: 0; }
+
+@media (min-width: 1024px){
+  .pultas-split{
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-areas: "feed panel";
+    gap: var(--sp-12);
+  }
+  .pultas-panel{
+    position: sticky;
+    top: var(--sp-8);
+    align-self: start;
+    height: fit-content;
+  }
+}
+
+/* ---------- panelė: gyvas pultas + forma ---------- */
+
+.pultas-panel{
+  background: var(--c-prietaisas);
+  border-radius: var(--radius);
+  box-shadow: var(--ring-inset);
+  padding: var(--sp-6);
+}
+
+.pultas-gauge{
+  text-align: center;
+  margin-bottom: var(--sp-6);
+}
+
+.pultas-gauge__svg{
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+}
+
+[data-gauge-needle]{
+  transition: transform 0.6s ease;
+}
+
+.pultas-gauge__readout{
+  font-family: var(--f-antraste);
+  font-weight: 600;
+  font-size: var(--fs-3);
+  color: var(--c-signalas);
+  margin: var(--sp-2) 0 0;
+}
+
+.pultas-form__stage{
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.pultas-form__stage + .pultas-form__stage{
+  margin-top: var(--sp-4);
+}
+
+.pultas-field{
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.pultas-field--check{
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--sp-2);
+}
+.pultas-field--check label{ font-weight: 400; }
+
+.pultas-field label{
+  font-family: var(--f-tekstas);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--c-tekstas);
+}
+
+.pultas-field input,
+.pultas-field select{
+  width: 100%;
+  font-family: var(--f-tekstas);
+  font-size: var(--fs-1);
+  color: var(--c-tekstas);
+  background: var(--c-pultas);
+  border: 1px solid var(--c-nuslopintas);
+  border-radius: var(--radius);
+  padding: var(--sp-3);
+}
+
+.pultas-field input[type="checkbox"]{
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  margin-top: 0.2rem;
+}
+
+.pultas-field input::placeholder{ color: var(--c-nuslopintas); }
+
+.pultas-hint{
+  font-size: 0.8125rem;
+  /* c-nuslopintas ant c-prietaisas paviršiaus duotų <4.5:1 kontrastą, todėl čia c-tekstas */
+  color: var(--c-tekstas);
+  margin: 0;
+}
+
+.pultas-error{
+  font-size: 0.8125rem;
+  color: var(--c-signalas);
+  margin: 0;
+}
+.pultas-error::before{ content: "⚠ "; }
+
+.pultas-action{
+  font-family: var(--f-tekstas);
+  font-weight: 500;
+  font-size: var(--fs-1);
+  color: var(--c-tekstas);
+  background: transparent;
+  border: 1px solid var(--c-signalas);
+  border-radius: var(--radius);
+  padding: var(--sp-3) var(--sp-5);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.pultas-action--primary{
+  background: var(--c-signalas);
+  color: var(--c-pultas);
+  font-weight: 500;
+}
+
+.pultas-action:hover{ background: rgba(63, 208, 232, 0.12); }
+.pultas-action--primary:hover{ background: var(--c-signalas); opacity: 0.9; }
+
+.pultas-success{
+  background: var(--c-pultas);
+  border-radius: var(--radius);
+  box-shadow: var(--ring-inset);
+  padding: var(--sp-5);
+  margin-top: var(--sp-4);
+}
+
+.pultas-success__title{
+  font-family: var(--f-antraste);
+  font-weight: 600;
+  font-size: var(--fs-2);
+  color: var(--c-signalas);
+  margin: 0 0 var(--sp-2);
+}
+
+/* ---------- feed sekcijos (Q, M, Į, K, A, €) ---------- */
+
+.pultas-stat{
+  padding: var(--sp-6) 0;
+  border-bottom: 1px solid rgba(217, 230, 244, 0.08);
+}
+.pultas-stat:first-child{ padding-top: 0; }
+
+.pultas-timeline{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.pultas-timeline__row{
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: var(--sp-4);
+  align-items: baseline;
+}
+
+.pultas-timeline__row dt{
+  font-family: var(--f-antraste);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--c-signalas);
+}
+
+.pultas-timeline__row dd{
+  margin: 0;
+  max-width: 52ch;
+}
+
+@media (max-width: 479px){
+  .pultas-timeline__row{ grid-template-columns: 1fr; gap: var(--sp-1); }
+}
+
+/* ---------- R — pakartotinis CTA ---------- */
+
+.pultas-repeat{
+  padding: var(--sp-6) 0;
+  border-bottom: 1px solid rgba(217, 230, 244, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4);
+}
+.pultas-repeat p{ margin: 0; color: var(--c-nuslopintas); }
+
+/* ---------- D — FAQ ---------- */
+
+.pultas-faq{ padding: var(--sp-6) 0; }
+
+.pultas-faq__item{
+  background: var(--c-prietaisas);
+  border-radius: var(--radius);
+  box-shadow: var(--ring-inset);
+  padding: var(--sp-4) var(--sp-5);
+  margin-bottom: var(--sp-3);
+}
+
+.pultas-faq__item summary{
+  font-family: var(--f-antraste);
+  font-weight: 600;
+  font-size: var(--fs-1);
+  cursor: pointer;
+}
+
+.pultas-faq__item p{
+  margin: var(--sp-3) 0 0;
+  /* c-nuslopintas ant c-prietaisas paviršiaus duotų <4.5:1 kontrastą, todėl čia c-tekstas */
+  color: var(--c-tekstas);
+}
+.pultas-faq__item a{ color: var(--c-signalas); }
+
+/* ---------- footer (L) + slapukai (C) ---------- */
+
+.pultas-footer{
+  background: var(--c-gylis);
+  padding: var(--sp-8) var(--sp-4);
+}
+
+.pultas-footer p{
+  max-width: 1440px;
+  margin: 0 auto var(--sp-2);
+  color: var(--c-nuslopintas);
+  font-size: 0.875rem;
+}
+
+.pultas-footer__links{ display: flex; gap: var(--sp-4); }
+.pultas-footer__links a{ color: var(--c-tekstas); }
+
+.pultas-cookie{
+  max-width: 1440px;
+  margin: var(--sp-6) auto 0;
+  background: var(--c-prietaisas);
+  border-radius: var(--radius);
+  box-shadow: var(--ring-inset);
+  padding: var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.pultas-cookie p{
+  margin: 0;
+  color: var(--c-tekstas);
+  font-size: 0.875rem;
+  max-width: 48ch;
+}
+
+.pultas-cookie__actions{
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+/* ---------- prieinamumas: judesys ---------- */
+
+@media (prefers-reduced-motion: reduce){
+  [data-gauge-needle]{ transition: none; }
+}

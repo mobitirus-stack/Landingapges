@@ -1,0 +1,636 @@
+/* ==========================================================================
+   lg1-matmuo — style.css
+   BEM: sheet__*, masthead__*, plate__*, spec__*, panel__*, entry__*,
+        faq__*, legal__*, consent__*, callout__*
+   ========================================================================== */
+
+/* ---- Reset (minimal, scoped) -------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---- Tokens --------------------------------------------------------------- */
+
+:root {
+  /* colour roles */
+  --sheet-bg: #E9ECEF;      /* lapas — page background */
+  --sheet-text: #16181D;    /* grafitas — primary text */
+  --sheet-accent: #D5202C;  /* kalibravimo raudona — accent */
+  --sheet-surface: #FDFDFD; /* paviršius — elevated panels */
+  --sheet-line: #C4CAD1;    /* tinklelio linija — borders, ticks */
+
+  /* spacing — 8px base grid */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 32px;
+  --sp-5: 40px;
+  --sp-6: 48px;
+  --sp-8: 64px;
+  --sp-10: 80px;
+  --sp-12: 96px;
+  --sp-16: 128px;
+
+  /* type */
+  --font-head: "Chivo", Arial, Helvetica, sans-serif;
+  --font-body: "Newsreader", Georgia, "Times New Roman", serif;
+  --fs-000: 0.833rem;
+  --fs-100: 1rem;
+  --fs-200: 1.2rem;
+  --fs-300: 1.44rem;
+  --fs-400: 1.728rem;
+  --fs-500: clamp(2.074rem, 1.85rem + 1vw, 2.488rem);
+  --fs-600: clamp(2.488rem, 1.9rem + 2.6vw, 3.5rem);
+
+  --radius: 0px;
+  --border: 1px solid var(--sheet-line);
+}
+
+/* ---- Base ------------------------------------------------------------- */
+
+body {
+  background: var(--sheet-bg);
+  color: var(--sheet-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-100);
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 var(--sp-2);
+}
+
+h1 {
+  font-size: var(--fs-600);
+}
+
+h2 {
+  font-size: var(--fs-400);
+}
+
+h3 {
+  font-size: var(--fs-300);
+}
+
+p {
+  max-width: 62ch;
+  margin: 0 0 var(--sp-3);
+}
+
+a {
+  color: var(--sheet-text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sheet-accent);
+  outline-offset: 2px;
+}
+
+.sheet__skip {
+  position: absolute;
+  left: var(--sp-2);
+  top: -100px;
+  background: var(--sheet-surface);
+  color: var(--sheet-text);
+  padding: var(--sp-2) var(--sp-3);
+  border: var(--border);
+  z-index: 100;
+  transition: top 0.15s ease;
+}
+
+.sheet__skip:focus {
+  top: var(--sp-2);
+}
+
+/* ---- Grid scaffold ------------------------------------------------------ */
+
+.sheet__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 var(--sp-3);
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--sp-2);
+}
+
+.sheet__margin {
+  display: none;
+}
+
+.sheet__content {
+  grid-column: 1 / -1;
+  padding-block: var(--sp-6);
+  border-bottom: var(--border);
+}
+
+@media (min-width: 1024px) {
+  .sheet__grid {
+    padding-inline: var(--sp-4);
+  }
+
+  .sheet__margin {
+    display: block;
+    grid-column: 1 / 3;
+    position: relative;
+  }
+
+  .sheet__content {
+    grid-column: 3 / 13;
+  }
+}
+
+/* visible 8px grid ruler in the reserved left margin, hero section only */
+.plate .sheet__margin {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--sheet-line) 0,
+    var(--sheet-line) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+/* ---- Masthead (H) -------------------------------------------------------- */
+
+.masthead {
+  border-bottom: var(--border);
+}
+
+.masthead .sheet__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding-block: var(--sp-3);
+  border-bottom: none;
+}
+
+.masthead__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.sheet__mark {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.masthead__word {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: var(--fs-200);
+  letter-spacing: 0.01em;
+}
+
+.masthead__badge {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: var(--fs-000);
+  border: 1px solid var(--sheet-text);
+  padding: 2px var(--sp-1);
+}
+
+.masthead__nav {
+  font-size: var(--fs-000);
+}
+
+.masthead__link {
+  color: var(--sheet-text);
+}
+
+/* ---- Plate (P + Į + FORM1) ------------------------------------------------ */
+
+.plate .sheet__content {
+  padding-block: var(--sp-8) var(--sp-6);
+}
+
+.plate__heading {
+  clip-path: inset(0 100% 0 0);
+  animation: sheet-reveal 0.7s cubic-bezier(0.65, 0, 0.2, 1) 0.1s both;
+}
+
+@keyframes sheet-reveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plate__heading {
+    animation: none;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.plate__lede {
+  font-size: var(--fs-200);
+}
+
+.spec--dims {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border: var(--border);
+  margin-block: var(--sp-4);
+  max-width: 42rem;
+}
+
+.spec--dims .spec__row {
+  flex: 1 1 160px;
+  padding: var(--sp-2) var(--sp-3);
+  border-right: var(--border);
+}
+
+.spec--dims .spec__row:last-child {
+  border-right: none;
+}
+
+.plate__note {
+  font-size: var(--fs-000);
+  color: var(--sheet-text);
+}
+
+.plate__entry {
+  margin-top: var(--sp-4);
+  max-width: 34rem;
+}
+
+.plate__entry-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  align-items: flex-end;
+}
+
+.plate__entry-field {
+  flex: 1 1 220px;
+}
+
+.plate__entry label,
+.entry label {
+  display: block;
+  font-size: var(--fs-000);
+  margin-bottom: var(--sp-1);
+}
+
+.plate__entry input,
+.entry input,
+.entry select {
+  width: 100%;
+  background: var(--sheet-surface);
+  border: 1px solid var(--sheet-text);
+  padding: var(--sp-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-100);
+}
+
+.plate__entry-hint {
+  font-size: var(--fs-000);
+  color: var(--sheet-text);
+  margin-top: var(--sp-2);
+  margin-bottom: 0;
+}
+
+.sheet__button {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: var(--fs-100);
+  background: var(--sheet-accent);
+  color: var(--sheet-surface);
+  border: 1px solid var(--sheet-accent);
+  padding: var(--sp-2) var(--sp-3);
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+.sheet__button:hover {
+  background: var(--sheet-text);
+  border-color: var(--sheet-text);
+}
+
+.plate__entry-error,
+.entry__error {
+  color: var(--sheet-accent);
+  background: var(--sheet-surface);
+  font-size: var(--fs-000);
+  margin: var(--sp-1) 0 0;
+  padding: var(--sp-1) 0;
+}
+
+.plate__entry-error::before,
+.entry__error::before {
+  content: "⚠ ";
+}
+
+/* ---- Spec panels (€ and Q) ------------------------------------------------ */
+
+.spec .sheet__content > h2 {
+  margin-bottom: var(--sp-3);
+}
+
+.spec__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-2) 0;
+  border-top: var(--border);
+  font-variant-numeric: tabular-nums;
+}
+
+.spec__row:first-of-type {
+  border-top: none;
+}
+
+.spec__label {
+  font-size: var(--fs-100);
+}
+
+.spec__value {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: var(--fs-200);
+  text-align: right;
+}
+
+/* ---- Panels (M and A) ------------------------------------------------------ */
+
+.panel__steps {
+  counter-reset: step;
+  max-width: 48rem;
+}
+
+.panel__steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: var(--sp-6);
+  margin-bottom: var(--sp-3);
+  max-width: 62ch;
+}
+
+.panel__steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  border: 1px solid var(--sheet-text);
+  width: var(--sp-4);
+  height: var(--sp-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-000);
+}
+
+.panel__note {
+  font-size: var(--fs-100);
+  border-top: var(--border);
+  padding-top: var(--sp-3);
+  max-width: 62ch;
+}
+
+.spec--audit {
+  border: var(--border);
+  max-width: 32rem;
+  margin-block: var(--sp-3);
+}
+
+.spec--audit .spec__row {
+  padding-inline: var(--sp-2);
+}
+
+/* ---- Full entry form (FORM pilna + sėkmė) --------------------------------- */
+
+.entry__form {
+  max-width: 34rem;
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.entry__field--optional .entry__optional-tag {
+  font-weight: 400;
+  color: var(--sheet-text);
+}
+
+.entry__hint {
+  font-size: var(--fs-000);
+  margin: var(--sp-1) 0 0;
+}
+
+.entry__field--check {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-2);
+  align-items: start;
+}
+
+.entry__field--check input {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+}
+
+.entry__field--check label {
+  font-size: var(--fs-100);
+}
+
+.entry__submit {
+  justify-self: start;
+}
+
+.entry__success {
+  max-width: 34rem;
+  margin-top: var(--sp-4);
+  padding: var(--sp-3);
+  background: var(--sheet-surface);
+  border: 2px solid var(--sheet-text);
+}
+
+.entry__success-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: var(--fs-300);
+  margin-bottom: var(--sp-2);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---- FAQ (D) ---------------------------------------------------------------- */
+
+.faq__item {
+  border-top: var(--border);
+  padding-block: var(--sp-3);
+}
+
+.faq__item:first-of-type {
+  border-top: none;
+}
+
+.faq__question {
+  margin-bottom: var(--sp-1);
+}
+
+.faq__answer {
+  margin-bottom: 0;
+}
+
+.faq__repeat {
+  display: inline-block;
+  margin-top: var(--sp-3);
+  font-size: var(--fs-000);
+  font-family: var(--font-head);
+  font-weight: 700;
+}
+
+/* ---- Legal footer (L) -------------------------------------------------------- */
+
+.legal .sheet__content {
+  border-bottom: none;
+  font-size: var(--fs-000);
+  padding-block: var(--sp-4);
+}
+
+.legal__row {
+  margin: 0 0 var(--sp-2);
+  max-width: none;
+}
+
+.legal__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-2);
+}
+
+.legal__link {
+  color: var(--sheet-text);
+}
+
+/* ---- Cookie consent (C) ------------------------------------------------------- */
+
+/* Nefiksuota (ne position:fixed) sąmoningai — F14 draudžia slapukų juostai
+   užstoti konversijos priemonę; statinė juosta dokumento sraute niekada
+   nepersidengia su forma ar mygtukais, nepriklausomai nuo puslapio ilgio. */
+.consent {
+  background: var(--sheet-surface);
+  border-top: 2px solid var(--sheet-text);
+  padding: var(--sp-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.consent__text {
+  margin: 0;
+  font-size: var(--fs-000);
+  max-width: 60ch;
+}
+
+/* ---- Decorative measurement callouts ------------------------------------------- */
+
+.callout {
+  /* --sheet-accent ant --sheet-bg fono duoda ~4.24:1 kontrastą — tai praeina AA
+     tik stambiam/paryškintam tekstui (>=18.66px bold). Todėl etiketė čia --fs-200
+     (19.2px) su font-weight 700, o ne mažesnis --fs-000, kad tekstas liktų
+     prieinamas (žr. VARIANT.md kontrasto patikrą). */
+  position: absolute;
+  top: 0;
+  right: var(--sp-2);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-head);
+  font-size: var(--fs-200);
+  font-weight: 700;
+  color: var(--sheet-accent);
+  white-space: nowrap;
+}
+
+.callout--dims {
+  top: var(--sp-16);
+}
+
+.callout__arrow {
+  width: 20px;
+  height: 12px;
+  overflow: visible;
+}
+
+/* ---- Utility -------------------------------------------------------------- */
+
+.sheet__lead-in {
+  font-size: var(--fs-000);
+  text-transform: none;
+  color: var(--sheet-text);
+  margin-bottom: var(--sp-1);
+}
+
+/* ---- Breakpoints ------------------------------------------------------------ */
+
+@media (min-width: 768px) {
+  .sheet__grid {
+    padding-inline: var(--sp-3);
+  }
+
+  .spec--dims .spec__row {
+    flex: 1 1 0;
+  }
+}
+
+@media (min-width: 1440px) {
+  .plate .sheet__content {
+    padding-block: var(--sp-10) var(--sp-8);
+  }
+}

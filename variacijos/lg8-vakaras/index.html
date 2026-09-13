@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vakaras — pasirink vakarą, mes sudėsim likusią dalį</title>
+<meta name="description" content="Pasirink šiandienos vakaro tipą keturiuose bento blokuose — likusi forma atsiskleidžia pati. Nemokamas įsirašymas per kelias minutes, tik pilnamečiams.">
+<link rel="canonical" href="https://vyrukambarys.lt/lg8">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vakaras — pasirink vakarą, mes sudėsim likusią dalį">
+<meta property="og:description" content="Keturi bento blokai, tikri radio mygtukai, viena bento lenta, kuri persitvarko pagal tavo pasirinkimą.">
+<meta property="og:url" content="https://vyrukambarys.lt/lg8">
+<meta property="og:locale" content="lt_LT">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Plus+Jakarta+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="ui/board.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Vakaras",
+  "url": "https://vyrukambarys.lt/lg8",
+  "inLanguage": "lt",
+  "description": "Vakaro planuoklis, kuriame pasirinkus vakaro tipą bento lenta persitvarko ir atveria likusią registracijos formą."
+}
+</script>
+<noscript>
+<style>
+  #tesinys [hidden] { display: block !important; }
+  .c-block { transform: none !important; }
+</style>
+</noscript>
+</head>
+<body>
+
+<a class="c-skip" href="#klausimas-heading">Praleisti į turinį</a>
+
+<header class="l-shell l-nav">
+  <nav class="l-nav__row" aria-label="Pagrindinė">
+    <a class="c-brand" href="#top">
+      <svg class="c-brand__dot" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+        <circle cx="7" cy="7" r="7" fill="#C3F53C"></circle>
+      </svg>
+      Vakaras
+    </a>
+    <a class="c-link c-link--muted" href="#prisijungti">Grįžk prie savo plano</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- [P + FORM pradžia] Herojus: klausimas + keturi atsakymo blokai -->
+  <section class="l-shell l-board" id="vakaras-pradzia" aria-labelledby="klausimas-heading">
+    <form id="vakaroForma" novalidate action="#" method="post">
+
+      <div class="l-board__grid" data-board="pradzia">
+
+        <div class="c-block c-block--intro" data-block="intro" style="--span-col:2; --span-row:2;">
+          <h1 id="klausimas-heading">Kokį vakarą renkiesi šiandien?</h1>
+          <p class="c-block__sub">Pasirink, koks vakaras — likusią dalį sudėsim mes.</p>
+          <p class="c-block__meta">4 blokai. Apie 2 minutes.</p>
+          <p class="c-block__status" data-status aria-live="polite"></p>
+        </div>
+
+        <!-- tracking: vakaro_tipas_pasirinktas -->
+        <div class="c-fieldset" role="group" aria-labelledby="legend-vakaro-tipas" data-fieldset="vakaro-tipas">
+          <p class="c-legend" id="legend-vakaro-tipas">Vakaro tipas</p>
+
+          <label class="c-block c-block--option c-block--wide" data-block="opt-ramus" data-option="Ramus vakaras" style="--span-col:2; --span-row:1;">
+            <span class="c-block__pick">
+              <input class="c-radio" type="radio" name="vakaro_tipas" value="ramus" required>
+              <span class="c-radio__dot" aria-hidden="true"></span>
+            </span>
+            <span class="c-block__title">Ramus vakaras</span>
+            <span class="c-block__desc">Kalbėtis, nesiskubinant.</span>
+          </label>
+
+          <label class="c-block c-block--option" data-block="opt-aktyvus" data-option="Aktyvus vakaras" style="--span-col:1; --span-row:1;">
+            <span class="c-block__pick">
+              <input class="c-radio" type="radio" name="vakaro_tipas" value="aktyvus" required>
+              <span class="c-radio__dot" aria-hidden="true"></span>
+            </span>
+            <span class="c-block__title">Aktyvus vakaras</span>
+            <span class="c-block__desc">Išeiti, judėti, nesėdėti vietoje.</span>
+          </label>
+
+          <label class="c-block c-block--option" data-block="opt-velyvas" data-option="Vėlyvas vakaras" style="--span-col:1; --span-row:1;">
+            <span class="c-block__pick">
+              <input class="c-radio" type="radio" name="vakaro_tipas" value="velyvas" required>
+              <span class="c-radio__dot" aria-hidden="true"></span>
+            </span>
+            <span class="c-block__title">Vėlyvas vakaras</span>
+            <span class="c-block__desc">Kai diena jau baigėsi, o norisi dar.</span>
+          </label>
+
+          <label class="c-block c-block--option c-block--wide" data-block="opt-netiketas" data-option="Netikėtas vakaras" style="--span-col:2; --span-row:1;">
+            <span class="c-block__pick">
+              <input class="c-radio" type="radio" name="vakaro_tipas" value="netiketas" required>
+              <span class="c-radio__dot" aria-hidden="true"></span>
+            </span>
+            <span class="c-block__title">Netikėtas vakaras</span>
+            <span class="c-block__desc">Be plano — kaip išeis.</span>
+          </label>
+
+        </div>
+
+      </div>
+
+      <!-- [M] Kas nutinka, kai baigsi -->
+      <section class="l-stack" aria-labelledby="mechanika-heading">
+        <h2 id="mechanika-heading">Kas nutinka, kai baigsi</h2>
+        <ul class="c-list">
+          <li>Tavo planas atsiranda tvarkaraštyje tą pačią sekundę.</li>
+          <li>Suderinimą matai tą pačią minutę, ne kitą dieną.</li>
+          <li>Pasikalbėjimas prasideda tavo pusėje — niekas tarp jūsų nestovi.</li>
+          <li>Jei šįvakar niekas nesutampa, planas lieka ir laukia kito karto.</li>
+        </ul>
+      </section>
+
+      <!-- [FORM tęsinys] -->
+      <section class="l-shell l-board" id="tesinys" hidden aria-labelledby="tesinys-heading">
+        <h2 id="tesinys-heading" class="c-visually-hidden">Likusi registracijos forma</h2>
+        <p class="c-block__status c-block__status--inline" data-status-tesinys aria-live="polite"></p>
+
+        <div class="l-board__grid" data-board="tesinys">
+
+          <div class="c-fieldset" role="group" aria-labelledby="legend-kur" data-step="2" data-fieldset="kur" hidden style="--span-col:2;--span-row:1;">
+            <p class="c-legend" id="legend-kur">Kur</p>
+            <div class="c-block c-block--field" data-block="field-miestas">
+              <label class="c-field__label" for="miestas">Miestas</label>
+              <input class="c-field__input" type="text" id="miestas" name="miestas" required minlength="2" placeholder="Vilnius, Kaunas, Klaipėda…" autocomplete="address-level2">
+              <p class="c-field__error" data-error="miestas" hidden></p>
+            </div>
+            <!-- tracking: zingsnis_2_baigtas -->
+            <button class="c-cta c-cta--secondary" type="button" data-advance="3">Rodyti kitą bloką</button>
+          </div>
+
+          <div class="c-fieldset" role="group" aria-labelledby="legend-kas-tu" data-step="3" data-fieldset="kas-tu" hidden style="--span-col:2;--span-row:1;">
+            <p class="c-legend" id="legend-kas-tu">Kas tu</p>
+            <div class="c-block c-block--field" data-block="field-amzius" style="--span-col:1;--span-row:1;">
+              <label class="c-field__label" for="amzius">Amžiaus juosta</label>
+              <select class="c-field__input" id="amzius" name="amzius" required>
+                <option value="" disabled selected>Pasirink</option>
+                <option value="18-24">18–24</option>
+                <option value="25-34">25–34</option>
+                <option value="35-44">35–44</option>
+                <option value="45-54">45–54</option>
+                <option value="55+">55+</option>
+              </select>
+              <p class="c-field__error" data-error="amzius" hidden></p>
+            </div>
+            <div class="c-block c-block--field" data-block="field-pseudonimas" style="--span-col:1;--span-row:1;">
+              <label class="c-field__label" for="pseudonimas">Pseudonimas</label>
+              <input class="c-field__input" type="text" id="pseudonimas" name="pseudonimas" required minlength="2" maxlength="24" placeholder="Kaip tave vadinti tvarkaraštyje" autocomplete="nickname">
+              <p class="c-field__error" data-error="pseudonimas" hidden></p>
+            </div>
+            <!-- tracking: zingsnis_3_baigtas -->
+            <button class="c-cta c-cta--secondary" type="button" data-advance="4">Rodyti paskutinį bloką</button>
+          </div>
+
+          <div class="c-fieldset" role="group" aria-labelledby="legend-paskutinis" data-step="4" data-fieldset="paskutinis" hidden style="--span-col:2;--span-row:2;">
+            <p class="c-legend" id="legend-paskutinis">Paskutinis blokas</p>
+            <div class="c-block c-block--field" data-block="field-pastas" style="--span-col:2;--span-row:1;">
+              <label class="c-field__label" for="pastas">Paštas</label>
+              <input class="c-field__input" type="email" id="pastas" name="pastas" required placeholder="tu@pastas.lt" autocomplete="email">
+              <p class="c-field__error" data-error="pastas" hidden></p>
+            </div>
+            <div class="c-block c-block--field" data-block="field-kombinacija" style="--span-col:2;--span-row:1;">
+              <label class="c-field__label" for="kombinacija">Kombinacija</label>
+              <div class="c-field__row">
+                <input class="c-field__input" type="password" id="kombinacija" name="kombinacija" required minlength="8" autocomplete="new-password">
+                <button class="c-toggle" type="button" data-toggle-pass aria-controls="kombinacija" aria-label="Rodyti kombinaciją" aria-pressed="false">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" data-toggle-icon>
+                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="c-field__error" data-error="kombinacija" hidden></p>
+            </div>
+            <div class="c-block c-block--field c-block--consent" data-block="field-sutikimas" style="--span-col:2;--span-row:1;">
+              <label class="c-field__check">
+                <input type="checkbox" id="sutikimas" name="sutikimas" required>
+                Man 18+ ir sutinku su taisyklėmis bei privatumo sąlygomis.
+              </label>
+              <p class="c-field__error" data-error="sutikimas" hidden></p>
+            </div>
+            <!-- tracking: isirasymo_forma_pateikta -->
+            <button class="c-cta c-cta--primary" type="submit">Įsirašyti</button>
+          </div>
+
+        </div>
+      </section>
+
+    </form>
+  </section>
+
+  <div class="l-shell">
+    <!-- tracking: isirasyta_sekme -->
+    <div class="c-success" data-success hidden role="status" tabindex="-1">
+      <h2>Įsirašyta!</h2>
+      <p>Tavo planas jau tvarkaraštyje — suderinimą pamatysi čia pat, šiame ekrane.</p>
+    </div>
+  </div>
+
+  <!-- [Q + N + €] Aktyvumas, laikas ir pinigų klausimas — bento lenta -->
+  <section class="l-shell l-board">
+    <div class="l-board__grid">
+
+      <div class="c-block" role="region" aria-labelledby="tvarkarastis-heading" style="--span-col:2; --span-row:1;">
+        <h2 id="tvarkarastis-heading">Tvarkaraštis šią savaitę</h2>
+        <p>Kiekvieną vakarą tvarkaraštyje atsiranda 40–70 naujų planų. Ketvirtadienis čia gyviausias, ir tai ne mūsų nuopelnas.</p>
+      </div>
+
+      <div class="c-block" role="region" aria-labelledby="kodel-heading" style="--span-col:2; --span-row:1;">
+        <h2 id="kodel-heading">Kodėl šiandien</h2>
+        <p>Šiandienos tvarkaraštis egzistuoja tik šiandien — rytoj jame bus kiti planai ir kiti kompanionai. Jokio laikmačio čia nėra, tiesiog toks yra tvarkaraščio ritmas.</p>
+      </div>
+
+      <div class="c-block" role="region" aria-labelledby="kaina-heading" style="--span-col:4; --span-row:1;">
+        <h2 id="kaina-heading">Kiek tai kainuoja</h2>
+        <p>Vakaras — nemokamai. Skaičiuok kaip nori: šiandien nulis eurų, kitą savaitę irgi nulis.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- [A] Filtravimas / autentiškumas -->
+  <section class="l-shell l-stack" aria-labelledby="filtravimas-heading">
+    <h2 id="filtravimas-heading">Kas patenka į tvarkaraštį</h2>
+    <p>Naujas planas filtravimą praeina per naktį — į tvarkaraštį jis pridedamas tik kitą rytą, ir tai užtrunka ilgiau, nei norėtume.</p>
+  </section>
+
+  <!-- [K] Privatumas -->
+  <section class="l-shell l-stack" aria-labelledby="privatumas-heading">
+    <h2 id="privatumas-heading">Kas mato tavo planą</h2>
+    <p>Vienoje tvarkaraščio eilutėje telpa tik pseudonimas ir amžiaus juosta. Ilgesnio aprašymo ten fiziškai nėra kur įrašyti, o planą ištrini nustatymuose, kai tik nori.</p>
+  </section>
+
+  <!-- [D] Atsakymai dvejojantiems -->
+  <section class="l-shell l-stack" aria-labelledby="dvejoji-heading">
+    <h2 id="dvejoji-heading">Klausimai, kol renkiesi vakarą</h2>
+
+    <details class="c-faq">
+      <summary>Ar tikrai nereikia mokėti?</summary>
+      <p>Ne. Nulis eurų — kaip parašyta aukščiau.</p>
+    </details>
+    <details class="c-faq">
+      <summary>Ar galiu pasirinkti kitą vakaro tipą vėliau?</summary>
+      <p>Taip — tavo planas keičiamas nustatymuose bet kada, tvarkaraštis atsinaujina iš karto.</p>
+    </details>
+    <details class="c-faq">
+      <summary>Kas mato mano pseudonimą?</summary>
+      <p>Vien pseudonimas ir amžiaus juosta — tiek telpa vienoje tvarkaraščio eilutėje.</p>
+    </details>
+    <details class="c-faq">
+      <summary>Kas tikrina, ar kitoje pusėje yra tikras žmogus?</summary>
+      <p>Taip. Žr. filtravimo aprašymą aukščiau.</p>
+    </details>
+    <details class="c-faq">
+      <summary>Kiek laiko užtrunka įsirašymas?</summary>
+      <p>Keturi blokai, apie dvi minutes — tiek pat, kiek užrašėme pirmoje sekcijoje.</p>
+    </details>
+
+    <a class="c-cta c-cta--secondary" href="#vakaras-pradzia">Grįžti prie pasirinkimo</a>
+  </section>
+
+</main>
+
+<footer class="l-shell l-legal" id="prisijungti">
+  <p>Vakaras skirtas tik pilnametystės sulaukusiems asmenims. Įsirašydamas patvirtini, kad tau 18+ ir sutinki su taisyklėmis bei privatumo sąlygomis.</p>
+  <nav class="c-legal__links" aria-label="Teisinė informacija">
+    <a href="#">Taisyklės</a>
+    <a href="#">Privatumo sąlygos</a>
+    <a href="#">Kontaktai</a>
+  </nav>
+  <p class="c-legal__copy">© 2026 Vakaras</p>
+
+  <!-- tracking: slapukai_patvirtinti -->
+  <div class="c-cookie" data-cookie>
+    <p><strong>Slapukai.</strong> Naudojame būtinuosius slapukus, kad tvarkaraštis veiktų ir prisimintų tavo pasirinkimą. Analitinių slapukų be tavo sutikimo nededame.</p>
+    <button class="c-cta c-cta--secondary" type="button" data-cookie-ok>Supratau</button>
+  </div>
+</footer>
+
+<script src="ui/board.js" defer></script>
+</body>
+</html>

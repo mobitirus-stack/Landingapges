@@ -1,0 +1,409 @@
+/* ==========================================================================
+   lg9-prieiga — bin/term.css
+   Komandų terminalas ant grafito. Klasės: tm-*. Jokių framework'ų.
+   ========================================================================== */
+
+/* ---- tokens ---- */
+:root {
+  --bg: #2B2B28;        /* grafitas */
+  --surface: #201F1C;   /* gilesnis sluoksnis / panelė */
+  --accent: #FFB000;    /* gintaras */
+  --out: #E8E2D6;       /* tekstas / išvestis */
+  --comment: #8B8680;   /* komentaras — TIK ant --surface, žr. VARIANT.md */
+  --err: #FFC96B;       /* klaidos akcentas — šiltas, bet skiriasi nuo gintaro pakankamai kontrastui su tekstu "klaida:" */
+
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-text: "Inter Tight", -apple-system, "Segoe UI", sans-serif;
+
+  --fs-0: 1rem;        /* 16px  — tekstas */
+  --fs-1: 1.15rem;     /* 18.4  — etiketės / h3 */
+  --fs-2: 1.3225rem;   /* 21.16 — h2 */
+  --fs-3: 1.749rem;    /* 27.98 — h1 */
+
+  --ln: 1.5em;         /* vieno eilutės žingsnio matas — visas ritmas šitos vienetais */
+  --col: 72ch;         /* fiksuoto pločio simbolių ritmas */
+  --radius: 2px;
+  --border: 1px solid var(--accent);
+}
+
+/* ---- reset ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--out);
+  font-family: var(--font-mono);
+  font-size: var(--fs-0);
+  line-height: var(--ln);
+  overflow-x: hidden;
+}
+img, svg { max-width: 100%; display: block; }
+a { color: var(--accent); }
+h1, h2, h3, p, ul, ol, dl, figure { margin: 0; }
+ul, ol { padding-left: 1.2em; }
+button, input, select { font: inherit; color: inherit; }
+
+/* ---- focus ---- */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---- utility ---- */
+.tm-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+[hidden] { display: none !important; }
+
+.tm-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 50;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.6em 1em;
+  border-radius: var(--radius);
+  font-weight: 700;
+}
+.tm-skip:focus {
+  left: calc(var(--ln) * 1);
+  top: calc(var(--ln) * 1);
+}
+
+/* ---- shell / layout ---- */
+.tm-shell {
+  max-width: var(--col);
+  margin-inline: auto;
+  padding-inline: calc(var(--ln) * 1);
+  padding-block: calc(var(--ln) * 2);
+}
+
+/* ---- header ---- */
+.tm-topline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: calc(var(--ln) * 0.5) calc(var(--ln) * 1);
+  padding-block-end: calc(var(--ln) * 1.5);
+  border-block-end: 1px solid rgba(255, 176, 0, 0.35);
+  margin-block-end: calc(var(--ln) * 2);
+}
+.tm-mark {
+  font-weight: 700;
+  color: var(--out);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.tm-mark:hover { color: var(--accent); }
+.tm-nav-link {
+  font-size: 0.9rem;
+  color: var(--out);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.tm-nav-link:hover { color: var(--accent); }
+
+/* ---- panes (deep surface) ---- */
+.tm-pane {
+  background: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: calc(var(--ln) * 1.25) calc(var(--ln) * 1.25);
+  margin-block-end: calc(var(--ln) * 2);
+}
+
+/* ---- generic block rhythm ---- */
+.tm-block {
+  margin-block-end: calc(var(--ln) * 2.5);
+}
+.tm-block:last-of-type { margin-block-end: 0; }
+
+/* ---- headings: $ prefix is decorative, generated, aria-hidden via content ---- */
+h2.tm-cmd::before,
+h3.tm-cmd::before {
+  content: "$ ";
+  color: var(--accent);
+}
+h1, h2, h3 { font-weight: 700; line-height: 1.3; }
+h1 { font-size: var(--fs-3); margin-block-end: calc(var(--ln) * 0.75); }
+h2 { font-size: var(--fs-2); margin-block-end: calc(var(--ln) * 1); }
+h3 { font-size: var(--fs-1); margin-block-end: calc(var(--ln) * 0.5); }
+
+/* ---- comment lines (boot lines) ---- */
+.tm-comment {
+  color: var(--comment);
+  font-size: 0.95rem;
+}
+.tm-comment + .tm-comment { margin-block-start: calc(var(--ln) * 0.25); }
+
+/* ---- prose (Inter Tight) ---- */
+.tm-prose {
+  font-family: var(--font-text);
+  line-height: 1.6em;
+  max-width: 62ch;
+}
+.tm-prose + .tm-prose { margin-block-start: calc(var(--ln) * 0.5); }
+
+/* ---- hero ---- */
+.tm-hero-lines { margin-block-end: calc(var(--ln) * 1); }
+.tm-h1 { font-family: var(--font-mono); }
+.tm-lede {
+  font-family: var(--font-text);
+  font-size: var(--fs-1);
+  line-height: 1.6em;
+  color: var(--out);
+  max-width: 62ch;
+}
+
+/* ---- output-style lines (> prefix) ---- */
+.tm-out { position: relative; padding-inline-start: 1.4em; }
+.tm-out::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--comment);
+}
+.tm-out + .tm-out { margin-block-start: calc(var(--ln) * 0.4); }
+
+.tm-out.tm-err {
+  color: var(--err);
+  font-family: var(--font-mono);
+}
+.tm-out.tm-err::before { content: "!"; color: var(--err); }
+
+/* ---- steps list (M section) ---- */
+.tm-steps > .tm-out { display: block; }
+
+/* ---- form ---- */
+.tm-form-pane { padding: calc(var(--ln) * 1.25); }
+
+.tm-history {
+  list-style: none;
+  margin: 0 0 calc(var(--ln) * 1);
+  padding: 0;
+}
+.tm-history li {
+  position: relative;
+  padding-inline-start: 1.4em;
+  padding-inline-end: 4.5em;
+  margin-block-end: calc(var(--ln) * 0.35);
+  color: var(--out);
+}
+.tm-history li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--comment);
+}
+.tm-history-edit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  color: var(--comment);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0;
+}
+.tm-history-edit:hover { color: var(--accent); }
+
+.tm-step { border: none; padding: 0; margin: 0 0 calc(var(--ln) * 1.5); }
+.tm-step:last-of-type { margin-block-end: 0; }
+.tm-step > label {
+  display: block;
+  font-weight: 700;
+  margin-block-end: calc(var(--ln) * 0.35);
+}
+
+.tm-prompt {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6em;
+}
+.tm-glyph {
+  color: var(--accent);
+  font-weight: 700;
+}
+.tm-prompt input[type="text"],
+.tm-prompt input[type="email"],
+.tm-prompt input[type="password"],
+.tm-prompt select {
+  flex: 1 1 16em;
+  min-width: 0;
+  background: var(--bg);
+  color: var(--out);
+  border: 1px solid rgba(255, 176, 0, 0.5);
+  border-radius: var(--radius);
+  padding: 0.5em 0.7em;
+  caret-color: var(--accent);
+}
+.tm-prompt input:focus-visible,
+.tm-prompt select:focus-visible {
+  border-color: var(--accent);
+}
+
+/* decorative cursor — only beside the active prompt, native caret used in inputs.
+   Static (non-blinking) unless motion is allowed; see reduced-motion below. */
+.tm-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  animation: tm-blink 1.1s steps(1) infinite;
+}
+@keyframes tm-blink { 50% { opacity: 0; } }
+
+.tm-run {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5em 1em;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tm-run:hover { background: #ffc433; }
+.tm-run:active { background: #e6a000; }
+
+.tm-hint {
+  display: block;
+  margin-block-start: calc(var(--ln) * 0.35);
+}
+
+/* ---- success pane ---- */
+.tm-success .tm-out:first-child { margin-block-start: 0; }
+
+/* ---- links (low-priority text CTAs, repeat point, FAQ back-links) ---- */
+.tm-link {
+  color: var(--out);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.tm-link:hover { color: var(--accent); }
+.tm-link.tm-run-link {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---- FAQ ---- */
+.tm-faq-item { margin-block-end: calc(var(--ln) * 1.5); }
+.tm-faq-item:last-child { margin-block-end: 0; }
+.tm-faq-item h3 { font-weight: 700; }
+
+/* ---- repeat CTA ---- */
+.tm-repeat {
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: calc(var(--ln) * 1.25);
+  text-align: left;
+}
+
+/* ---- footer ---- */
+.tm-footer {
+  border-block-start: 1px solid rgba(255, 176, 0, 0.35);
+  padding-block-start: calc(var(--ln) * 1.5);
+  margin-block-start: calc(var(--ln) * 1);
+}
+.tm-footer p { max-width: 62ch; }
+.tm-footer details {
+  margin-block: calc(var(--ln) * 1);
+}
+.tm-footer summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 700;
+}
+.tm-footer ol {
+  font-family: var(--font-text);
+  margin-block-start: calc(var(--ln) * 0.5);
+}
+.tm-footer-links {
+  display: flex;
+  gap: calc(var(--ln) * 1);
+  flex-wrap: wrap;
+  margin-block-start: calc(var(--ln) * 1);
+}
+.tm-copyright {
+  color: var(--out);
+  font-size: 0.85rem;
+  margin-block-start: calc(var(--ln) * 1);
+}
+
+/* ---- cookie bar ---- */
+.tm-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 20;
+  background: var(--surface);
+  border-block-start: var(--border);
+  padding: calc(var(--ln) * 0.75) calc(var(--ln) * 1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--ln) * 0.75) calc(var(--ln) * 1);
+}
+.tm-bar p { margin: 0; max-width: 56ch; }
+
+/* ---- breakpoints ---- */
+/* base: mobile-first, ~360px */
+@media (max-width: 767px) {
+  .tm-prompt { flex-direction: column; align-items: stretch; }
+  .tm-prompt input[type="text"],
+  .tm-prompt input[type="email"],
+  .tm-prompt input[type="password"],
+  .tm-prompt select { flex: 1 1 auto; }
+  .tm-run { width: 100%; }
+  .tm-history li { padding-inline-end: 1.4em; }
+  .tm-history-edit { position: static; display: block; margin-block-start: 0.2em; }
+}
+
+@media (min-width: 768px) {
+  .tm-shell { padding-inline: calc(var(--ln) * 1.5); }
+}
+
+@media (min-width: 1024px) {
+  .tm-shell { padding-block: calc(var(--ln) * 3); }
+}
+
+@media (min-width: 1440px) {
+  body { font-size: 1.0625rem; } /* subtle upscale, still same ratio/rhythm */
+}
+
+/* ---- reduced motion: disables all ten variants' single motion moments ---- */
+@media (prefers-reduced-motion: reduce) {
+  .tm-cursor { animation: none; opacity: 1; }
+  .tm-history li { animation: none !important; }
+  * { scroll-behavior: auto !important; }
+}
+
+/* history line entrance — the ONE orchestrated moment (reaction to input) */
+@media (prefers-reduced-motion: no-preference) {
+  .tm-history li.tm-just-added {
+    animation: tm-out-in 220ms ease-out;
+  }
+  @keyframes tm-out-in {
+    from { opacity: 0; transform: translateY(-0.3em); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+html { scroll-behavior: smooth; }

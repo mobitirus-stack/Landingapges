@@ -1,0 +1,434 @@
+/* ==========================================================================
+   Kabinetas — assets/study.css
+   Konvencija: CSS-modulių stilius (Panel_root, Panel_title, Figure_value ...).
+   Spalvos, tipografija, tarpai — žr. VARIANT.md.
+   ========================================================================== */
+
+/* ---------- Tokens ---------- */
+:root{
+  --ink: #2A211B;      /* riešutmedis — fonas */
+  --surface: #372C24;  /* paviršius — laukai, details */
+  --bone: #EFE6D8;     /* kaulas — tekstas */
+  --patina: #5F8C72;   /* patina — akcentas: skaičius, focus žiedas, ribos, varnelė (žr. VARIANT.md dėl CTA) */
+  --band: #574A3F;     /* juosta — skirtukai, ribos */
+
+  --bone-dim: rgba(239, 230, 216, .68);
+  --bone-faint: rgba(239, 230, 216, .55); /* WCAG patikrinta: ~4.85:1 ant --ink, ne mažiau kaip 4.5:1 */
+  --focus-ring: rgba(95, 140, 114, .55);
+
+  --space-sm: 2rem;    /* 32px */
+  --space-md: 6rem;    /* 96px */
+  --space-lg: 12rem;   /* 192px */
+
+  --measure: 46rem;
+
+  --ff-display: "Gloock", Georgia, serif;
+  --ff-text: "Jost", "Segoe UI", sans-serif;
+
+  --fs-body: 1rem;
+  --fs-md: 1.5rem;
+  --fs-lg: 2.25rem;
+  --fs-xl: 3.375rem;
+  --fs-figure: clamp(4.5rem, 22vw, 9rem);
+
+  --band-w: 3px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after{ box-sizing: border-box; }
+html{ color-scheme: dark; }
+body{
+  margin: 0;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--ff-text);
+  font-weight: 300;
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width: 100%; }
+ul{ margin: 0; padding: 0; list-style: none; }
+p{ margin: 0; }
+a{ color: var(--bone); }
+h1, h2{ font-family: var(--ff-display); font-weight: 400; margin: 0; color: var(--bone); line-height: 1.15; }
+
+.sr-only{
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.Skip_link{
+  position: absolute; left: 1rem; top: -3rem;
+  background: var(--surface); color: var(--bone);
+  padding: .6rem 1rem; border: 1px solid var(--band);
+  transition: top .15s ease;
+  z-index: 10;
+}
+.Skip_link:focus{ top: 1rem; }
+
+:focus-visible{
+  outline: 2px solid var(--patina);
+  outline-offset: 3px;
+}
+
+hr.Band_root{
+  border: none;
+  border-top: var(--band-w) solid var(--band);
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+/* ---------- Shared measure wrapper ---------- */
+.Nav_bar,
+.Mark_root, .Privacy_root, .Form_root, .Money_root, .Path_root,
+.Review_root, .Scope_root, .Signal_root, .Faq_root, .Repeat_root,
+.Foot_root{
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ---------- Nav ---------- */
+.Nav_root{ padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+.Nav_bar{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+.Nav_mark{
+  font-family: var(--ff-display);
+  font-size: var(--fs-md);
+  text-decoration: none;
+  color: var(--bone);
+}
+.Nav_return{
+  font-family: var(--ff-text);
+  font-weight: 500;
+  font-size: .9rem;
+  color: var(--bone-dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.Nav_return:hover, .Nav_return:focus-visible{ color: var(--bone); }
+.Nav_age{
+  max-width: var(--measure);
+  margin: .75rem auto 0;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: .85rem;
+  color: var(--bone-faint);
+}
+
+/* ---------- Mark (H + P) ---------- */
+.Mark_root{
+  /* Tyčinė išimtis "daug oro" principui: hero + K + FORM sudaro kritinį taką
+     (ašis 9: "sakinys pirmame ekrane"), todėl čia tarpai suspausti į minimumą
+     (0), o dosnus 96/192px ritmas taikomas TIK sekcijoms po formos. */
+  padding-top: 0;
+  padding-bottom: 0;
+  text-align: left;
+}
+.Mark_title{ font-size: var(--fs-xl); max-width: 22ch; }
+.Mark_lede{
+  margin-top: 1.25rem;
+  max-width: 38ch;
+  color: var(--bone-dim);
+  font-size: 1.125rem;
+}
+
+/* ---------- Figure (stambus skaičius) ---------- */
+.Figure_root{
+  margin-top: var(--space-sm);
+  text-align: center;
+}
+.Figure_value{
+  display: flex;
+  justify-content: center;
+  gap: .06em;
+  font-family: var(--ff-display);
+  font-size: var(--fs-figure);
+  line-height: 1;
+  color: var(--patina);
+  font-variant-numeric: tabular-nums;
+}
+.Figure_digit{
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+}
+.Figure_track{
+  display: flex;
+  flex-direction: column;
+  animation: Figure_reel .9s steps(9, end) forwards;
+}
+.Figure_track span{ height: 1em; line-height: 1; }
+.Figure_track--b{ animation-delay: .12s; }
+
+@keyframes Figure_reel{
+  from{ transform: translateY(0); }
+  to{ transform: translateY(-9em); }
+}
+
+.Figure_caption{
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--bone-faint);
+  max-width: 32ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Generic panel text sections ---------- */
+.Privacy_root, .Money_root, .Path_root, .Review_root, .Scope_root, .Signal_root{
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+.Privacy_root{ padding-bottom: 0; } /* žr. Mark_root komentarą — kritinis takas iki formos */
+.Money_root, .Path_root, .Review_root, .Scope_root, .Signal_root{
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+.Privacy_title, .Money_title, .Path_title, .Review_title, .Scope_title, .Signal_title, .Faq_title{
+  font-size: var(--fs-lg);
+  max-width: 24ch;
+}
+.Privacy_text, .Money_text, .Review_text, .Scope_text, .Signal_text{
+  margin-top: 1rem;
+  max-width: 60ch;
+  color: var(--bone-dim);
+}
+.Privacy_text + .Privacy_text{ margin-top: .85rem; }
+
+.Path_list{ margin-top: 1.25rem; display: flex; flex-direction: column; gap: .85rem; }
+.Path_item{
+  max-width: 60ch;
+  color: var(--bone-dim);
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--band);
+}
+
+/* ---------- Form (sakinys su laukais) ---------- */
+.Form_root{ padding-top: 0; padding-bottom: var(--space-md); }
+.Form_title{ font-size: var(--fs-lg); margin-bottom: 1.25rem; }
+
+.Form_paragraph{
+  font-size: 1.25rem;
+  line-height: 2.1;
+  color: var(--bone);
+  max-width: 46rem;
+}
+
+.Field_root{
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: bottom;
+  margin: 0 .15em;
+}
+/* Etiketės lieka prieinamumo medyje (kiekvienas laukas turi <label>), bet
+   vizualiai paslėptos — sakinio žodžiai ("vadins", "man", "iš", "adresu",
+   "žodžiu") jau pasako, ko klausiama, todėl atskiras matomas antrašas po
+   kiekvienu lauku tik dubliuotų tekstą. Pašalintas kaip perteklinis elementas
+   (žr. VARIANT.md, Žingsnis 5). Išimtis — varnelės etiketė, žr. .Field_label--check. */
+.Field_label{
+  position: absolute;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.Field_input{
+  order: 1;
+  font-family: var(--ff-text);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--bone);
+  background: var(--surface);
+  border: none;
+  border-bottom: 2px solid var(--band);
+  padding: .3rem .4rem;
+  min-width: 9ch;
+  max-width: 100%;
+}
+.Field_input--select{ min-width: 8ch; }
+.Field_input:focus-visible{ border-bottom-color: var(--patina); }
+.Field_input[type="email"]{ min-width: 15ch; }
+
+.Field_root--check{
+  flex-direction: row;
+  align-items: baseline;
+  gap: .4rem;
+  vertical-align: baseline;
+}
+.Field_check{
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--patina);
+  background: var(--surface);
+  border: 2px solid var(--band);
+}
+.Field_label--check{
+  /* Šita etiketė NĖRA sr-only — ji yra sakinio taškas po varnele, t.y. turinys, ne dublis. */
+  position: static;
+  width: auto; height: auto; margin: 0; padding: 0;
+  overflow: visible; clip: auto; white-space: normal;
+  font-size: 1.25rem;
+  color: var(--bone);
+}
+
+.Form_errors{ margin-top: 1.5rem; }
+.Form_error{
+  color: var(--bone);
+  font-size: .9rem;
+  margin-top: .4rem;
+  padding-left: .75rem;
+  border-left: 2px solid var(--patina);
+}
+
+.Form_success{
+  margin-top: var(--space-sm);
+  padding: 1.5rem;
+  background: var(--surface);
+  border-left: var(--band-w) solid var(--patina);
+  max-width: 40ch;
+}
+.Form_successTitle{ font-family: var(--ff-display); font-size: 1.375rem; }
+.Form_successText{ margin-top: .6rem; color: var(--bone-dim); }
+
+/* ---------- Buttons ---------- */
+.Button_primary{
+  margin-top: var(--space-sm);
+  display: inline-block;
+  font-family: var(--ff-text);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--bone);
+  border: none;
+  border-radius: 0;
+  padding: .9rem 1.75rem;
+  cursor: pointer;
+}
+.Button_primary:hover, .Button_primary:focus-visible{ filter: brightness(.92); }
+.Button_primary--sm{ margin-top: 0; padding: .6rem 1.1rem; font-size: .9rem; }
+
+.Button_quiet{
+  font-family: var(--ff-text);
+  font-weight: 500;
+  font-size: .9rem;
+  color: var(--bone-dim);
+  background: transparent;
+  border: 1px solid var(--band);
+  border-radius: 0;
+  padding: .6rem 1.1rem;
+  cursor: pointer;
+}
+.Button_quiet:hover, .Button_quiet:focus-visible{ color: var(--bone); border-color: var(--patina); }
+
+/* ---------- Faq ---------- */
+.Faq_root{ padding-top: var(--space-md); padding-bottom: var(--space-md); }
+.Faq_item{
+  border-bottom: 1px solid var(--band);
+  padding: 1.1rem 0;
+}
+.Faq_item:first-of-type{ margin-top: 1.5rem; border-top: 1px solid var(--band); }
+.Faq_question{
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--bone);
+  list-style: none;
+}
+.Faq_question::-webkit-details-marker{ display: none; }
+.Faq_question::before{ content: "+ "; color: var(--patina); }
+.Faq_item[open] .Faq_question::before{ content: "– "; }
+.Faq_answer{ margin-top: .75rem; color: var(--bone-dim); max-width: 56ch; }
+
+/* ---------- Repeat (R) ---------- */
+.Repeat_root{
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+  text-align: center;
+}
+.Repeat_text{ color: var(--bone-faint); }
+.Repeat_link{
+  display: inline-block;
+  margin-top: .75rem;
+  color: var(--bone-dim);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--patina);
+  text-underline-offset: 3px;
+}
+.Repeat_link:hover, .Repeat_link:focus-visible{ color: var(--bone); }
+
+/* ---------- Footer (L) ---------- */
+.Foot_root{
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-top: var(--band-w) solid var(--band);
+}
+.Foot_legal{ color: var(--bone-faint); font-size: .85rem; max-width: 56ch; }
+.Foot_links{
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.5rem;
+}
+.Foot_links a{ color: var(--bone-dim); font-size: .85rem; text-decoration: underline; text-underline-offset: 3px; }
+.Foot_links a:hover, .Foot_links a:focus-visible{ color: var(--bone); }
+.Foot_copy{ margin-top: 1.5rem; color: var(--bone-faint); font-size: .8rem; }
+
+/* ---------- Cookie (C) ---------- */
+.Cookie_root{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  background: var(--surface);
+  border-top: var(--band-w) solid var(--band);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  z-index: 5;
+}
+.Cookie_text{ color: var(--bone-dim); font-size: .85rem; max-width: 46ch; }
+.Cookie_actions{ display: flex; gap: .75rem; flex-wrap: wrap; }
+
+/* ---------- Motion: viena akimirka (žr. axis 11) ---------- */
+@media (prefers-reduced-motion: reduce){
+  .Figure_track{ animation: none; transform: translateY(-9em); }
+  .Skip_link{ transition: none; }
+}
+
+/* ==========================================================================
+   Breakpoints: 360 (bazė) / 768 / 1024 / 1440
+   ========================================================================== */
+
+@media (min-width: 768px){
+  :root{ --fs-figure: clamp(6rem, 16vw, 8rem); }
+  .Nav_root, .Mark_root, .Privacy_root, .Form_root, .Money_root,
+  .Path_root, .Review_root, .Scope_root, .Signal_root, .Faq_root,
+  .Repeat_root, .Foot_root, .Nav_age{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .Form_paragraph{ font-size: 1.375rem; }
+}
+
+@media (min-width: 1024px){
+  .Mark_title{ font-size: 4rem; }
+  .Form_paragraph{ font-size: 1.5rem; line-height: 2.2; }
+  .Path_list{ gap: 1rem; }
+}
+
+@media (min-width: 1440px){
+  :root{ --fs-figure: clamp(7rem, 11vw, 9rem); }
+  .Nav_root, .Mark_root, .Privacy_root, .Form_root, .Money_root,
+  .Path_root, .Review_root, .Scope_root, .Signal_root, .Faq_root,
+  .Repeat_root, .Foot_root, .Nav_age{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
