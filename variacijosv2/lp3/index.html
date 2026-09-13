@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Randu — naršykite anketas pagal amžių ir miestą</title>
+<meta name="description" content="Naršykite anketas tinklelyje ir filtruokite pagal amžių bei miestą. Kiekviena anketa peržiūrima rankiniu būdu. Nemokama registracija, tik 18+.">
+<link rel="canonical" href="https://vyrukambarys.lt/lp3">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Randu — naršykite anketas pagal amžių ir miestą">
+<meta property="og:description" content="Pažinčių anketų tinklelis su filtrais pagal amžių ir miestą. Kiekviena anketa peržiūrima prieš paskelbimą. Tik pilnamečiams.">
+<meta property="og:url" content="https://vyrukambarys.lt/lp3">
+<meta property="og:locale" content="lt_LT">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Randu",
+  "url": "https://vyrukambarys.lt/lp3",
+  "description": "Pažinčių anketų tinklelis suaugusiems Lietuvoje su filtrais pagal amžių ir miestą.",
+  "areaServed": "LT"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Randu anketų naršymas",
+  "serviceType": "Pažinčių anketų platforma suaugusiems",
+  "provider": {
+    "@type": "Organization",
+    "name": "Randu"
+  },
+  "areaServed": "LT",
+  "audience": {
+    "@type": "PeopleAudience",
+    "suggestedMinAge": 18
+  }
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#turinys">Praleisti į turinį</a>
+
+<header class="site-header">
+  <div class="lp3-container">
+    <a class="brand" href="#pradzia">
+      <svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true" focusable="false">
+        <rect width="34" height="34" rx="9" fill="#7C3AED"/>
+        <circle cx="14" cy="14" r="6" fill="#18181B"/>
+        <polygon points="27,26 20,26 23.5,17" fill="#FAFAF9"/>
+      </svg>
+      Randu
+    </a>
+    <nav class="main-nav" aria-label="Pagrindinė navigacija">
+      <a class="nav-link" href="#kaip-veikia">Kaip veikia</a>
+      <a class="nav-link" href="#duk">Klausimai</a>
+      <a class="lp3-btn lp3-btn-primary btn-sm" href="#registracija">Sukurti anketą</a>
+    </nav>
+  </div>
+</header>
+
+<main id="turinys">
+
+  <!-- ============ HERO ============ -->
+  <section class="lp3-hero" id="pradzia">
+    <div class="lp3-container">
+      <span class="eyebrow">Anketų tinklelis</span>
+      <h1>Naršykite šimtus anketų tinklelyje ir susiraskite pagal savo kriterijus</h1>
+      <p class="hero-lede">
+        Randu rodo anketas tankiame tinklelyje su filtrais pagal amžių ir miestą — panašiai kaip
+        naršote nuotraukas socialiniame tinkle, tik čia tikslas vienas: rasti žmogų, su kuriuo verta
+        susirašinėti.
+      </p>
+      <div class="hero-actions">
+        <a class="lp3-btn lp3-btn-primary" href="#tinklelis">Peržiūrėti anketas</a>
+        <a class="lp3-btn btn-ghost" href="#registracija">Sukurti anketą</a>
+      </div>
+      <p class="hero-trust">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3z" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M9 12l2 2 4-4" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Kiekvieną naują anketą prieš paskelbimą peržiūri žmogus, ne tik algoritmas.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ DISCOVERY GRID ============ -->
+  <section class="lp3-section section-alt" id="tinklelis" aria-labelledby="tinklelis-h2">
+    <div class="lp3-container">
+      <div class="section-head">
+        <h2 id="tinklelis-h2">Naršykite pagal amžių ir miestą</h2>
+        <p>
+          Žemiau — tinklelio pavyzdys su realiu filtravimu. Kortelės rodo abstrakčias geometrines
+          žymas (jokių tikrų nuotraukų šiame puslapyje), kad galėtumėte išbandyti, kaip veiks
+          filtrai ir naršymas po registracijos.
+        </p>
+      </div>
+
+      <div class="filters">
+        <div role="group" aria-label="Filtruoti pagal amžių">
+          <span class="filter-label" id="age-filter-label">Amžius</span>
+          <div class="filter-group" aria-labelledby="age-filter-label">
+            <button type="button" class="lp3-chip" data-filter="age" data-value="all" aria-pressed="true">Visi</button>
+            <button type="button" class="lp3-chip" data-filter="age" data-value="20-25" aria-pressed="false">20–25</button>
+            <button type="button" class="lp3-chip" data-filter="age" data-value="26-31" aria-pressed="false">26–31</button>
+            <button type="button" class="lp3-chip" data-filter="age" data-value="32-40" aria-pressed="false">32–40</button>
+            <button type="button" class="lp3-chip" data-filter="age" data-value="41+" aria-pressed="false">41+</button>
+          </div>
+        </div>
+        <div role="group" aria-label="Filtruoti pagal miestą">
+          <span class="filter-label" id="city-filter-label">Miestas</span>
+          <div class="filter-group" aria-labelledby="city-filter-label">
+            <button type="button" class="lp3-chip" data-filter="city" data-value="all" aria-pressed="true">Visi miestai</button>
+            <button type="button" class="lp3-chip" data-filter="city" data-value="vilnius" aria-pressed="false">Vilnius</button>
+            <button type="button" class="lp3-chip" data-filter="city" data-value="kaunas" aria-pressed="false">Kaunas</button>
+            <button type="button" class="lp3-chip" data-filter="city" data-value="klaipeda" aria-pressed="false">Klaipėda</button>
+            <button type="button" class="lp3-chip" data-filter="city" data-value="kiti" aria-pressed="false">Kiti miestai</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="grid-status" id="grid-status" aria-live="polite">Rodoma 16 anketų pavyzdžių</p>
+
+      <ul class="avatar-grid" id="avatar-grid">
+
+        <li><a class="lp3-avatar-card" href="#registracija" data-age="20-25" data-city="vilnius">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <circle cx="38" cy="38" r="24" fill="#7C3AED"/>
+            <polygon points="62,58 92,58 77,86" fill="#18181B"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">21 m. · Vilnius</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card bg-flat" href="#registracija" data-age="20-25" data-city="kaunas">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#FAFAF9"/>
+            <polygon points="10,10 40,10 25,38" fill="#18181B"/>
+            <circle cx="66" cy="62" r="26" fill="#7C3AED"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">23 m. · Kaunas</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card" href="#registracija" data-age="20-25" data-city="klaipeda">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <polygon points="48,8 90,88 6,88" fill="#7C3AED"/>
+            <circle cx="48" cy="70" r="10" fill="#18181B"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">24 m. · Klaipėda</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card bg-flat" href="#registracija" data-age="20-25" data-city="kiti">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#FAFAF9"/>
+            <circle cx="38" cy="48" r="26" fill="#7C3AED"/>
+            <circle cx="62" cy="48" r="26" fill="#18181B"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">25 m. · Kitas miestas</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card" href="#registracija" data-age="26-31" data-city="vilnius">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <rect x="30" y="30" width="36" height="36" fill="#7C3AED" transform="rotate(45 48 48)"/>
+            <polygon points="10,86 34,86 22,64" fill="#18181B"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">27 m. · Vilnius</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card bg-flat" href="#registracija" data-age="26-31" data-city="kaunas">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#FAFAF9"/>
+            <polygon points="10,10 86,10 48,80" fill="#18181B"/>
+            <circle cx="70" cy="24" r="12" fill="#7C3AED"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">29 m. · Kaunas</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card" href="#registracija" data-age="26-31" data-city="klaipeda">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <path d="M8,48 A40,40 0 0 0 88,48 L88,88 L8,88 Z" fill="#7C3AED"/>
+            <circle cx="48" cy="30" r="14" fill="#18181B"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">30 m. · Klaipėda</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card bg-flat" href="#registracija" data-age="26-31" data-city="kiti">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#FAFAF9"/>
+            <circle cx="30" cy="30" r="14" fill="#7C3AED"/>
+            <circle cx="66" cy="34" r="10" fill="#18181B"/>
+            <circle cx="46" cy="66" r="16" fill="#7C3AED"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">31 m. · Kitas miestas</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card" href="#registracija" data-age="32-40" data-city="vilnius">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <circle cx="48" cy="48" r="30" fill="none" stroke="#7C3AED" stroke-width="8"/>
+            <circle cx="48" cy="48" r="10" fill="#18181B"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">33 m. · Vilnius</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card bg-flat" href="#registracija" data-age="32-40" data-city="kaunas">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#FAFAF9"/>
+            <rect x="24" y="24" width="48" height="48" fill="#18181B" transform="rotate(45 48 48)"/>
+            <polygon points="70,70 94,70 82,92" fill="#7C3AED"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">36 m. · Kaunas</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card" href="#registracija" data-age="32-40" data-city="klaipeda">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <polygon points="10,20 46,48 10,76" fill="#7C3AED"/>
+            <polygon points="86,20 50,48 86,76" fill="#18181B"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">38 m. · Klaipėda</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card bg-flat" href="#registracija" data-age="32-40" data-city="kiti">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#FAFAF9"/>
+            <circle cx="30" cy="30" r="26" fill="#18181B"/>
+            <polygon points="60,50 94,50 94,94 60,94" fill="#7C3AED"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">40 m. · Kitas miestas</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card" href="#registracija" data-age="41+" data-city="vilnius">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <rect x="14" y="46" width="26" height="26" fill="#7C3AED" transform="rotate(45 27 59)"/>
+            <rect x="50" y="14" width="18" height="18" fill="#18181B" transform="rotate(45 59 23)"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">42 m. · Vilnius</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card bg-flat" href="#registracija" data-age="41+" data-city="kaunas">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#FAFAF9"/>
+            <circle cx="52" cy="46" r="32" fill="none" stroke="#18181B" stroke-width="7"/>
+            <circle cx="24" cy="76" r="12" fill="#7C3AED"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">45 m. · Kaunas</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card" href="#registracija" data-age="41+" data-city="klaipeda">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <circle cx="62" cy="62" r="28" fill="#7C3AED"/>
+            <polygon points="8,8 88,8 8,40" fill="#18181B"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">48 m. · Klaipėda</span>
+        </a></li>
+
+        <li><a class="lp3-avatar-card bg-flat" href="#registracija" data-age="41+" data-city="kiti">
+          <svg viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#FAFAF9"/>
+            <polygon points="48,8 80,48 48,88 16,48" fill="#7C3AED"/>
+            <circle cx="48" cy="48" r="10" fill="#18181B"/>
+          </svg>
+          <span class="avatar-overlay">Registruokitės ir pamatykite anketą</span>
+          <span class="lp3-avatar-meta">52 m. · Kitas miestas</span>
+        </a></li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ KAIP VEIKIA ============ -->
+  <section class="lp3-section" id="kaip-veikia" aria-labelledby="kaip-veikia-h2">
+    <div class="lp3-container">
+      <div class="section-head">
+        <h2 id="kaip-veikia-h2">Registracija, naršymas, pirmas pokalbis</h2>
+        <p>Nuo anketos sukūrimo iki pirmo pokalbio — trys žingsniai, be paslėptų mokesčių.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <svg class="step-visual" width="72" height="72" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <rect x="24" y="24" width="48" height="48" rx="10" fill="#7C3AED" transform="rotate(15 48 48)"/>
+            <circle cx="70" cy="26" r="12" fill="#18181B"/>
+          </svg>
+          <span class="step-index">1</span>
+          <h3>Sukuriate anketą</h3>
+          <p>Nurodote slapyvardį, amžių, miestą ir trumpai save pristatote. Anketa nematoma kitiems,
+          kol jos nepatvirtina peržiūros komanda.</p>
+        </div>
+        <div class="step">
+          <svg class="step-visual" width="72" height="72" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#FAFAF9"/>
+            <circle cx="34" cy="48" r="26" fill="#18181B"/>
+            <circle cx="66" cy="48" r="26" fill="#7C3AED" opacity="0.9"/>
+          </svg>
+          <span class="step-index">2</span>
+          <h3>Naršote tinklelyje su filtrais</h3>
+          <p>Rūšiuojate anketas pagal amžių ir miestą, atidarote tas, kurios atrodo įdomios, ir
+          pažymite, kurios patinka.</p>
+        </div>
+        <div class="step">
+          <svg class="step-visual" width="72" height="72" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <rect width="96" height="96" fill="#F4F4F5"/>
+            <polygon points="48,10 88,86 8,86" fill="#7C3AED"/>
+            <circle cx="48" cy="66" r="12" fill="#18181B"/>
+          </svg>
+          <span class="step-index">3</span>
+          <h3>Susirašinėjate, kai susidomėjimas abipusis</h3>
+          <p>Žinutę parašyti galite tik tada, kai abi pusės parodo susidomėjimą — taip išvengiama
+          nepageidaujamų žinučių srauto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MODERAVIMAS ============ -->
+  <section class="lp3-section section-alt" id="atranka" aria-labelledby="atranka-h2">
+    <div class="lp3-container">
+      <div class="section-head">
+        <h2 id="atranka-h2">Kaip atrenkame anketas</h2>
+        <p>
+          Kiekvieną naują anketą prieš paskelbimą peržiūri žmogus: tikriname, ar nurodytas amžius
+          atitinka pilnametystės patvirtinimą, ar aprašymas neprieštarauja naudojimosi taisyklėms, ir
+          ar profilis nėra dubliuotas. Anketas, kurios kelia įtarimų, sulaikome ir paprašome papildomo
+          patvirtinimo el. paštu. Bet kurią anketą galite bet kada redaguoti arba visam laikui ištrinti
+          nustatymuose.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="lp3-section" id="duk" aria-labelledby="duk-h2">
+    <div class="lp3-container">
+      <div class="section-head">
+        <h2 id="duk-h2">Dažniausi klausimai apie Randu</h2>
+      </div>
+      <div class="lp3-faq-list">
+
+        <details class="faq-item">
+          <summary>Ar anketos sukūrimas ir naršymas kainuoja?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 5v14M5 12h14" stroke="#18181B" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <p>Ne. Anketos sukūrimas, tinklelio naršymas ir filtravimas pagal amžių bei miestą yra
+          nemokami. Jei ateityje siūlysime papildomas mokamas funkcijas, jos bus aiškiai pažymėtos ir
+          niekada neprivalomos, kad galėtumėte naudotis pagrindinėmis funkcijomis.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Kas patikrina naujas anketas prieš jas paskelbiant?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 5v14M5 12h14" stroke="#18181B" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <p>Kiekvieną anketą prieš paskelbimą peržiūri mūsų komandos narys, ne vien automatinis
+          filtras. Tikriname pilnametystės patvirtinimą, aprašymo turinį ir galimus dublikatus.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Kaip veikia filtrai pagal amžių ir miestą?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 5v14M5 12h14" stroke="#18181B" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <p>Tinklelio viršuje pasirenkate amžiaus intervalą ir miestą — tinklelis iškart parodo tik
+          tas anketas, kurios atitinka abu pasirinkimus. Filtrus galima derinti arba bet kada grąžinti
+          į „Visi".</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Ar galiu bet kada ištrinti savo anketą ir duomenis?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 5v14M5 12h14" stroke="#18181B" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <p>Taip. Nustatymuose galite bet kada laikinai paslėpti arba visam laikui ištrinti anketą
+          kartu su visais su ja susijusiais duomenimis.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Su kuo galiu susirašinėti — ar bet kas gali man rašyti?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 5v14M5 12h14" stroke="#18181B" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <p>Ne. Žinutę parašyti galima tik tada, kai abi pusės viena kitai parodo susidomėjimą
+          tinklelyje. Tai apsaugo nuo nepageidaujamų žinučių iš atsitiktinių anketų.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REGISTRACIJA ============ -->
+  <section class="lp3-section section-alt" id="registracija" aria-labelledby="registracija-h2">
+    <div class="lp3-container">
+      <div class="section-head" style="text-align:center; margin-inline:auto;">
+        <svg class="step-visual" width="72" height="72" viewBox="0 0 96 96" aria-hidden="true" focusable="false" style="margin:0 auto 1rem;">
+          <rect width="96" height="96" fill="#FAFAF9"/>
+          <rect x="18" y="18" width="34" height="34" fill="#18181B" transform="rotate(45 35 35)"/>
+          <circle cx="66" cy="62" r="22" fill="#7C3AED"/>
+        </svg>
+        <h2 id="registracija-h2">Sukurti anketą</h2>
+        <p>Užpildykite laukus žemiau. Anketą galėsite papildyti ir redaguoti iškart po patvirtinimo.</p>
+      </div>
+
+      <div class="form-card">
+
+        <div class="form-fields-view" id="form-fields-view">
+          <form id="signup-form" action="#" novalidate>
+            <div class="form-grid two-col">
+
+              <div class="lp3-field">
+                <label for="nickname">Slapyvardis</label>
+                <input type="text" id="nickname" name="nickname" autocomplete="nickname" required minlength="2">
+                <span class="lp3-field-error" id="nickname-error"></span>
+              </div>
+
+              <div class="lp3-field">
+                <label for="email">El. pašto adresas</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <span class="lp3-field-error" id="email-error"></span>
+              </div>
+
+              <div class="lp3-field">
+                <label for="password">Slaptažodis</label>
+                <input type="password" id="password" name="password" autocomplete="new-password" required minlength="8">
+                <span class="lp3-field-error" id="password-error"></span>
+              </div>
+
+              <div class="lp3-field">
+                <label for="birth-year">Gimimo metai</label>
+                <select id="birth-year" name="birth-year" required>
+                  <option value="">Pasirinkite</option>
+                </select>
+                <span class="lp3-field-error" id="birth-year-error"></span>
+              </div>
+
+              <div class="lp3-field">
+                <label for="city">Miestas</label>
+                <select id="city" name="city" required>
+                  <option value="">Pasirinkite</option>
+                  <option value="vilnius">Vilnius</option>
+                  <option value="kaunas">Kaunas</option>
+                  <option value="klaipeda">Klaipėda</option>
+                  <option value="siauliai">Šiauliai</option>
+                  <option value="panevezys">Panevėžys</option>
+                  <option value="kitas">Kitas miestas</option>
+                </select>
+                <span class="lp3-field-error" id="city-error"></span>
+              </div>
+
+            </div>
+
+            <div class="lp3-field consent-field" style="margin-top:1.1rem;">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">Patvirtinu, kad esu vyresnis (-ė) nei 18 metų ir sutinku su
+              naudojimosi taisyklėmis bei privatumo politika.</label>
+            </div>
+            <span class="lp3-field-error" id="consent-error"></span>
+
+            <button type="submit" class="lp3-btn lp3-btn-primary form-submit">Sukurti anketą</button>
+            <p class="lp3-form-status" id="form-status" role="alert"></p>
+            <!-- tracking: lead_form_submit -->
+          </form>
+        </div>
+
+        <div class="form-success-view" id="form-success-view">
+          <svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="margin:0 auto 1rem;">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="#16A34A" stroke-width="2"/>
+            <path d="M7 12.5l3 3 7-7" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Anketa sukurta</h3>
+          <p>Patikrinkite el. paštą — atsiuntėme nuorodą adreso patvirtinimui. Kai komanda peržiūrės
+          anketą (paprastai tai užtrunka iki 24 val.), ji taps matoma tinklelyje.</p>
+          <!-- tracking: lead_form_success -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="lp3-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="#pradzia" style="margin-bottom:0.75rem;">
+          <svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true" focusable="false">
+            <rect width="34" height="34" rx="9" fill="#7C3AED"/>
+            <circle cx="14" cy="14" r="6" fill="#18181B"/>
+            <polygon points="27,26 20,26 23.5,17" fill="#FAFAF9"/>
+          </svg>
+          Randu
+        </a>
+        <p>Anketų tinklelis suaugusiems Lietuvoje. Naršykite pagal amžių ir miestą, susirašinėkite,
+        kai susidomėjimas abipusis.</p>
+      </div>
+      <div>
+        <h3 style="font-size:0.95rem;">Puslapis</h3>
+        <ul class="lp3-footer-links">
+          <li><a href="#tinklelis">Anketų tinklelis</a></li>
+          <li><a href="#kaip-veikia">Kaip veikia</a></li>
+          <li><a href="#duk">Klausimai</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:0.95rem;">Teisinė informacija</h3>
+        <ul class="lp3-footer-links">
+          <li><a href="#">Naudojimosi taisyklės</a></li>
+          <li><a href="#">Privatumo politika</a></li>
+          <li><a href="#">Slapukų nustatymai</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>
+        Randu skirta tik pilnamečiams (18+) asmenims. Registruodamiesi patvirtinate savo amžių.
+        Visos anketos prieš paskelbimą peržiūrimos rankiniu būdu. Asmens duomenys tvarkomi pagal
+        Bendrąjį duomenų apsaugos reglamentą (BDAR); duomenis galite bet kada peržiūrėti, ištaisyti
+        arba prašyti ištrinti.
+      </p>
+      <p>© 2026 Randu. Visos teisės saugomos.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>

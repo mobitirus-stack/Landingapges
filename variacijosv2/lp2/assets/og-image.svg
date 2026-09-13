@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Poros — pažinčių kortelių dėklas">
+  <title>Poros — perbrauk ir susipažink</title>
+  <rect width="1200" height="630" fill="#FFF1F2"/>
+  <text x="80" y="200" font-family="Sora, Arial, sans-serif" font-size="72" font-weight="700" fill="#1E293B">Poros</text>
+  <text x="80" y="260" font-family="Nunito Sans, Arial, sans-serif" font-size="30" fill="#475569">Perbrauk kairėn arba dešinėn —</text>
+  <text x="80" y="300" font-family="Nunito Sans, Arial, sans-serif" font-size="30" fill="#475569">spręsk pats, kas patenka į pokalbį.</text>
+  <rect x="82" y="360" width="230" height="64" rx="32" fill="#E11D48"/>
+  <text x="197" y="401" font-family="Sora, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">Sukurti kortelę</text>
+
+  <!-- telefono korpuso mockup dešinėje -->
+  <rect x="790" y="70" width="330" height="490" rx="46" fill="#1E293B"/>
+  <rect x="815" y="105" width="280" height="420" rx="28" fill="#FFF1F2"/>
+  <rect x="835" y="140" width="240" height="330" rx="24" fill="#FFFFFF" stroke="#FECDD3" stroke-width="2"/>
+
+  <!-- low-poly avataras -->
+  <g transform="translate(955,270)">
+    <clipPath id="ogClip"><circle cx="0" cy="0" r="78"/></clipPath>
+    <g clip-path="url(#ogClip)" stroke="#fff" stroke-width="1" stroke-linejoin="round">
+      <circle cx="0" cy="0" r="78" fill="#FECDD3"/>
+      <polygon points="0,-58 0,-78 31,-62" fill="#FB7185"/>
+      <polygon points="0,-58 31,-62 37,-25" fill="#E11D48"/>
+      <polygon points="0,-58 37,-25 16,-3" fill="#9F1239"/>
+      <polygon points="0,-58 16,-3 -16,-3" fill="#FB7185"/>
+      <polygon points="0,-58 -16,-3 -37,-25" fill="#FDA4AF"/>
+      <polygon points="0,-58 -37,-25 -31,-62" fill="#E11D48"/>
+      <polygon points="0,-58 -31,-62 0,-78" fill="#FECDD3"/>
+      <polygon points="0,29 -16,-3 16,-3" fill="#FECDD3"/>
+      <polygon points="0,29 16,-3 51,20" fill="#9F1239"/>
+      <polygon points="0,29 51,20 74,58" fill="#FDA4AF"/>
+      <polygon points="0,29 74,58 0,72" fill="#E11D48"/>
+      <polygon points="0,29 0,72 -74,58" fill="#FECDD3"/>
+      <polygon points="0,29 -74,58 -51,20" fill="#FB7185"/>
+      <polygon points="0,29 -51,20 -16,-3" fill="#9F1239"/>
+    </g>
+  </g>
+
+  <text x="955" y="382" font-family="Sora, Arial, sans-serif" font-size="24" font-weight="700" fill="#1E293B" text-anchor="middle">Eglė, 27</text>
+  <text x="955" y="408" font-family="Nunito Sans, Arial, sans-serif" font-size="17" fill="#475569" text-anchor="middle">Vilnius</text>
+
+  <circle cx="900" cy="440" r="24" fill="#FFFFFF" stroke="#FECDD3" stroke-width="2"/>
+  <line x1="891" y1="431" x2="909" y2="449" stroke="#1E293B" stroke-width="3" stroke-linecap="round"/>
+  <line x1="909" y1="431" x2="891" y2="449" stroke="#1E293B" stroke-width="3" stroke-linecap="round"/>
+
+  <circle cx="1010" cy="440" r="24" fill="#E11D48"/>
+  <path d="M1010 452s-15-8.7-19.2-18C989 429.7 992.6 421 999.3 421c4 0 6.9 2.2 10.7 6.8 3.8-4.6 6.7-6.8 10.7-6.8 6.7 0 10.3 8.7 6.2 13-4.2 9.3-16.9 18-16.9 18z" fill="#ffffff"/>
+</svg>
