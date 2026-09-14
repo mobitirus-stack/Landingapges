@@ -67,7 +67,7 @@ a { color: inherit; }
     url("hero-portrait.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 8% 10%;
+  background-position: 8% 30%;
   background-color: var(--lp6-bg-dark);
 }
 
