@@ -122,6 +122,32 @@ flex-start` — pasirodė pakankamas: veidas nuotraukoje natūraliai yra centre/
 kairėje pastatyta maža (336px) kortelė jo niekada nepridengia jokiame patikrintame lange (įsk.
 901×420 ekstremalų ir 2560×1080 ultraplatų). Pushinta `4025aa5` + dokumentacijos pataisa `d62cb79`.
 
+## Kortelių/formos REDIZAINAS paleistas (2026-09-14, po lp8/lp9 fix'ų)
+
+Jonas pasakė visi 6 foto-hero variantai (lp4-9) atrodo šabloniškai — visi naudoja TĄ PATĮ boxed radio
+mygtukų + 3 select dropdown modelį, tik skiriasi spalva/pozicija. Paprašė unikalesnių kortelių formų IR
+skirtingų registracijos pasirinkimų kiekvienam, kad "neatskirtų vieno nuo kito visai".
+
+Priskyriau 6 UNIKALIUS konceptus (kortelės siluetas + lyties valdiklis + DOB valdiklis):
+- **lp4 Aušra**: nupjautas asimetriškas kampas, didelės ikonų kortelės lyčiai, VIENAS datos laukas
+  su auto-formatavimu (DD.MM.YYYY).
+- **lp5 Švelnu**: organiška „blob" forma, slankiojantis segmentuotas perjungiklis, 3 apvalūs chip
+  skaitmenų laukeliai su auto-tab.
+- **lp6 Vidurnaktis**: BENDRAS charakteris IŠLAIKYTAS (Jonui patinka po kelių taisymo raundų), tik
+  valdikliai — tipografinis perjungiklis be dėžučių, borderless/underline select'ai. `.lp6-hero`
+  CSS agentui GRIEŽTAI uždrausta liesti.
+- **lp7 Marė** (dar nepradėta šioje partijoje): planas — diagonalus nupjovimas + ikonų apskritimai +
+  native `<input type="date">`.
+- **lp8 Taurė** (dar nepradėta): planas — pill-formos jungtiniai mygtukai + sujungti/be tarpų select'ai.
+- **lp9 Koralas** (dar nepradėta): planas — toggle switch jungiklis + minimalūs borderless select'ai
+  (derės su jau esamu glass kortelės stiliumi).
+
+**BŪSENA:** lp4/lp5/lp6 agentai PALEISTI lygiagrečiai (agent ID a2b94f7ebec10b59d / aab4367beb021496c /
+a74d35ac6f0664f43). Kai baigs — PATS patikrinti Playwright screenshot'ais (veido matomumas + naujų
+control'ų veikimas + validacija), tik tada push'inti. Po to paleisti lp7/lp8/lp9 tuo pačiu principu.
+**SVARBU:** kiekvienam agentui buvo aiškiai nurodyta NELIESTI `.lpN-hero` background-position/size —
+tai jau kelis kartus taisyta ir patvirtinta, keičiasi TIK kortelės/formos vidus.
+
 **PAMOKA ATEIČIAI:** vien "1394×677" NEBEUŽTENKA kaip vienintelis "trumpo desktop" testo atvejis —
 realūs Jono naršyklės langų aukščiai gali kristi iki ~400-450px CSS turinio srities (priklauso nuo
 jo konkrečios Firefox konfigūracijos/skirtukų/žymių juostų). Ateityje foninės nuotraukos pozicijos
