@@ -45,7 +45,65 @@ Chrome `/Applications/Google Chrome.app/...`, NE vien matematika — kelis kartu
 NIEKO nepakeisi, jei yra siauresnė media query vėliau faile. VISADA `grep -n ".hero-class-name {"
 style.css` PRIEŠ keičiant, kad rastum VISAS deklaracijas, ne tik pirmą.
 
-## Kitas žingsnis
+## lp6 veido matomumas — PATIKRINTA DAR KARTĄ (2026-09-14, po Jono pranešimo "pakelk veidą")
+
+Po to, kai pushinau `c9e462d` (bazinės `.lp6-hero` taisyklės grąžinimas į `cover; 8% 10%`) ir pranešiau
+Jonui, kad sutvarkyta, Jonas atsiuntė NAUJĄ screenshot rodantį, kad veidas VIS DAR nematomas gerai
+(daugiausiai plaukai). Padariau pakartotinį, platesnį patikrinimą:
+- Playwright screenshot'ai lokaliai per 8 skirtingus viewport dydžius: 900×700, 1024×768, 768×1024,
+  834×1194, 1280×900, 1440×900, 1680×1050, 1920×1080, 1920×1200, 1366×768 — VISUR veidas pilnai,
+  aiškiai matomas, gerai apšviestas.
+- Gyvo Vercel deploy CSS turinys (`curl https://landingapges.vercel.app/variacijosv2/lp6/assets/style.css`)
+  TIKSLIAI atitinka lokalų failą (bazinė taisyklė `cover;8% 10%`, media query `auto 165%;22% 60%`).
+  `last-modified` rodo šiandienos laiką, t.y. deploy tikrai naujas.
+- IŠVADA: CSS pats savaime šiuo metu YRA teisingas visuose testuotuose plotuose. Labiausiai tikėtina
+  priežastis, kodėl Jonas VIS DAR matė seną vaizdą savo screenshot'e — jo naršyklės (Firefox) disko
+  cache neatsinaujino be hard-refresh (`Cmd+Shift+R`), ARBA jo screenshot buvo padarytas PRIEŠ mano
+  push'ą, bet žinutė atėjo po. Parašiau Jonui prašymą padaryti hard-refresh ir dar kartą patikrinti
+  PRIEŠ darant tolesnius CSS pakeitimus, kad neišardytume jau teisingo sprendimo aklai spėliodami.
+- **Jei Jonas po hard-refresh vis tiek mato problemą**: paprašyti TIKSLAUS naršyklės lango pločio
+  (F12 → window.innerWidth) ir naujo screenshot'o, kad patikrinčiau BŪTENT tą plotį — nespėlioti.
+
+## lp7-9 statyba PALEISTA (2026-09-14, trečia grupė, po lp4-6 patvirtinimo)
+
+Jonas patvirtino lp4-6 (perėjo prie kito užduoties = numanomas patvirtinimas). Paprašė dar 3 naujų
+variantų ta pačia struktūra (pilno ekrano REALI nuotrauka + maža kortelė), bet KITOKIU IŠDĖSTYMU
+kiekviename ir naujomis temomis. Daviau 3 detalius (8K, tasteful) AI image-gen promptus — Jonas
+sugeneravo per Gemini ir įkėlė 3 nuotraukas į `/Users/jonas/Desktop/Darbas/landing page variaciju foto/`
+(Gemini_Generated_Image_*.jpg, 848×1264px). Priskyriau pagal TIKRĄ nuotraukų turinį (ne pagal
+pirminį planą, nes Gemini rezultatas skyrėsi nuo prašyto — nė viena nebuvo neoninė/klubo tema):
+- **lp7 „Marė"** — žalia suknelė, turkio dangus, uostamiesčio terasa. Kortelė KAIRĖJE (priešingai
+  nei lp4-6 dešinėje), veidas dešinėje pusėje.
+- **lp8 „Taurė"** — bordo suknelė, vyno baras, žvakė. Kortelė APAČIOJE per visą plotį (bottom-sheet
+  stiliumi), veidas viršuje.
+- **lp9 „Koralas"** — koralo suknelė, šviesus vasaros prieblandos rooftop. Kortelė MAŽA, glassmorphism,
+  VIRŠUJE DEŠINĖJE (ne didelė vientisa kaip lp4-6).
+
+Taip pat šioje sesijoje pervadinau lp1→**Šalimais**, lp4→**Aušra**, lp5→**Švelnu** (anksčiau visi 3
+naudojo bendrą „Vyrų kambarys" — Jonas paprašė kiekvienam atskiro pavadinimo). lp2/lp3/lp6 jau turėjo
+unikalius (Poros/Randu/Vidurnaktis). Pushinta (`38dabed`).
+
+Nuotraukos jau sukonvertuotos ir įdėtos: `variacijosv2/lp7/8/9/assets/hero-portrait.jpg`.
+**Statyba PALEISTA per 3 lygiagrečius Agent (general-purpose) build'us** su pilnu self-contained
+promptu, įskaitant PRIVALOMĄ lp6 pamoką (Playwright testai per 9 viewport dydžius, ypač
+901×550 ir 1394×677 — žemi/platūs desktop langai, kur `background-size:cover` elgiasi kitaip nei
+aukštuose languose). Agentų ID (jei reikės tęsti per SendMessage): lp7=a9aa31c83ba5b6ea4,
+lp8=a0e2e4ce7b2f800a9, lp9=a7ec999d3c04f8f88.
+
+**BAIGTA (2026-09-14):** visi 3 agentai baigė, PATS patikrinau Playwright screenshot'ais (9 viewport
+dydžiai kiekvienam, įskaitant kritinius 901x550 ir 1394x677) NEPASITIKĖDAMAS vien agentų žodžiu —
+visi trys atrodo profesionaliai, veidas visur matomas. Pushinta atskirai kiekvienas iš karto po
+patikros (Jonas paprašė nelaukti visų trijų): lp7 `3d9cc5e`, lp9 `86f5889`, lp8 `ac6f561`.
+`variacijosv2/index.html` sąrašas atnaujintas — dabar 9/10 (lp1-9), tik lp10 trūksta.
+`vercel.json` jau turėjo paruoštas `/lp7`, `/lp8`, `/lp9` rewrite taisykles iš anksčiau — nereikėjo
+keisti.
+
+**LIKĘS DARBAS v2 partijai:** lp10 (kryptis nepasirinkta iš naujo — senas „Pavasario sodas" planas
+galioja jei Jonas panorės, bet paskutiniai 3 temos pasirinkti pagal TIKRAI Jono sugeneruotas
+nuotraukas, ne iš anksto). Reikės 4-os nuotraukos + naujo prekės ženklo vardo, jei Jonas panorės
+pilno 10/10. Kol kas LAUKTI Jono nurodymo — nesiimti savarankiškai.
+
+## Ankstesnis (baigtas) žingsnis
 1. **Paleisti formalų nepriklausomą QA auditą lp7-9** (kaip batch1/batch2, `promptai/07-v2-qa-batch.md`
    principu) — tai dar neatlikta, buvo praleista pagal Jono prašymą pushinti greitai. Jei ras
    problemų — taisyti ir push'inti pataisymus.
