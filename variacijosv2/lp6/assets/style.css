@@ -66,8 +66,8 @@ a { color: inherit; }
     linear-gradient(180deg, rgba(15, 15, 20, 0.15) 0%, rgba(15, 15, 20, 0.55) 100%),
     url("hero-portrait.jpg");
   background-repeat: no-repeat;
-  background-size: auto 165%;
-  background-position: 22% 95%;
+  background-size: cover;
+  background-position: 8% 10%;
   background-color: var(--lp6-bg-dark);
 }
 
