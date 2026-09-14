@@ -1,0 +1,426 @@
+/* lp8 — Pastelinis minimalizmas
+   Paletė: kortelė #FFFFFF, akcentas #DB2777 (CTA pildymui naudojamas tamsesnis to paties
+   atspalvio tonas #BE185D — žr. VARIANT.md, tai sąmoningas kontrasto saugiklis, ne nukrypimas
+   nuo krypties), tekstas #3B0764. Šriftai: Poppins (logotipas/antraštė) + Nunito Sans (forma). */
+
+:root {
+  --lp8-ink: #3B0764;
+  --lp8-ink-muted: #6B21A8;
+  --lp8-accent: #DB2777;
+  --lp8-accent-strong: #BE185D;
+  --lp8-accent-strong-hover: #9D174D;
+  --lp8-card-bg: #FFFFFF;
+  --lp8-border: #F3E8FF;
+  --lp8-radius: 18px;
+  --lp8-shadow: 0 24px 60px -20px rgba(59, 7, 100, 0.35);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* BUG FIX (žinoma klaida #1): be šios taisyklės .lp8-success{display:flex} nustelbia
+   numatytąjį naršyklės [hidden] slėpimą (abi taisyklės turėtų tą pačią specifiškumo klasę
+   priklausomai nuo eiliškumo). !important + globali taisyklė garantuoja, kad joks vėlesnis
+   display: deklaravimas komponento klasėje negalės netyčia atidengti hidden elemento. */
+[hidden] {
+  display: none !important;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body.lp8-body {
+  font-family: "Nunito Sans", "Segoe UI", Arial, sans-serif;
+  color: var(--lp8-ink);
+  background: #FDF2F8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.lp8-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Hero ---------- */
+
+.lp8-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp8-hero-media {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(135deg, rgba(253,242,248,0.15), rgba(224,231,255,0.15)),
+    url("hero-portrait.jpg");
+  background-size: auto 165%;
+  background-position: 30% 70%;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.lp8-hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to top, rgba(59,7,100,0.30) 0%, rgba(59,7,100,0.06) 22%, rgba(59,7,100,0) 42%),
+    linear-gradient(to right, rgba(59,7,100,0.16) 0%, rgba(59,7,100,0) 30%);
+  pointer-events: none;
+}
+
+.lp8-card-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 14px 56px;
+}
+
+.lp8-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--lp8-card-bg);
+  border-radius: var(--lp8-radius);
+  box-shadow: var(--lp8-shadow);
+  padding: 20px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.lp8-logo {
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  color: var(--lp8-ink);
+  margin: 0;
+}
+
+.lp8-heading {
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.25;
+  color: var(--lp8-ink);
+  margin: 0;
+}
+
+.lp8-subheading {
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--lp8-ink-muted);
+  margin: 0 0 2px;
+}
+
+.lp8-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lp8-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--lp8-ink);
+  margin: 0 0 6px;
+  padding: 0;
+  border: 0;
+}
+
+.lp8-gender {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.lp8-gender legend.lp8-label { margin-bottom: 6px; }
+
+.lp8-gender-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.lp8-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  border: 1.5px solid var(--lp8-border);
+  border-radius: 10px;
+  padding: 9px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lp8-ink);
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+
+.lp8-radio span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lp8-radio:has(input:checked) {
+  border-color: var(--lp8-accent);
+  background: #FDF2F8;
+}
+
+.lp8-radio input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--lp8-accent-strong);
+  flex-shrink: 0;
+}
+
+.lp8-selects {
+  display: grid;
+  grid-template-columns: 0.8fr 1.3fr 1fr;
+  gap: 8px;
+}
+
+/* BUG FIX (žinoma klaida #2): grid elementų numatytoji min-width yra "auto" (=turinio plotis),
+   ne 0 — be min-width:0 čia ir ant <select> žemiau, 360px plotyje "Mėnuo" pasirinkimas priverstų
+   grid'ą peržengti kortelės/ekrano kraštą. */
+.lp8-select-wrap { display: block; min-width: 0; }
+
+.lp8-selects select {
+  width: 100%;
+  min-width: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lp8-ink);
+  background: #FFFFFF;
+  border: 1.5px solid var(--lp8-border);
+  border-radius: 10px;
+  padding: 9px 8px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M1 1l4 4 4-4' fill='none' stroke='%236B21A8' stroke-width='1.5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+.lp8-selects select:invalid {
+  color: var(--lp8-ink-muted);
+}
+
+.lp8-form-error {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #9D174D;
+  background: #FFF0F6;
+  border: 1px solid #FBCFE8;
+  border-radius: 8px;
+  padding: 7px 10px;
+}
+
+.lp8-cta {
+  font-family: "Nunito Sans", sans-serif;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--lp8-accent-strong);
+  cursor: pointer;
+  transition: background-color .15s ease, transform .05s ease;
+}
+
+.lp8-cta:hover { background: var(--lp8-accent-strong-hover); }
+.lp8-cta:active { transform: translateY(1px); }
+
+.lp8-consent {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--lp8-ink-muted);
+  margin: 0;
+}
+
+.lp8-success {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #FDF2F8;
+  border: 1.5px solid #FBCFE8;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.lp8-success[hidden] {
+  display: none;
+}
+
+.lp8-success-icon {
+  width: 26px;
+  height: 26px;
+  color: var(--lp8-accent-strong);
+  flex-shrink: 0;
+}
+
+.lp8-success-text {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--lp8-ink);
+}
+
+.lp8-social-proof {
+  margin: 0;
+  font-size: 12px;
+  color: var(--lp8-ink-muted);
+  text-align: center;
+}
+
+.lp8-social-proof strong { color: var(--lp8-ink); }
+
+.lp8-trust {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--lp8-border);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.lp8-trust li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--lp8-ink-muted);
+}
+
+.lp8-trust svg {
+  width: 20px;
+  height: 20px;
+  color: var(--lp8-accent-strong);
+}
+
+/* ---------- Legal bar ---------- */
+
+.lp8-legal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(59, 7, 100, 0.08);
+}
+
+.lp8-legal a {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--lp8-ink-muted);
+  text-decoration: none;
+}
+
+.lp8-legal a:hover { color: var(--lp8-ink); text-decoration: underline; }
+
+.lp8-age {
+  font-size: 11px;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--lp8-accent-strong);
+  border-radius: 999px;
+  padding: 2px 9px;
+}
+
+/* ---------- Focus states ---------- */
+
+.lp8-radio:focus-within,
+.lp8-selects select:focus-visible,
+.lp8-cta:focus-visible,
+.lp8-legal a:focus-visible {
+  outline: 2.5px solid var(--lp8-accent-strong);
+  outline-offset: 2px;
+}
+
+/* ---------- Layout: place card to the right on wider screens ---------- */
+
+@media (min-width: 641px) {
+  .lp8-card-wrap {
+    justify-content: flex-end;
+    padding: 24px 6vw 64px;
+  }
+  .lp8-hero-media {
+    background-position: 26% 10%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp8-card-wrap {
+    padding: 24px 7vw 64px;
+  }
+  .lp8-card {
+    max-width: 420px;
+    padding: 26px 28px 22px;
+  }
+  .lp8-heading { font-size: 24px; }
+}
+
+@media (min-width: 1440px) {
+  .lp8-card-wrap { padding: 24px 9vw 64px; }
+}
+
+/* ---------- Very small / short screens: allow scroll instead of overflow clipping ---------- */
+
+@media (max-width: 400px) {
+  .lp8-card-wrap { padding: 10px 10px 52px; }
+  .lp8-card { padding: 16px 16px 14px; gap: 8px; }
+  .lp8-heading { font-size: 19px; }
+}
+
+@media (max-height: 660px) {
+  .lp8-hero { min-height: 100%; height: auto; }
+  .lp8-card-wrap { height: auto; min-height: 100vh; min-height: 100dvh; }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Print safety (not a target use-case, but avoid odd artifacts) ---------- */
+@media print {
+  .lp8-hero-media, .lp8-hero-scrim { display: none; }
+}

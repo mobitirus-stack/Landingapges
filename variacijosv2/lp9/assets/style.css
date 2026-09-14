@@ -1,0 +1,416 @@
+/* ==========================================================================
+   lp9 — „Nakties siluetas“ — pilno ekrano hero nuotrauka + tamsi kortelė
+   ========================================================================== */
+
+:root {
+  --lp9-bg-dark: #0F0F14;
+  --lp9-bg-gradient-end: #1E1B4B;
+  --lp9-card-bg: #18181B;
+  --lp9-card-border: rgba(250, 250, 249, 0.10);
+  --lp9-accent: #FBBF24;
+  --lp9-accent-ink: #1A1206;
+  --lp9-text: #FAFAF9;
+  --lp9-text-muted: rgba(250, 250, 249, 0.68);
+  --lp9-text-faint: rgba(250, 250, 249, 0.58);
+  --lp9-danger: #FCA5A5;
+  --lp9-font-brand: "Cormorant", Georgia, "Times New Roman", serif;
+  --lp9-font-body: "Mulish", "Segoe UI", Arial, sans-serif;
+  --lp9-radius: 18px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--lp9-bg-dark);
+  color: var(--lp9-text);
+  font-family: var(--lp9-font-body);
+  height: 100%;
+}
+
+.lp9-body {
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+img, svg { display: block; }
+
+a { color: inherit; }
+
+.lp9-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Puslapio karkasas ---------- */
+
+.lp9-page {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+}
+
+.lp9-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(180deg, rgba(15, 15, 20, 0.15) 0%, rgba(15, 15, 20, 0.55) 100%),
+    url("hero-portrait.jpg");
+  background-repeat: no-repeat;
+  background-size: auto 165%;
+  background-position: 22% 95%;
+  background-color: var(--lp9-bg-dark);
+}
+
+.lp9-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(120% 90% at 78% 40%, rgba(30, 27, 75, 0.35) 0%, rgba(15, 15, 20, 0) 55%),
+    linear-gradient(115deg, rgba(6, 6, 10, 0.55) 0%, rgba(6, 6, 10, 0.12) 42%, rgba(6, 6, 10, 0.05) 60%),
+    linear-gradient(0deg, rgba(6, 6, 10, 0.6) 0%, rgba(6, 6, 10, 0) 22%);
+  pointer-events: none;
+}
+
+/* ---------- Pagrindinis stage: kortelė dešinėje (desktop) ---------- */
+
+.lp9-stage {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 4vh clamp(16px, 6vw, 72px);
+  min-height: 0;
+}
+
+.lp9-card {
+  width: min(400px, 92vw);
+  background: var(--lp9-card-bg);
+  border: 1px solid var(--lp9-card-border);
+  border-radius: var(--lp9-radius);
+  padding: 26px 26px 22px;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 4px 18px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(0, 0, 0, 0.2);
+  max-height: 90dvh;
+  overflow-y: auto;
+}
+
+/* ---------- Prekės ženklas ---------- */
+
+.lp9-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.lp9-brand-name {
+  font-family: var(--lp9-font-brand);
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 0.02em;
+  color: var(--lp9-text);
+}
+
+.lp9-brand-tag {
+  font-size: 12px;
+  color: var(--lp9-text-faint);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.lp9-headline {
+  font-family: var(--lp9-font-brand);
+  font-weight: 600;
+  font-size: clamp(20px, 3.4vw, 25px);
+  line-height: 1.2;
+  margin: 0 0 6px;
+  color: var(--lp9-text);
+}
+
+.lp9-sub {
+  margin: 0 0 18px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--lp9-text-muted);
+}
+
+/* ---------- Forma ---------- */
+
+.lp9-form[hidden] { display: none; }
+
+.lp9-fieldset {
+  border: 0;
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.lp9-legend {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--lp9-text-faint);
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.lp9-radio-row {
+  display: flex;
+  gap: 10px;
+}
+
+.lp9-radio {
+  flex: 1 1 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 10px;
+  border: 1px solid rgba(250, 250, 249, 0.18);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lp9-text);
+  cursor: pointer;
+  background: rgba(250, 250, 249, 0.03);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.lp9-radio input {
+  position: absolute;
+  opacity: 0;
+  width: 1px; height: 1px;
+}
+
+.lp9-radio:has(input:checked) {
+  border-color: var(--lp9-accent);
+  background: rgba(251, 191, 36, 0.12);
+}
+
+.lp9-radio:has(input:focus-visible) {
+  outline: 2px solid var(--lp9-accent);
+  outline-offset: 2px;
+}
+
+.lp9-date-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 8px;
+}
+
+.lp9-select-wrap select {
+  width: 100%;
+  padding: 11px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(250, 250, 249, 0.18);
+  background-color: rgba(250, 250, 249, 0.03);
+  color: var(--lp9-text);
+  font-family: var(--lp9-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FAFAF9' stroke-width='1.8'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 28px;
+}
+
+.lp9-select-wrap select:focus-visible,
+.lp9-cta:focus-visible,
+.lp9-legal-nav a:focus-visible {
+  outline: 2px solid var(--lp9-accent);
+  outline-offset: 2px;
+}
+
+.lp9-select-wrap select option { color: #111; }
+
+.lp9-cta {
+  width: 100%;
+  margin-top: 4px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 11px;
+  background: var(--lp9-accent);
+  color: var(--lp9-accent-ink);
+  font-family: var(--lp9-font-body);
+  font-size: 15.5px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.05s ease;
+}
+
+.lp9-cta:hover { filter: brightness(1.06); }
+.lp9-cta:active { transform: translateY(1px); }
+
+.lp9-consent {
+  margin: 10px 0 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--lp9-text-faint);
+}
+
+.lp9-consent a { text-decoration: underline; color: var(--lp9-text-muted); }
+
+.lp9-error {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--lp9-danger);
+}
+
+/* ---------- Sėkmės būsena ---------- */
+
+.lp9-success[hidden] { display: none; }
+
+.lp9-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(251, 191, 36, 0.10);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  margin-bottom: 4px;
+}
+
+.lp9-success-icon {
+  width: 20px; height: 20px;
+  flex: none;
+  color: var(--lp9-accent);
+  margin-top: 1px;
+}
+
+.lp9-success p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--lp9-text);
+}
+
+/* ---------- Pasitikėjimo ženkliukai ---------- */
+
+.lp9-badges {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 18px 0 10px;
+  padding: 0;
+}
+
+.lp9-badge {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 10.5px;
+  line-height: 1.3;
+  color: var(--lp9-text-muted);
+  font-weight: 600;
+}
+
+.lp9-badge svg {
+  width: 20px; height: 20px;
+  color: var(--lp9-accent);
+}
+
+.lp9-social-proof {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--lp9-text-faint);
+}
+
+.lp9-social-proof::before {
+  content: "● ";
+  color: #4ADE80;
+}
+
+/* ---------- Teisinė juosta ---------- */
+
+.lp9-legal {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  padding: 10px clamp(16px, 4vw, 40px);
+  background: linear-gradient(0deg, rgba(6, 6, 10, 0.85) 0%, rgba(6, 6, 10, 0.55) 100%);
+}
+
+.lp9-legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 16px;
+  font-size: 11.5px;
+}
+
+.lp9-legal-nav a {
+  text-decoration: none;
+  color: var(--lp9-text-faint);
+}
+
+.lp9-legal-nav a:hover { color: var(--lp9-text-muted); }
+
+.lp9-legal-age {
+  color: var(--lp9-text-faint);
+  font-weight: 700;
+  border: 1px solid rgba(250, 250, 249, 0.25);
+  border-radius: 4px;
+  padding: 0 5px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .lp9-hero { background-size: auto 165%; background-position: 22% 60%; }
+  .lp9-stage {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 3vh 4vw 2vh;
+  }
+  .lp9-card { width: min(420px, 94vw); }
+}
+
+@media (max-width: 640px) {
+  .lp9-hero { background-size: auto 165%; background-position: 22% 60%; }
+  .lp9-scrim {
+    background:
+      linear-gradient(0deg, rgba(6, 6, 10, 0.75) 0%, rgba(6, 6, 10, 0.15) 46%, rgba(6, 6, 10, 0.05) 62%);
+  }
+  .lp9-card {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+@media (max-width: 399px) {
+  .lp9-body { overflow-y: auto; height: auto; }
+  .lp9-page { min-height: 100dvh; }
+  .lp9-card { max-height: none; }
+  .lp9-hero { position: fixed; }
+  .lp9-scrim { position: fixed; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
