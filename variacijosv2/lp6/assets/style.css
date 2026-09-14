@@ -134,6 +134,14 @@ a { color: inherit; }
   letter-spacing: 0.01em;
 }
 
+.lp6-divider {
+  width: 34px;
+  height: 1px;
+  margin: 0 0 12px;
+  background: linear-gradient(90deg, var(--lp6-accent) 0%, rgba(251, 191, 36, 0) 100%);
+  opacity: 0.75;
+}
+
 .lp6-headline {
   font-family: var(--lp6-font-brand);
   font-weight: 600;
@@ -170,57 +178,66 @@ a { color: inherit; }
   padding: 0;
 }
 
-.lp6-radio-row {
-  display: flex;
-  gap: 10px;
-}
-
-.lp6-radio {
-  flex: 1 1 0;
-  position: relative;
+.lp6-gender-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 11px 10px;
-  border: 1px solid rgba(250, 250, 249, 0.18);
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--lp6-text);
-  cursor: pointer;
-  background: rgba(250, 250, 249, 0.03);
-  transition: border-color 0.15s ease, background 0.15s ease;
+  gap: 12px;
 }
 
-.lp6-radio input {
+.lp6-gender-option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lp6-gender-option input {
   position: absolute;
   opacity: 0;
   width: 1px; height: 1px;
 }
 
-.lp6-radio:has(input:checked) {
-  border-color: var(--lp6-accent);
-  background: rgba(251, 191, 36, 0.12);
+.lp6-gender-option span {
+  font-family: var(--lp6-font-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--lp6-text-faint);
+  padding-bottom: 3px;
+  border-bottom: 1.5px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, font-weight 0.15s ease;
 }
 
-.lp6-radio:has(input:focus-visible) {
+.lp6-gender-option:has(input:checked) span {
+  color: var(--lp6-accent);
+  font-weight: 700;
+  border-bottom-color: var(--lp6-accent);
+}
+
+.lp6-gender-option:has(input:focus-visible) span {
   outline: 2px solid var(--lp6-accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
+}
+
+.lp6-gender-sep {
+  font-size: 14px;
+  color: var(--lp6-text-faint);
+  opacity: 0.45;
 }
 
 .lp6-date-row {
   display: grid;
   grid-template-columns: 1fr 1.3fr 1fr;
-  gap: 8px;
+  gap: 14px;
 }
 
 .lp6-select-wrap select {
   width: 100%;
-  padding: 11px 10px;
-  border-radius: 10px;
-  border: 1px solid rgba(250, 250, 249, 0.18);
-  background-color: rgba(250, 250, 249, 0.03);
+  padding: 8px 20px 8px 1px;
+  border: none;
+  border-bottom: 1px solid rgba(250, 250, 249, 0.28);
+  border-radius: 0;
+  background-color: transparent;
   color: var(--lp6-text);
   font-family: var(--lp6-font-body);
   font-size: 14px;
@@ -228,9 +245,9 @@ a { color: inherit; }
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FAFAF9' stroke-width='1.8'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 16px;
-  padding-right: 28px;
+  background-position: right 1px center;
+  background-size: 14px;
+  transition: border-color 0.15s ease;
 }
 
 .lp6-select-wrap select:focus-visible,
@@ -238,6 +255,11 @@ a { color: inherit; }
 .lp6-legal-nav a:focus-visible {
   outline: 2px solid var(--lp6-accent);
   outline-offset: 2px;
+}
+
+.lp6-select-wrap select:focus-visible {
+  outline: none;
+  border-bottom-color: var(--lp6-accent);
 }
 
 .lp6-select-wrap select option { color: #111; }

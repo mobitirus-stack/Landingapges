@@ -57,6 +57,7 @@
         <span class="lp6-brand-name">Vidurnaktis</span>
         <span class="lp6-brand-tag">pažintys tavo naktį</span>
       </div>
+      <div class="lp6-divider" aria-hidden="true"></div>
 
       <h1 id="lp6-headline" class="lp6-headline">Rask savo naktį šiame mieste</h1>
       <p class="lp6-sub">Užsiregistruok per 20 sekundžių ir pamatyk, kas laukia netoliese šįvakar.</p>
@@ -64,12 +65,13 @@
       <form class="lp6-form" id="lp6-form" action="#" method="post" novalidate>
         <fieldset class="lp6-fieldset">
           <legend class="lp6-legend">Aš esu</legend>
-          <div class="lp6-radio-row">
-            <label class="lp6-radio">
+          <div class="lp6-gender-toggle" role="radiogroup" aria-label="Aš esu">
+            <label class="lp6-gender-option">
               <input type="radio" name="lp6-gender" value="vyras" required>
               <span>Vyras</span>
             </label>
-            <label class="lp6-radio">
+            <span class="lp6-gender-sep" aria-hidden="true">/</span>
+            <label class="lp6-gender-option">
               <input type="radio" name="lp6-gender" value="moteris" required>
               <span>Moteris</span>
             </label>

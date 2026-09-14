@@ -93,6 +93,54 @@ nekūrė iš naujo — atlikta pilna patikra + 1 tikslus taisymas:
 Visi kiti priėmimo kriterijai (žr. `logs/v2-build-lp6.done.md`) atitiko iš pirmo karto,
 taisymų nereikėjo.
 
+## Formos dizaino atnaujinimas (2026-09-14, antra sesija)
+
+Jonas peržiūrėjo visus 6 nuotrauka-fone variantus (lp4-lp9) ir pasakė, kad jie per daug
+panašūs — visi naudojo tą patį modelį (du boxed mygtukai lyčiai + 3 boxed `<select>`
+gimimo datai). Orkestratorius priskyrė kiekvienam variantui unikalų form-control
+sprendimą, nekeičiant bendros patvirtintos nuotaikos. lp6 gavo užduotį: **grynai
+tipografinis lyties perjungiklis** (be dėžučių) + **borderless/underline select'ai**
+gimimo datai.
+
+**Kas pakeista** (`index.html`, `assets/style.css` — `assets/app.js` NEPALIESTAS):
+- Lytis: `.lp6-radio-row`/`.lp6-radio` (boxed mygtukai su border/background) pakeista į
+  `.lp6-gender-toggle`/`.lp6-gender-option` — du žodžiai („Vyras" / „Moteris") greta, be
+  jokio apvado; pasirinktas gauna `--lp6-accent` spalvą + `border-bottom` pabraukimą +
+  `font-weight: 700`, tarp jų `.lp6-gender-sep` (plonas „/" skirtukas). `<input
+  type="radio">` liko funkciškai identiškas (tas pats `name="lp6-gender"`), tik
+  vizualiai perdengtas (`opacity:0`, kaip ir anksčiau) — `app.js` selektoriai
+  (`input[name="lp6-gender"]:checked`) veikia be pakeitimų.
+- Gimimo data: `.lp6-select-wrap select` — pašalintas pilnas `border`/`background-color`
+  fonas, paliktas tik `border-bottom: 1px solid rgba(250,250,249,0.28)`, fonas
+  `transparent`. Fokusavimo stilius atskirtas nuo CTA/legal-nav (select'ai gauna
+  `border-bottom-color` akcento pakeitimą, ne outline dėžutę). `<select>` elementai ir
+  jų `id`/`name` (`lp6-day`/`lp6-month`/`lp6-year`) nepakeisti — `app.js` metų
+  generavimas ir amžiaus validacija veikia be pakeitimų.
+- Pridėtas subtilus dekoratyvus elementas: `.lp6-divider` — plona (34×1px) auksinė
+  gradiento linija po prekės ženklo antrašte, unikalus kortelės prisilietimas be
+  drastiško silueto keitimo.
+
+**Patikrinta Playwright (sistemos Chrome) 6 dydžiais** (375×812, 901×450, 901×550,
+1394×677, 1440×900, 1920×1080):
+- Veido pozicija nuotraukoje **identiška** prieš/po — patvirtinta lyginant su laikina
+  backup'o kopija (atskiras localhost:8081): `document.documentElement.scrollHeight`
+  901×450 ir 901×550 dydžiuose identiškas prieš/po pakeitimų (478px / 576px) — t.y.
+  smulkus vertikalus scroll šiuose itin žemuose languose jau egzistavo PRIEŠ šį
+  pakeitimą (nesusijęs su forma, nekeista šioje sesijoje, nauji form-control'ai pridėjo
+  0px papildomo aukščio). `.lp6-hero` CSS taisyklės (bazinė + abu media query) liko
+  visiškai nepaliestos — patikrinta `diff`'u.
+- Funkcinė patikra (Playwright click/select): paspaudus „Moteris" žodį `input[value=
+  "moteris"]` tampa `checked=true` ir vizualiai paryškėja (auksinė + underline);
+  pateikus formą be datos — rodoma klaida „Nurodyk pilną gimimo datą."; pateikus su
+  galiojančia suaugusiojo data — forma pasislepia, `.lp6-success` atsidengia.
+- CSS dydis: 9.4 KB (< 60 KB riba).
+
+Šio pakeitimo priežastis (kad kita sesija nekartotų tyrimo): kliento nurodymas — 6
+vienodo šablono variantai negali likti vizualiai/funkciškai identiški tarpusavyje;
+sprendimas kiekvienam variantui buvo priskirtas orkestratoriaus IŠ ANKSTO (matrica ne
+šio agento sprendimas), kad 6 lygiagretūs agentai negautų vidutinio/pasikartojančio
+rezultato.
+
 ## Tracking
 `<!-- tracking: lp6_form_submit -->` (`assets/app.js` eil. 70) — vienintelė analitikos
 žyma šiame variante, palikta nepaliesta. Jokių GTM/Meta Pixel/ChatGPT-OpenAI pixel ID
