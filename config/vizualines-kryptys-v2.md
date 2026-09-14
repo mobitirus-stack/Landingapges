@@ -185,6 +185,52 @@ nuotraukos.
 
 ---
 
+# lp7–lp9 — TREČIA GRUPĖ: tas pats šablonas kaip lp4-6, kitas išdėstymas + naujos temos
+
+**Kontekstas (2026-09-14):** lp4-6 (buvę lp7-9) patvirtinti kaip veikiantis šablonas — pilno ekrano
+REALI Jono paties AI-sugeneruota nuotrauka fone + maža registracijos kortelė. Jonas paprašė dar 3
+naujų variantų ta pačia struktūra, bet: (a) **kortelės pozicija/išdėstymas pakeistas** kiekviename,
+kad variantai vizualiai skirtųsi ne tik paletę, ir (b) **naujos, dar nenaudotos temos/nuotaikos**
+(neturi kartoti lp4 auksinė valanda/oranžinė, lp5 pastelinė rožinė, lp6 nakties tamsi/auksinė).
+
+Nuotraukas generuoja pats Jonas per ChatGPT (kaip lp4-6 atveju) — promptai duoti jam tiesiogiai
+pokalbyje. Statyba prasidės, kai gaus nuotraukas (`variacijosv2/lp7/assets/hero-portrait.jpg` ir t.t.),
+pagal `promptai/08-statyba-v2-foto.md` šabloną, PRITAIKANT naują kortelės poziciją kiekvienam.
+
+## lp7 — „Vasaros vakaras prie vandens" (Seaside summer evening)
+- **Išdėstymas:** kortelė KAIRĖJE (priešingai nei lp4-6, kur visur dešinėje). Veidas/figūra
+  nuotraukoje turi būti kadro DEŠINĖJE pusėje, kad liktų matomas prie kairėje esančios kortelės.
+- **Paletė:** turkio/žydra `#0D9488` + šiltas koralas `#FB7185` akcentams, kortelės fonas
+  šviesus `#F0FDFA`, tekstas `#134E4A`.
+- **Nuotaika:** šilta vasaros naktis, terasa/paplūdimio baras, bokeh miesto/vandens šviesos.
+
+## lp8 — „Vyno vakaras" (Wine bar evening)
+- **Išdėstymas:** kortelė APAČIOJE, per visą plotį kaip „sheet"/modalas, iškylantis virš apatinio
+  ~40% nuotraukos. Veidas turi būti kadro VIRŠUJE (viršutiniame trečdalyje), kad liktų matomas virš
+  kortelės.
+- **Paletė:** bordo/vyno raudona `#7F1D1D` + žvakės gintaras `#F59E0B`, kortelės fonas tamsus
+  `#1C1210`, tekstas `#FDF4E7`.
+- **Nuotaika:** intymus žvakėmis apšviestas vyno baras/restoranas, šiltas kontrastingas apšvietimas.
+
+## lp9 — „Neoninis klubas" (Neon night)
+- **Išdėstymas:** kortelė MAŽA, VIRŠUJE DEŠINĖJE (kompaktiška, kabanti plūduriuojanti kortelė, ne
+  per visą aukštį) — daugiau nuotraukos lieka matoma. Veidas/figūra kadro APAČIOJE KAIRĖJE arba
+  centre-apačioje, kad liktų atviros erdvės viršuje dešinėje kortelei.
+- **Paletė:** elektrinė mėlyna `#2563EB` + purpurinė/magenta `#D946EF` neonas, kortelės fonas
+  beveik juodas su blur/glass efektu `rgba(10,10,15,0.75)`, tekstas `#FAFAFA`.
+- **Nuotaika:** neoninis naktinis klubas/gatvė, kontrastingas mėlynas/rožinis apšvietimas.
+
+## Techninės pastabos lp7-9 statybai (kai turėsim nuotraukas)
+- Panaudoti lp6 pamoką: bazinę `.lpN-hero { background-position }` VISADA testuoti Playwright
+  screenshot'ais per platų diapazoną viewport'ų, ĮSKAITANT žemus/plačius langus (pvz. 1394×677,
+  901×550), ne tik 1440×900 — trumpi/platūs desktop langai kritiškai keičia matomą vertikalią
+  nuotraukos juostą (`background-size:cover` + portretinė nuotrauka + platus/žemas konteineris).
+- lp8 (kortelė apačioje) ir lp9 (kortelė maža viršuje) reikalaus KITOKIOS `background-position`
+  logikos nei lp4-6 (kur kortelė visada dešinėje) — veido pozicija nuotraukoje turi atitikti kortelės
+  vietą, kad kortelė niekada neuždengtų veido.
+
+---
+
 ## Bendros techninės taisyklės (visiems 10)
 - Vienas `index.html` + `assets/style.css` (+`app.js` jei reikia animacijai/interaktyvumui).
 - Realus, pilnas tekstas (copy) — panašios kokybės kaip v1, bet NEBŪTINA identiška terminija/
