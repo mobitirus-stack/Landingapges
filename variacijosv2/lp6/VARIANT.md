@@ -1,158 +1,100 @@
-# lp6 — „Pokalbio peržiūra" (chat preview)
+# lp6 — Nakties siluetas (v2, hero nuotrauka)
 
-Kodinis vardas: `lp6`. Kryptis iš `config/vizualines-kryptys-v2.md`. Prekės ženklas: **Vyrų kambarys**
-(tas pats domenas `vyrukambarys.lt`, kaip ir kituose partijos variantuose). Galutinis URL:
-`https://vyrukambarys.lt/lp6`.
+## Kryptis
+`config/vizualines-kryptys-v2.md` → „## lp6 — Nakties siluetas" (antra grupė, lp7–lp10).
+Šis variantas naudoja promptą `promptai/08-statyba-v2-foto.md`: vietoj SVG iliustracijos
+naudojama kliento pateikta AI-sugeneruota hero nuotrauka (`assets/hero-portrait.jpg`,
+1024×1536, JPEG, 172 KB) — moteris naktinio miesto fone, žiūrinti per petį, dulsvai
+apšviesta neoninių miesto šviesų. Tai atkartoja realių konkurentų (susipazink.com,
+slaptaspasimatymas.com, pazintys40.lt) šabloną: pilno ekrano nuotrauka fone + maža
+kortelė ant jos.
 
-## 1. Spalvos (su vaidmenimis)
+## Nuotaika
+Paslaptinga, elegantiška, „naktinis miestas".
 
-| Kintamasis | Hex | Vaidmuo |
-|---|---|---|
-| `--lp6-bg` | `#F0FDF4` | Puslapio fonas (šviesiai žalias) |
-| `--lp6-accent` | `#16A34A` | Pagrindinis akcentas — CTA, nuorodos, aktyvios būsenos |
-| `--lp6-accent-dark` | `#15803D` | Akcento hover/active atspalvis |
-| `--lp6-text` | `#14532D` | Pagrindinis teksto tekstas (tamsiai žalias, ne juodas) |
-| `--lp6-text-muted` | `#3F6B4E` | Antrinis/prigesintas tekstas, praeina kontrastą ant `--lp6-bg` ir `--lp6-surface` |
-| `--lp6-surface` | `#FFFFFF` | Kortelių/telefono ekrano/formos paviršius |
-| `--lp6-surface-alt` | `#DCFCE7` | Antrinis paviršius (chat burbulai iš „jo" pusės, žymekliai) |
-| `--lp6-border` | `#BBF7D0` | Plonos linijos, rėmeliai |
-| `--lp6-bubble-me` | `#16A34A` | „Mano" žinutės burbulo fonas (baltas tekstas ant jo — 4,7:1+) |
-| `--lp6-warn` | `#B45309` | Klaidos/dėmesio spalva (rudai-gintarinė, pakankamas kontrastas ant balto/žalio fono) |
+## Paletė
+- Fonas (už kortelės): `hero-portrait.jpg` su tamsinančiu gradiento sluoksniu
+  (`--lp6-bg-dark: #0F0F14` → `--lp6-bg-gradient-end: #1E1B4B`, panaudota kaip
+  `radial-gradient`/`linear-gradient` scrim, ne kaip papildomas foninis sluoksnis virš
+  nuotraukos).
+- Kortelė: `--lp6-card-bg: #18181B` (tamsi, kaip nurodyta krypties apraše — NE balta).
+- Akcentas / CTA fonas: `--lp6-accent: #FBBF24` (gintarinė-geltona), CTA tekstas
+  `--lp6-accent-ink: #1A1206`.
+- Tekstas: `--lp6-text: #FAFAF9` (pagrindinis), `--lp6-text-muted` (68% nepermatomumo),
+  `--lp6-text-faint` (58% nepermatomumo — žr. „Taisymai" žemiau, buvo 46%).
 
-Visos poros perskaičiuotos WCAG 2.1 formule prieš patvirtinant (žr. §5 žemiau).
+## Šriftai
+`Cormorant` (prekės ženklas/antraštė) + **`Mulish`** (forma/tekstas), krauta iš Google
+Fonts (viena `preconnect` pora, viena stiliaus nuoroda).
 
-## 2. Tipografija
+**Sąmoningai NE Karla**, nors `config/vizualines-kryptys-v2.md` bazinis lp6 aprašas
+nurodo „Cormorant + Karla" — Karla jau naudojamas lp5 ir lp6, trečias pasikartojimas
+būtų kryžminis pažeidimas (`config/draudziamu-zodziu-sarasas.md` §6). Pasirinktas
+Mulish (leidžiama alternatyva pagal užduoties nurodymą), vizualiai suderinamas su
+Cormorant serifiniu logotipu.
 
-- Antraštės: **Poppins** (600/700).
-- Tekstas: **Karla** (400/600).
-- Google Fonts, po vieną `<link rel="preconnect">` porą + viena stiliaus nuoroda su tik reikalingais
-  svoriais (ne keturi svoriai kiekvienai šeimai — vengiama §7.2 klišės).
-- Hierarchija be praleistų lygių: `h1` → `h2` → `h3`.
+## Struktūra
+- Vienas `100dvh` ekranas, be scroll ≥400px pločio ekranuose (tikrinta realiai
+  Playwright/Chromium: 360, 375, 768, 1024, 1440, 1920px pločiuose — 0 horizontalaus ar
+  vertikalaus overflow). Tik 320px pločio (labai senas/retas įrenginys, <400px riba)
+  atsiranda minimalus vertikalus scroll (675px turinys į 568px aukščio langą) — tai
+  aiškiai leidžiama `promptai/08-statyba-v2-foto.md` p.1 („arba minimalus scroll tik
+  <400px pločio ekranuose, jei būtina") ir apdorota atskiru `@media (max-width: 399px)`
+  bloku (`overflow-y:auto`, `.lp6-hero`/`.lp6-scrim` tampa `position:fixed`).
+- Pilno ekrano hero nuotrauka (`background-image`, `background-position` keičiasi per
+  breakpointus, kad veidas/figūra liktų matomi 360–1920px), du sluoksniai virš jos:
+  tamsinantis `linear-gradient` (apačia) tiesiai `.lp6-hero` fone + `.lp6-scrim`
+  (radialinis + kampinis gradientas) teksto/kortelės kontrastui.
+- Maža tamsi kortelė `min(400px, 92vw)`, pastumta į dešinę ≥901px pločio ekranuose,
+  centre-apačioje mobiliame.
+- Forma: lytis (2 radio, `<fieldset>/<legend>`) + gimimo data (3 `<select>`:
+  diena/mėnuo/metai, metai generuojami `app.js` — 18–75 m. intervalas) + CTA.
+- 3 pasitikėjimo ženkliukai (SVG + tekstas), 1 eilutės socialinis įrodymas, teisinė
+  juosta (Pagalba/Taisyklės/Privatumo politika/Apie mus + 18+ ženkliukas).
+- Sėkmės būsena rodoma tik po sėkmingo pateikimo (`app.js` paslepia formą, atidengia
+  `.lp6-success`); JS taip pat tikrina amžių (<18 m. blokuojama su klaidos pranešimu).
 
-## 3. Vizualinio rašto koncepcija
+## Sprendimai (kad kita sesija nekartotų tyrimo)
+- **Nuotrauka, ne SVG iliustracija**: bendra v2 taisyklė (`Techninės taisyklės lp7-10`)
+  numato SVG iliustraciją, bet `promptai/08-statyba-v2-foto.md` yra šios grupės
+  (lp7–lp10) specifinis viršstatymas — klientas pats pateikė paruoštą AI-sugeneruotą
+  nuotrauką ir aiškiai nurodė ją naudoti vietoj generuojamos iliustracijos. Nuotrauka —
+  dekoratyvinis CSS `background-image` per `<div role="img" aria-hidden="true">`, ne
+  prasminga `<img>`.
+- **Nuotraukoje pavaizduotas asmuo NĖRA pristatomas kaip realus/konkretus narys** —
+  tekste niekur netvirtinama, kad tai konkretus žmogus; nuotrauka naudojama tik kaip
+  atmosferinis fonas, analogiškai referenciniams puslapiams. Patikrinta grep'u per visą
+  `index.html` teksto turinį.
+- **`og:image` = ta pati `hero-portrait.jpg`** (1024×1536), ne atskirai generuotas PNG —
+  taip nurodyta `promptai/08-statyba-v2-foto.md` p.6 („jau tinkamo formato/dydžio
+  nuotrauka, papildomai generuoti nereikia"), skirtingai nei bendra lp7-10 taisyklė apie
+  1200×630 PNG (ta taisyklė galioja SVG-iliustracijos variantams, ne šiai nuotrauka
+  pagrįstai grupei).
 
-Puslapio šerdis — **telefono ekrano mockup** (grynas CSS rėmas, jokios tikros nuotraukos), rodantis
-pavyzdinį (demonstracinį, ne tikrą privatų) pokalbį tarp dviejų žmonių po abipusio susidomėjimo.
-Kiekviena „jo" žinutė turi šalia mažą apskritą flat-illustration avatarą; „mano" žinutės — be avataro,
-lygiuotos dešinėn. Po paskutine žinute atsiranda **„Rašo..." indikatorius** su trimis pulsuojančiais
-taškais. Virš telefono — trumpas kontekstas („Monika, 28, Vilnius — parašė po 40 min. nuo susipažinimo").
+## Taisymai šioje sesijoje (2026-09-14)
+Ankstesnis agentas buvo sukūręs visus failus (`index.html`, `assets/style.css`,
+`assets/app.js`, `assets/hero-portrait.jpg`), bet nutrūko dėl API limito TIESIOG PRADĖJUS
+naršyklės patikrą, prieš baigdamas ir prieš parašydamas šį `VARIANT.md`. Ši sesija failų
+nekūrė iš naujo — atlikta pilna patikra + 1 tikslus taisymas:
 
-Žemiau telefono — **sėkmės istorijų kortelės** (3 kortelės), kiekviena su dviem mažais avatarais
-(pora) ir trumpa citata apie tai, kaip prasidėjo jų pokalbis. Toliau — **pasitikėjimo/saugumo
-sekcija**, kurioje avatarai pasirodo trečią kartą: „aktyvių pokalbių dabar" juosta su 6 mažais
-avatarais ir apskritu skaitikliu, šalia — patikros/moderavimo paaiškinimas su ikona-kompozicija (ne
-vien 20px piktograma). **Registracijos sekcija** taip pat gauna savo vizualą — mini avatarų eilutė
-„Šiandien pokalbį pradėjo" virš formos (dar vienas — ketvirtas — avatarų pasirodymas), kad forma
-netaptų grynu tekstu.
+1. **Kontrastas `--lp6-text-faint` buvo per žemas.** Perskaičiavus WCAG 2.1 santykinio
+   ryškumo formulę nepriklausomai (Python, iš hex/rgba reikšmių, ne spėta): `rgba(250,
+   250, 249, 0.46)` ant kortelės fono `#18181B` duoda **4.49:1** — technine prasme
+   FAILINA 4.5:1 ribą (nors vizualiai atrodo panašiai). Naudota 6 vietose kortelėje:
+   `.lp6-brand-tag`, `.lp6-legend` (12px, uppercase, bold — „AŠ ESU"/„GIMIMO DATA"),
+   `.lp6-consent` (18+ teisinis tekstas!), `.lp6-social-proof`, ir footer'yje
+   `.lp6-legal-nav a`/`.lp6-legal-age`. **Taisymas:** nepermatomumas pakeltas iki 0.58
+   (`--lp6-text-faint: rgba(250, 250, 249, 0.58)`), naujas kontrastas **6.38:1** —
+   patikrinta iš naujo tiek Python formule, tiek Playwright `getComputedStyle` +
+   ekrano nuotraukomis (vizualiai skirtumas nepastebimas, hierarchija tarp
+   `--lp6-text-muted`/`--lp6-text-faint` išlaikyta). Tai VIENINTELIS pakeitimas faile
+   `assets/style.css` — patikrinta, kad kitos eilutės nepaliestos.
 
-### ASCII wireframe (mobile → desktop bendra struktūra)
+Visi kiti priėmimo kriterijai (žr. `logs/v2-build-lp6.done.md`) atitiko iš pirmo karto,
+taisymų nereikėjo.
 
-```
-┌────────────────────────────────────┐
-│ NAV: logotipas · „Registruotis"     │
-├────────────────────────────────────┤
-│ HERO                                 │
-│  H1 + paantraštė (kairė/viršus)     │
-│  [ TELEFONO MOCKUP ]  ← avatarai #1 │
-│   ┌──────────────┐                  │
-│   │ (Ⓐ) burbulas │                  │
-│   │        burbulas (mano) │        │
-│   │ (Ⓑ) burbulas │                  │
-│   │ (●●●) Rašo...│                  │
-│   └──────────────┘                  │
-│  [CTA: Peržiūrėti anketas]          │
-├────────────────────────────────────┤
-│ 3 ŽINGSNIAI (ikonų kompozicijos)     │
-│  [ikona+skaičius] [ikona+skaičius]  │
-│  [ikona+skaičius]                    │
-├────────────────────────────────────┤
-│ SĖKMĖS ISTORIJOS  ← avatarai #2      │
-│  [kortelė: 2 avatarai + citata] x3  │
-├────────────────────────────────────┤
-│ PASITIKĖJIMAS/SAUGUMAS ← avatarai #3 │
-│  [6 avatarų juosta + skaitiklis]     │
-│  [patikros ikona-kompozicija]        │
-├────────────────────────────────────┤
-│ REGISTRACIJA ← avatarai #4           │
-│  [mini avatarų eilutė]               │
-│  [forma: laukai, mygtukas]           │
-├────────────────────────────────────┤
-│ DUK (5 klausimai)                    │
-├────────────────────────────────────┤
-│ FOOTER: 18+, teisinės nuorodos       │
-└────────────────────────────────────┘
-```
-
-Desktop (1440px): hero tampa 2 stulpelių (tekstas kairėje, telefonas dešinėje), sėkmės istorijos —
-3 kortelės eilutėje, pasitikėjimo sekcija — 2 stulpelių (avatarų juosta kairėje, ikona-kompozicija
-dešinėje), registracija — 2 stulpelių (avatarai+kontekstas kairėje, forma dešinėje).
-
-## 4. Avatarų SVG sistema
-
-10 unikalių `<symbol>` elementų (`lp6-face-01` … `lp6-face-10`) viename `<svg>` `sprite` bloke,
-`viewBox="0 0 64 64"`, naudojami per `<use href="#lp6-face-0N">`. Formulė griežtai pagal kryptį:
-**apskritimas (veidas) + 2 taškai (akys) + linija (burna)** — jokių kitų detalių, jokio realizmo.
-
-Variacija tarp 10 avatarų daroma TIK per:
-1. **Veido spalvą** — 10 skirtingų flat spalvų (žalsvi/gelsvi/koralo/dangaus atspalviai, derantys su
-   paletės charakteriu, bet ne tapatūs draudžiamiems §7.1 hex).
-2. **Burnos formą** — 3 variantai: šypsena (lankas žemyn į viršų), neutrali (tiesi linija), kalbanti
-   (trumpas lankas žemyn, tarsi „o" garsas — naudojama pokalbio burbuluose).
-
-Akių pozicijos tarp simbolių svyruoja 1–2 vienetais iš 64 `viewBox` ir 0,1–0,4 vieneto spinduliu —
-atvaizduojant 28–40px dydžiu tai mažiau nei vienas pikselis, t. y. praktiškai nematoma ir NĖRA
-faktinė variacijos priemonė (patikslinta po QA patikros). Realų atskyrimą tarp 10 simbolių užtikrina
-tik spalva ir burnos forma (žr. 1–2 punktus aukščiau) — ekrane matomu dydžiu to pakanka, kad avatarai
-neatrodytų štampuoti kopijuoti.
-
-Jokių plaukų, aksesuarų, „lyties" žymenų — sąmoningai, kad išliktų neutralu ir paprasta. Naudojimas:
-chat mockup (2), sėkmės kortelės (6, poromis), pasitikėjimo juosta (6, kai kurie pakartoti su kitu
-dydžiu — leidžiama, nes tai ta pati sistema, ne nauji unikalūs), registracijos mini-eilutė (5).
-Iš viso 10 unikalių simbolių, naudojamų ~19 kartų per puslapį.
-
-## 5. Kontrastų patikra (WCAG 2.1, python perskaičiuota iš hex prieš pateikiant — ne spėta)
-
-| Pora | Santykis | Riba |
-|---|---|---|
-| `#14532D` ant `#F0FDF4` (pagrindinis tekstas) | **8.70:1** | ≥4.5 ✔ |
-| `#14532D` ant `#FFFFFF` | **9.11:1** | ≥4.5 ✔ |
-| `#3F6B4E` ant `#F0FDF4` (muted) | **5.86:1** | ≥4.5 ✔ |
-| `#3F6B4E` ant `#FFFFFF` (muted) | **6.13:1** | ≥4.5 ✔ |
-| `#14532D` ant `#DCFCE7` (surface-alt burbulas) | **8.30:1** | ≥4.5 ✔ |
-| `#B45309` ant `#F0FDF4` (klaida) | **4.80:1** | ≥4.5 ✔ |
-| `#B45309` ant `#FFFFFF` (klaida) | **5.02:1** | ≥4.5 ✔ |
-| `#FFFFFF` ant `#15803D` (mygtukų/burbulų tekstas) | **5.02:1** | ≥4.5 ✔ |
-| `#15803D` ant `#F0FDF4` (nuorodos/akcentas tekstui) | **4.79:1** | ≥4.5 ✔ |
-| `#15803D` ant `#FFFFFF` (nuorodos/akcentas tekstui) | **5.02:1** | ≥4.5 ✔ |
-| `#FFFFFF` ant `#16A34A` | 3.30:1 → **nepraeina smulkiam tekstui** | — |
-| `#16A34A` ant `#F0FDF4`/`#FFFFFF` (tekstui) | 3.15:1 / 3.30:1 → **nepraeina** | — |
-
-**Sprendimas:** šviesesnis `--lp6-accent` (`#16A34A`) niekur nenaudojamas kaip TEKSTO spalva ir niekur
-nestovi kaip fonas po baltu tekstu — jis skirtas TIK dekoratyviems/didelio ploto elementams (avatarų
-fonams, apvadams, „online" taškui, dideliems SVG akcentams), kur WCAG teksto riba netaikoma. Visur, kur
-reikia interaktyvaus/mygtuko teksto ar žalios spalvos linko, naudojamas tamsesnis `--lp6-accent-dark`
-(`#15803D`), kuris praeina ≥4.5:1 tiek ant `#FFFFFF`, tiek ant `#F0FDF4`. Ši taisyklė laikomasi visame
-`style.css` — patikrinta grep'u prieš baigiant (žr. `logs/v2-build-lp6.done.md`).
-
-## 6. Judesio momentai
-
-- **Vienas orkestruotas momentas:** telefono mockup žinutės pasirodo iš eilės (staggered) kai hero
-  sekcija atsiranda ekrane (`IntersectionObserver`), su nedideliu vėlinimu tarp burbulų.
-- **Smulkios UI reakcijos (ne dekoratyvinės, funkcinės):** „Rašo..." taškų pulsavimas, sėkmės kortelių
-  hover pakėlimas, aktyvių pokalbių juostos taško pulsavimas (online indikatorius), forma sėkmės/klaidos
-  būsenos perėjimas.
-- `prefers-reduced-motion: reduce` — visos animacijos (`animation`/`transition`) išjungtos, burbulai
-  rodomi iškart pilna būsena, `html{scroll-behavior:auto}`.
-
-## 7. Priėmimo savikontrolė (§4 iš `promptai/06-statyba-v2.md`)
-
-- Avatarų sistema pasirodo **4 sekcijose**: hero (chat mockup), sėkmės istorijos, pasitikėjimo/saugumo
-  sekcija, registracijos sekcija. Bent 3 iš jų (sėkmės istorijos, pasitikėjimas, registracija) yra
-  **po puslapio viduriu**.
-  Reikalavimas ≥3, iš jų ≥1 po viduriu — **įvykdyta su atsarga**.
-- Registracijos sekcija: turi mini avatarų eilutę (5 avatarai) virš formos — **ne grynas tekstas**.
-- Pasitikėjimo sekcija: turi 6 avatarų juostą + ikona-kompoziciją (skydas+varnelė+dokumento formos) —
-  **ne grynas tekstas**.
-- Sekcijų su realiu (>1 elemento) vizualu: hero, žingsniai (ikonų kompozicijos), sėkmės istorijos,
-  pasitikėjimas, registracija = **5 iš 6** turinio sekcijų (DUK lieka daugiausia tekstinė) → **83 %**,
-  gerokai virš 50 % ribos.
+## Tracking
+`<!-- tracking: lp6_form_submit -->` (`assets/app.js` eil. 70) — vienintelė analitikos
+žyma šiame variante, palikta nepaliesta. Jokių GTM/Meta Pixel/ChatGPT-OpenAI pixel ID
+šiame faile nėra (patikrinta grep'u `gtag|GTM|fbq|pixel`, 0 atitikmenų) — nėra ko
+netyčia sugadinti.

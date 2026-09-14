@@ -1,156 +1,111 @@
 (function () {
   "use strict";
 
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var form = document.getElementById("lp4-form");
+  if (!form) return;
 
-  /* ---------- Mobile nav toggle ---------- */
-  var navToggle = document.getElementById("lp4NavToggle");
-  var navPanel = document.getElementById("lp4NavPanel");
-  if (navToggle && navPanel) {
-    navToggle.addEventListener("click", function () {
-      var open = navPanel.getAttribute("data-open") === "true";
-      navPanel.setAttribute("data-open", String(!open));
-      navToggle.setAttribute("aria-expanded", String(!open));
-    });
+  var daySelect = document.getElementById("lp4-day");
+  var monthSelect = document.getElementById("lp4-month");
+  var yearSelect = document.getElementById("lp4-year");
+  var genderInputs = form.querySelectorAll('input[name="lp4-gender"]');
+  var genderError = document.getElementById("lp4-gender-error");
+  var dobError = document.getElementById("lp4-dob-error");
+  var successEl = document.getElementById("lp4-success");
+  var socialEl = document.getElementById("lp4-social");
+  var ctaBtn = form.querySelector(".lp4-cta");
+
+  // Populate day options (1-31)
+  if (daySelect) {
+    for (var d = 1; d <= 31; d++) {
+      var opt = document.createElement("option");
+      opt.value = String(d);
+      opt.textContent = String(d);
+      daySelect.appendChild(opt);
+    }
   }
 
-  /* ---------- Password show/hide ---------- */
-  var pwToggle = document.getElementById("lp4PasswordToggle");
-  var pwInput = document.getElementById("lp4Password");
-  if (pwToggle && pwInput) {
-    pwToggle.addEventListener("click", function () {
-      var showing = pwInput.type === "text";
-      pwInput.type = showing ? "password" : "text";
-      pwToggle.setAttribute("aria-pressed", String(!showing));
-      pwToggle.setAttribute("aria-label", showing ? "Rodyti slaptažodį" : "Slėpti slaptažodį");
-    });
+  // Populate year options (18+ eligible range, newest first)
+  if (yearSelect) {
+    var currentYear = new Date().getFullYear();
+    var maxYear = currentYear - 18;
+    var minYear = currentYear - 90;
+    for (var y = maxYear; y >= minYear; y--) {
+      var yOpt = document.createElement("option");
+      yOpt.value = String(y);
+      yOpt.textContent = String(y);
+      yearSelect.appendChild(yOpt);
+    }
   }
 
-  /* ---------- FAQ accordion ---------- */
-  var faqButtons = document.querySelectorAll(".lp4-duk__question");
-  faqButtons.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var panel = document.getElementById(btn.getAttribute("aria-controls"));
-      var expanded = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", String(!expanded));
-      if (panel) panel.hidden = expanded;
-    });
+  function isAdult(day, month, year) {
+    var birth = new Date(year, month - 1, day);
+    if (
+      birth.getFullYear() !== year ||
+      birth.getMonth() !== month - 1 ||
+      birth.getDate() !== day
+    ) {
+      return false; // invalid calendar date (e.g. 31 Feb)
+    }
+    var today = new Date();
+    var age = today.getFullYear() - birth.getFullYear();
+    var m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    return age >= 18;
+  }
+
+  function getCheckedGender() {
+    for (var i = 0; i < genderInputs.length; i++) {
+      if (genderInputs[i].checked) return genderInputs[i].value;
+    }
+    return null;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var gender = getCheckedGender();
+    var day = daySelect ? parseInt(daySelect.value, 10) : NaN;
+    var month = monthSelect ? parseInt(monthSelect.value, 10) : NaN;
+    var year = yearSelect ? parseInt(yearSelect.value, 10) : NaN;
+
+    var hasGenderError = !gender;
+    var hasDobError =
+      !day || !month || !year || !isAdult(day, month, year);
+
+    if (genderError) genderError.hidden = !hasGenderError;
+    if (dobError) dobError.hidden = !hasDobError;
+
+    if (hasGenderError || hasDobError) {
+      var firstInvalid = hasGenderError
+        ? genderInputs[0]
+        : daySelect;
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    // Success state
+    form.hidden = true;
+    if (socialEl) socialEl.hidden = true;
+    if (successEl) {
+      successEl.hidden = false;
+      successEl.textContent = "Ačiū! Peržiūrėk anketas — nukreipiame tave toliau.";
+      successEl.focus();
+    }
+    if (ctaBtn) ctaBtn.disabled = true;
   });
 
-  /* ---------- Live feed rotation (single orchestrated moment) ---------- */
-  var feedList = document.getElementById("lp4FeedList");
-  var extraEntries = [
-    { av: "9", cls: "lp4-avatar--9", name: "Neringa", action: "prisijungė iš Klaipėdos", time: "prieš 3 min" },
-    { av: "10", cls: "lp4-avatar--10", name: "Justina", action: "atsakė į žinutę", time: "prieš 5 min" },
-    { av: "3", cls: "lp4-avatar--3", name: "Odeta ir Raminta", action: "susirado bendrą pomėgį", time: "prieš 8 min" },
-    { av: "11", cls: "lp4-avatar--11", name: "Paulina", action: "peržiūrėjo profilius Kaune", time: "prieš 11 min" }
-  ];
-  var entryIndex = 0;
-
-  function buildFeedItem(entry) {
-    var li = document.createElement("li");
-    li.className = "lp4-feed__item";
-    li.setAttribute("data-entering", "true");
-    li.innerHTML =
-      '<span class="lp4-avatar ' + entry.cls + ' lp4-avatar--md" aria-hidden="true">' + entry.av2 +
-      '<span class="lp4-avatar__pulse" aria-hidden="true"></span></span>' +
-      '<span class="lp4-feed__meta">' +
-      '<span class="lp4-feed__name">' + entry.name + '</span>' +
-      '<span class="lp4-feed__action">' + entry.action + '</span>' +
-      '</span>' +
-      '<span class="lp4-feed__time">' + entry.time + '</span>';
-    return li;
-  }
-
-  var initials = { "3": "OD", "9": "NE", "10": "JU", "11": "PA" };
-  extraEntries.forEach(function (e) { e.av2 = initials[e.av]; });
-
-  if (feedList && !reduceMotion) {
-    setInterval(function () {
-      var entry = extraEntries[entryIndex % extraEntries.length];
-      entryIndex++;
-      var item = buildFeedItem(entry);
-      feedList.insertBefore(item, feedList.firstChild);
-      if (feedList.children.length > 5) {
-        feedList.removeChild(feedList.lastElementChild);
-      }
-    }, 6000);
-  }
-
-  /* ---------- Form validation ---------- */
-  var form = document.getElementById("lp4Form");
-  var statusEl = document.getElementById("lp4FormStatus");
-
-  function setError(id, message) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = message || "";
-  }
-
-  if (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var valid = true;
-
-      var name = document.getElementById("lp4Name");
-      if (!name.value.trim()) {
-        setError("lp4NameError", "Įrašyk vardą, kuris bus matomas profilyje.");
-        valid = false;
-      } else {
-        setError("lp4NameError", "");
-      }
-
-      var email = document.getElementById("lp4Email");
-      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
-      if (!emailOk) {
-        setError("lp4EmailError", "Įrašyk galiojantį el. pašto adresą.");
-        valid = false;
-      } else {
-        setError("lp4EmailError", "");
-      }
-
-      var city = document.getElementById("lp4City");
-      if (!city.value) {
-        setError("lp4CityError", "Pasirink miestą iš sąrašo.");
-        valid = false;
-      } else {
-        setError("lp4CityError", "");
-      }
-
-      var age = document.getElementById("lp4Age");
-      var ageNum = parseInt(age.value, 10);
-      if (!ageNum || ageNum < 18 || ageNum > 99) {
-        setError("lp4AgeError", "Registracija galima tik nuo 18 metų.");
-        valid = false;
-      } else {
-        setError("lp4AgeError", "");
-      }
-
-      var password = document.getElementById("lp4Password");
-      if (password.value.length < 8) {
-        setError("lp4PasswordError", "Slaptažodis turi būti bent 8 simbolių.");
-        valid = false;
-      } else {
-        setError("lp4PasswordError", "");
-      }
-
-      var consent = document.getElementById("lp4Consent");
-      if (!consent.checked) {
-        setError("lp4ConsentError", "Reikia patvirtinti amžių ir taisykles.");
-        valid = false;
-      } else {
-        setError("lp4ConsentError", "");
-      }
-
-      if (!valid) {
-        statusEl.setAttribute("data-state", "error");
-        statusEl.textContent = "Patikrink paraudonuotus laukus ir bandyk dar kartą.";
-        return;
-      }
-
-      statusEl.setAttribute("data-state", "success");
-      statusEl.textContent = "Ačiū! Profilis sukurtas – patikrink el. paštą patvirtinimo nuorodai.";
-      form.reset();
-      /* tracking: lp4_signup_success */
+  // Clear individual error states as user corrects them
+  genderInputs.forEach(function (input) {
+    input.addEventListener("change", function () {
+      if (genderError && !genderError.hidden) genderError.hidden = true;
     });
-  }
+  });
+  [daySelect, monthSelect, yearSelect].forEach(function (sel) {
+    if (!sel) return;
+    sel.addEventListener("change", function () {
+      if (dobError && !dobError.hidden) dobError.hidden = true;
+    });
+  });
 })();
