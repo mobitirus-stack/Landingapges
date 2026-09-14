@@ -1,0 +1,430 @@
+/* ==========================================================================
+   lp7 — „Marė“ — vasaros naktis uostamiestyje, šviesi kortelė KAIRĖJE pusėje
+   ========================================================================== */
+
+:root {
+  --lp7-bg-dark: #0B2B29;
+  --lp7-card-bg: #F0FDFA;
+  --lp7-card-border: rgba(13, 148, 136, 0.22);
+  --lp7-accent: #0D9488;
+  --lp7-accent-hover: #0F766E;
+  --lp7-accent-ink: #F0FDFA;
+  --lp7-coral: #FB7185;
+  --lp7-text: #134E4A;
+  --lp7-text-muted: rgba(19, 78, 74, 0.72);
+  --lp7-text-faint: rgba(19, 78, 74, 0.58);
+  --lp7-danger: #E11D48;
+  --lp7-legal-text: rgba(240, 253, 250, 0.82);
+  --lp7-legal-text-faint: rgba(240, 253, 250, 0.62);
+  --lp7-font-brand: "Fraunces", Georgia, "Times New Roman", serif;
+  --lp7-font-body: "Karla", "Segoe UI", Arial, sans-serif;
+  --lp7-radius: 20px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--lp7-bg-dark);
+  color: var(--lp7-text);
+  font-family: var(--lp7-font-body);
+  height: 100%;
+}
+
+.lp7-body {
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+img, svg { display: block; }
+
+a { color: inherit; }
+
+.lp7-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Puslapio karkasas ---------- */
+
+.lp7-page {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+}
+
+.lp7-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(200deg, rgba(11, 43, 41, 0.10) 0%, rgba(11, 43, 41, 0.30) 100%),
+    url("hero-portrait.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 68% 24%;
+  background-color: var(--lp7-bg-dark);
+}
+
+.lp7-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(100deg, rgba(6, 20, 19, 0.62) 0%, rgba(6, 20, 19, 0.30) 34%, rgba(6, 20, 19, 0) 58%),
+    linear-gradient(0deg, rgba(6, 20, 19, 0.55) 0%, rgba(6, 20, 19, 0) 22%);
+  pointer-events: none;
+}
+
+/* ---------- Pagrindinis stage: kortelė KAIRĖJE (desktop) ---------- */
+
+.lp7-stage {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4vh clamp(16px, 6vw, 72px);
+  min-height: 0;
+}
+
+.lp7-card {
+  width: min(400px, 92vw);
+  background: var(--lp7-card-bg);
+  border: 1px solid var(--lp7-card-border);
+  border-radius: var(--lp7-radius);
+  padding: 26px 26px 22px;
+  box-shadow:
+    0 30px 70px rgba(6, 20, 19, 0.40),
+    0 4px 18px rgba(6, 20, 19, 0.22),
+    0 0 0 1px rgba(6, 20, 19, 0.05);
+  max-height: 90dvh;
+  overflow-y: auto;
+}
+
+/* ---------- Prekės ženklas ---------- */
+
+.lp7-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.lp7-brand-icon {
+  width: 22px; height: 22px;
+  flex: none;
+  color: var(--lp7-accent);
+}
+
+.lp7-brand-name {
+  font-family: var(--lp7-font-brand);
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  color: var(--lp7-text);
+}
+
+.lp7-brand-tag {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--lp7-accent);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: rgba(13, 148, 136, 0.10);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.lp7-headline {
+  font-family: var(--lp7-font-brand);
+  font-weight: 600;
+  font-size: clamp(20px, 3.4vw, 25px);
+  line-height: 1.22;
+  margin: 0 0 6px;
+  color: var(--lp7-text);
+}
+
+.lp7-sub {
+  margin: 0 0 18px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--lp7-text-muted);
+}
+
+/* ---------- Forma ---------- */
+
+.lp7-form[hidden] { display: none; }
+
+.lp7-fieldset {
+  border: 0;
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.lp7-legend {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--lp7-text-faint);
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.lp7-radio-row {
+  display: flex;
+  gap: 10px;
+}
+
+.lp7-radio {
+  flex: 1 1 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 10px;
+  border: 1px solid rgba(13, 148, 136, 0.30);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lp7-text);
+  cursor: pointer;
+  background: #FFFFFF;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.lp7-radio input {
+  position: absolute;
+  opacity: 0;
+  width: 1px; height: 1px;
+}
+
+.lp7-radio:has(input:checked) {
+  border-color: var(--lp7-accent);
+  background: rgba(13, 148, 136, 0.12);
+}
+
+.lp7-radio:has(input:focus-visible) {
+  outline: 2px solid var(--lp7-accent);
+  outline-offset: 2px;
+}
+
+.lp7-date-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 8px;
+}
+
+.lp7-select-wrap select {
+  width: 100%;
+  padding: 11px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(13, 148, 136, 0.30);
+  background-color: #FFFFFF;
+  color: var(--lp7-text);
+  font-family: var(--lp7-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D9488' stroke-width='1.8'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 28px;
+}
+
+.lp7-select-wrap select:focus-visible,
+.lp7-cta:focus-visible,
+.lp7-legal-nav a:focus-visible {
+  outline: 2px solid var(--lp7-accent);
+  outline-offset: 2px;
+}
+
+.lp7-select-wrap select option { color: #111; }
+
+.lp7-cta {
+  width: 100%;
+  margin-top: 4px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 11px;
+  background: var(--lp7-accent);
+  color: var(--lp7-accent-ink);
+  font-family: var(--lp7-font-body);
+  font-size: 15.5px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.lp7-cta:hover { background: var(--lp7-accent-hover); }
+.lp7-cta:active { transform: translateY(1px); }
+
+.lp7-consent {
+  margin: 10px 0 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--lp7-text-faint);
+}
+
+.lp7-consent a { text-decoration: underline; color: var(--lp7-text-muted); }
+
+.lp7-error {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--lp7-danger);
+}
+
+/* ---------- Sėkmės būsena ---------- */
+
+.lp7-success[hidden] { display: none; }
+
+.lp7-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(13, 148, 136, 0.10);
+  border: 1px solid rgba(13, 148, 136, 0.35);
+  margin-bottom: 4px;
+}
+
+.lp7-success-icon {
+  width: 20px; height: 20px;
+  flex: none;
+  color: var(--lp7-accent);
+  margin-top: 1px;
+}
+
+.lp7-success p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--lp7-text);
+}
+
+.lp7-success:focus { outline: none; }
+
+/* ---------- Pasitikėjimo ženkliukai ---------- */
+
+.lp7-badges {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 18px 0 10px;
+  padding: 0;
+}
+
+.lp7-badge {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 10.5px;
+  line-height: 1.3;
+  color: var(--lp7-text-muted);
+  font-weight: 600;
+}
+
+.lp7-badge svg {
+  width: 20px; height: 20px;
+  color: var(--lp7-accent);
+}
+
+.lp7-social-proof {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--lp7-text-faint);
+}
+
+.lp7-social-proof::before {
+  content: "● ";
+  color: var(--lp7-coral);
+}
+
+/* ---------- Teisinė juosta ---------- */
+
+.lp7-legal {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  padding: 10px clamp(16px, 4vw, 40px);
+  background: linear-gradient(0deg, rgba(6, 20, 19, 0.85) 0%, rgba(6, 20, 19, 0.55) 100%);
+}
+
+.lp7-legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 16px;
+  font-size: 11.5px;
+}
+
+.lp7-legal-nav a {
+  text-decoration: none;
+  color: var(--lp7-legal-text-faint);
+}
+
+.lp7-legal-nav a:hover { color: var(--lp7-legal-text); }
+
+.lp7-legal-age {
+  color: var(--lp7-legal-text-faint);
+  font-weight: 700;
+  border: 1px solid rgba(240, 253, 250, 0.30);
+  border-radius: 4px;
+  padding: 0 5px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .lp7-hero { background-size: auto 165%; background-position: 66% 30%; }
+  .lp7-stage {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 3vh 4vw 2vh;
+  }
+  .lp7-card { width: min(420px, 94vw); }
+}
+
+@media (max-width: 640px) {
+  .lp7-hero { background-size: auto 180%; background-position: 62% 52%; }
+  .lp7-scrim {
+    background:
+      linear-gradient(0deg, rgba(6, 20, 19, 0.72) 0%, rgba(6, 20, 19, 0.18) 46%, rgba(6, 20, 19, 0.06) 62%);
+  }
+  .lp7-card {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+@media (max-width: 399px) {
+  .lp7-body { overflow-y: auto; height: auto; }
+  .lp7-page { min-height: 100dvh; }
+  .lp7-card { max-height: none; }
+  .lp7-hero { position: fixed; }
+  .lp7-scrim { position: fixed; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

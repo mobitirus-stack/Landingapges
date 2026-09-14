@@ -1,0 +1,5 @@
+# lp7 — „Marė“
+
+Vasaros uostamiesčio nuotaikos variantas su registracijos kortele **kairėje** pusėje (lp4–lp6 visi turi kortelę dešinėje) — nuotraukos figūra liko matoma dešinėje, kompozicija natūrali, be veidrodinio apsisukimo. Prekės ženklas „Marė“, paletė — turkis (`#0D9488`) ant šviesios mėtinės kortelės (`#F0FDFA`), su koraliniu (`#FB7185`) akcentu socialinio įrodymo indikatoriuje. Šriftai — `Fraunces` (antraštė) + `Karla` (tekstas), skirtingi nuo lp6 poros (`Cormorant`/`Mulish`). Visas turinys (antraštė, poantraštė, ženkliukų tekstai) parašytas iš naujo, ne kopijuotas iš lp4–lp6.
+
+Foninė nuotrauka (848×1264) empiriškai patikrinta Playwright screenshot'ais visuose reikalaujamuose viewport'uose (375×812 iki 2560×1080, įskaitant kritinį 901×550 ir realaus lango 1394×677) — veidas visur aiškiai matomas, `background-position`/`background-size` pakoreguoti atskirai mobile (≤640px) ir tablet (≤900px) laužimo taškams, nes tose plotmėse kortelė persidengia su apatine/vidurine nuotraukos dalimi.
