@@ -103,6 +103,30 @@ galioja jei Jonas panorės, bet paskutiniai 3 temos pasirinkti pagal TIKRAI Jono
 nuotraukas, ne iš anksto). Reikės 4-os nuotraukos + naujo prekės ženklo vardo, jei Jonas panorės
 pilno 10/10. Kol kas LAUKTI Jono nurodymo — nesiimti savarankiškai.
 
+## Po-pushinimo pataisymai (2026-09-14, tą pačią dieną)
+
+Jonas atsiuntė realų savo naršyklės screenshot'ą (Firefox, ~1394×450 CSS px turinio sritis —
+NEĮPRASTAI žema, daug mažiau nei anksčiau tirtas 1394×677 "trumpo desktop" atvejis) — **lp8**
+rodė tik plaukus/kaktą, jokio veido. Atkūriau tiksliai per Playwright (1394×450), radau kad esamas
+`@media (max-width:620px height)` blokas buvo testuotas/derintas tik iki ~550-620px, o NE iki tokio
+ekstremalaus 450px atvejo. Sutvarkyta: dar labiau sutankinta kortelė šiame breakpoint'e (paslėpti
+badge'ai, legend, sub, consent; sumažinti šriftai/tarpai) + pozicija pakeista 49%→30%, kad liktų
+matomos akys+šypsena net iki ~400px aukščio. Pushinta `d20ae85`.
+
+Jonas taip pat paprašė perkelti **lp9** kortelę į kairę pusę ("kad veidas neuzsidengtu"). Patikrinau
+— horizontali `background-position` ant lp9 hero VISIŠKAI NEVEIKĖ desktop pločiuose (nes `cover` su
+šia nuotrauka desktop landscape konteineriuose yra WIDTH-constrained → nulinis horizontalus
+perviršis, position-x reikšmė ignoruojama; tai skiriasi nuo VERTIKALIOS pozicijos problemos, kuri
+kamavo lp6/lp7/lp8). Laimei, paprasčiausias sprendimas — tiesiog `justify-content: flex-end→
+flex-start` — pasirodė pakankamas: veidas nuotraukoje natūraliai yra centre/centre-dešinėje, tad
+kairėje pastatyta maža (336px) kortelė jo niekada nepridengia jokiame patikrintame lange (įsk.
+901×420 ekstremalų ir 2560×1080 ultraplatų). Pushinta `4025aa5` + dokumentacijos pataisa `d62cb79`.
+
+**PAMOKA ATEIČIAI:** vien "1394×677" NEBEUŽTENKA kaip vienintelis "trumpo desktop" testo atvejis —
+realūs Jono naršyklės langų aukščiai gali kristi iki ~400-450px CSS turinio srities (priklauso nuo
+jo konkrečios Firefox konfigūracijos/skirtukų/žymių juostų). Ateityje foninės nuotraukos pozicijos
+patikrai VISADA įtraukti bent vieną testą ties ~400-450px aukščiu, ne tik 550-620px.
+
 ## Ankstesnis (baigtas) žingsnis
 1. **Paleisti formalų nepriklausomą QA auditą lp7-9** (kaip batch1/batch2, `promptai/07-v2-qa-batch.md`
    principu) — tai dar neatlikta, buvo praleista pagal Jono prašymą pushinti greitai. Jei ras
