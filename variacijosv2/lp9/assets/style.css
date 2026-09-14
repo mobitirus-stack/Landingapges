@@ -78,12 +78,12 @@ a { color: inherit; }
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(115% 85% at 82% 20%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 55%),
+    radial-gradient(115% 85% at 18% 20%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 55%),
     linear-gradient(0deg, rgba(60, 22, 10, 0.42) 0%, rgba(60, 22, 10, 0) 26%);
   pointer-events: none;
 }
 
-/* ---------- Pagrindinis stage: maža kortelė viršuje dešinėje ---------- */
+/* ---------- Pagrindinis stage: maža kortelė viršuje kairėje (kad neuždengtų veido) ---------- */
 
 .lp9-stage {
   position: relative;
@@ -91,7 +91,7 @@ a { color: inherit; }
   flex: 1 1 auto;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: clamp(16px, 5vh, 48px) clamp(16px, 5vw, 56px) 3vh;
   min-height: 0;
 }
